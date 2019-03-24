@@ -1,8 +1,3 @@
-# Henry comments:
-- Good start. These files seem fine.
-- Note the link below to "Changelog.md" should be "changelog.md" (lower case, otherwise it doesn't match and doesn't work)
-- You can delete my comments once you've both read them.
-
 
 # Project Team Members 
 
