@@ -1,5 +1,9 @@
 # SIT305-Project
 
+## Week 04, Monday 26/March
+- Trello Trello Board [Sachin]
+- Set everyone on Trello [Sachin]
+
 ## Week 04, Monday 25/March
 - Project created [Piumi]
 
