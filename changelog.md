@@ -1,13 +1,17 @@
-# SIT305-Project
 
-## Week 04, Monday 26/March
-- Trello Trello Board [Sachin]
-- Set everyone on Trello [Sachin]
+# Week 4
+
+## Henry notes
+- Missing significant progress recently. Deakin requires a minimum of 10-14 hours per week, per unit, to pass. You need to work more days.
 
 ## Week 04, Monday 25/March
+- Trello Trello Board [Sachin]
+- Set everyone on Trello [Sachin]
 - Project created [Piumi]
 
-## Week 03, Firday 22/March
+# Week 3
+
+## Week 03, Friday 22/March
 - Created GIT repository [Piumi]
 - Created Readme.md and changelog.md files [Piumi]
 
