@@ -1,15 +1,20 @@
 
 # Week 05
-## week 05, Monday 1/Appril
+
+## week 05, Monday 1/April
+
+### Working on Demo game
 
 - Impotered basic images into Assets.xcassets and created basic background [Piumi]
-- app can scale into any device [piumi]
+- app can be scaled into any device [piumi]
+-Created the movingBridege.swift class(this will provide an unlimited bridge for running) [piumi]
 
 # Week 4
 
 ## Week 04, Monday 25/March
 - Trello Trello Board [Sachin]
 - Set everyone on Trello [Sachin]
+- Had a team meeting [Sachin,Piumi]
 - Project created [Piumi]
 
 # Week 3
