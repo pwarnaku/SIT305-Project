@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "runningMan.png",
+      "filename" : "player-run.png",
       "scale" : "1x"
     },
     {
