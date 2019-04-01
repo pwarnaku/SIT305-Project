@@ -1,8 +1,10 @@
 
-# Week 4
+# Week 05
+## week 05, Monday 1/Appril
 
-## Henry notes
-- Missing significant progress recently. Deakin requires a minimum of 10-14 hours per week, per unit, to pass. You need to work more days.
+- Impotered basic images into Assets.xcassets [Piumi]
+
+# Week 4
 
 ## Week 04, Monday 25/March
 - Trello Trello Board [Sachin]
