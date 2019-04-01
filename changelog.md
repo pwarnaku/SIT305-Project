@@ -2,7 +2,8 @@
 # Week 05
 ## week 05, Monday 1/Appril
 
-- Impotered basic images into Assets.xcassets [Piumi]
+- Impotered basic images into Assets.xcassets and created basic background [Piumi]
+- app can scale into any device [piumi]
 
 # Week 4
 
