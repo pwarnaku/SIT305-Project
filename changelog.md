@@ -7,7 +7,8 @@
 
 - Impotered basic images into Assets.xcassets and created basic background [Piumi]
 - app can be scaled into any device [piumi]
--Created the movingBridege.swift class(this will provide an unlimited bridge for running) [piumi]
+- Created the movingBridege.swift class(this will provide an unlimited bridge for running)
+    - bridge is moving [piumi]
 
 # Week 4
 
