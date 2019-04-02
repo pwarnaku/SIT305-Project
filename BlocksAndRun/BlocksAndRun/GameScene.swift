@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     var movingBridge: MovingBridge!
+    var player: Player!
     
     // this function will run as soon as the screen loads-up [piumi]
     override func didMove(to view: SKView) {
@@ -20,17 +21,19 @@ class GameScene: SKScene {
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2) //get the center point for the position
         background.zPosition = 0
-        
         self.addChild(background) // makes the background
         
-        
-        
+        // creates the moving bridge
         movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 120))
-        
         movingBridge.position = view.center
         movingBridge.zPosition = 1
         self.addChild(movingBridge)
         
+        
+        // creates the player 
+        player = Player()
+        player.position = CGPoint(x: 70, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
+        self.addChild(player)
         
         // let player = SKSpriteNode(imageNamed: "player-run")
         // player.setScale(1)
