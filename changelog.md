@@ -1,9 +1,14 @@
 
 ## Week 05
 
-### Monday 1/April
-
 #### Working on the Demo game
+
+### Tuesday 2/April
+
+- Created a new class named " Player.swift" [Piumi]
+    - this class will handle all the movements of the player 
+
+### Monday 1/April
 
 - Impotered basic images into Assets.xcassets file and created basic background [Piumi]
 - Game can be scaled into any device [piumi]
