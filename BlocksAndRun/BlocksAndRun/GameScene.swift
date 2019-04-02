@@ -35,6 +35,10 @@ class GameScene: SKScene {
         player.position = CGPoint(x: 350, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
         self.addChild(player)
         
+        player.breath() // call the breath animation
+        
+        
+        
         // let player = SKSpriteNode(imageNamed: "player-run")
         // player.setScale(1)
         //  player.position = CGPoint(x: 70, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
@@ -45,7 +49,10 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        movingBridge.start() // this will call the funtion ( start)
+       // movingBridge.start() // this will call the funtion ( start)
+        
+        player.stop()
+        player.startRunning()
         
     }
 }

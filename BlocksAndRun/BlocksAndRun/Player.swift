@@ -90,8 +90,37 @@ class Player: SKSpriteNode {
     
     // breathing animation of the player [piumi]
     func breath()  {
+        
+        let breathIn = SKAction.moveBy(x: 0, y: 4, duration: 0.5)
+        let breathOut = SKAction.moveBy(x: 0, y: -4, duration: 0.5)
+        let breath = SKAction.sequence([breathIn,breathOut])
+        body.run(SKAction.repeatForever(breath))
     }
     
+    func startRunning()  {
+        let rotateBack  = SKAction.rotate(byAngle: -CGFloat(M_PI)/2.0, duration: 0.2)
+        arm.run(rotateBack)
+        performOneCycle()
+    }
+    
+    func performOneCycle()  {
+        let forward = SKAction.moveBy(x: 4, y: 4, duration: 0.03)
+        let backward = SKAction.moveBy(x: -4, y: -4, duration: 0.03)
+        
+        leftLeg.run(forward, completion:  {
+            self.leftLeg.run(backward)
+            self.rightLeg.run(forward, completion: {
+                self.rightLeg.run(backward, completion: {
+                    self.performOneCycle() // repeats cycle
+                })
+            })
+        })
+    }
+    
+    // this funtion will stop all body funtions when user tap on the screen 
+    func  stop () {
+        body.removeAllActions()
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
