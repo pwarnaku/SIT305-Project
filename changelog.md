@@ -6,11 +6,12 @@
 ### Tuesday 2/April
 
 - Created a new class named " Player.swift" [Piumi]
-    - this class will handle all the movements of the player 
+    - this class will handle all the movements of the player
+        - player breaths, runs
 
 ### Monday 1/April
 
-- Impotered basic images into Assets.xcassets file and created basic background [Piumi]
+- Imported basic images into Assets.xcassets file and created basic background [Piumi]
 - Game can be scaled into any device [piumi]
 - Created the movingBridege.swift class(this will provide an unlimited bridge for running)
     - Bridge is moving when user tap on the screen [piumi]
