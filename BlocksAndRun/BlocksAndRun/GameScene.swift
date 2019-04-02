@@ -32,12 +32,12 @@ class GameScene: SKScene {
         
         // creates the player 
         player = Player()
-        player.position = CGPoint(x: 70, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
+        player.position = CGPoint(x: 350, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
         self.addChild(player)
         
         // let player = SKSpriteNode(imageNamed: "player-run")
         // player.setScale(1)
-        //  player.position = CGPoint(x: self.size.width/3, y: self.size.height/5)
+        //  player.position = CGPoint(x: 70, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
         //player.zPosition = 2
         
         // self.addChild(player)// creates the player
