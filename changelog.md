@@ -24,7 +24,7 @@
 - Created the movingBridege.swift class(this will provide an unlimited bridge for running)
     - Bridge is moving when user tap on the screen [piumi]
 
-## Week 4
+## Week 04
 
 ### Friday 29/March
 - Stared working with interface design [Sachin]
@@ -35,7 +35,7 @@
 - Had a team meeting [Sachin,Piumi]
 - Project created [Piumi]
 
-## Week 3
+## Week 03
 
 ### Friday 22/March
 - Created GIT repository [Piumi]
