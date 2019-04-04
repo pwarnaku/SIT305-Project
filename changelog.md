@@ -3,6 +3,9 @@
 
 #### Working on the Demo game
 
+## Thursday 4/April 
+-working on the blocks generation [Piumi]
+
 ## Week 5, Wednesday 3/April [Henry]
 - Include multi-line comments (/* */) before each function, to outline what the function does, any arguments and return types, and how to use it.
 
