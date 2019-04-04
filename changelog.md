@@ -26,7 +26,6 @@
 ## Week 4
 
 ### Monday 25/March
-- Trello Trello Board [Sachin]
 - Set everyone on Trello [Sachin]
 - Had a team meeting [Sachin,Piumi]
 - Project created [Piumi]
