@@ -6,6 +6,7 @@
 ### Thursday 4/April 
 - working on the blocks generation [Piumi]
 - Had a team meeting [Sachin,Piumi]
+- bugs fixing [Piumi]
 
 ### Wednesday 3/April
 - started working on sign in/ sign out [Sachin]
@@ -24,7 +25,7 @@
 - Created the movingBridege.swift class(this will provide an unlimited bridge for running)
     - Bridge is moving when user tap on the screen [piumi]
 
-## Week 04
+## Week 4
 
 ### Friday 29/March
 - Stared working with interface design [Sachin]
@@ -35,7 +36,7 @@
 - Had a team meeting [Sachin,Piumi]
 - Project created [Piumi]
 
-## Week 03
+## Week 3
 
 ### Friday 22/March
 - Created GIT repository [Piumi]
