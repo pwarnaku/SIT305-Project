@@ -7,7 +7,7 @@
 - working on the blocks generation [Piumi]
 - Had a team meeting [Sachin,Piumi]
 
-## Week 5, Wednesday 3/April
+## Wednesday 3/April
 - started working on sign in/ sign out [Sachin]
 
 
