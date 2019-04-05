@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class BlocksGenarator: SKSpriteNode {
+    
     var blockGenarateTimer : Timer?
     var blocks = [Blocks]() // created an empty array
     
@@ -23,8 +24,9 @@ class BlocksGenarator: SKSpriteNode {
     
     
     /*
-     This funtion will generate blocks , set up the positions of blocks
+     This funtion will generate blocks randomly  , set up the positions of blocks
      */
+    
     @objc func generateBlocks (){
         
         //var scale:CGFloat
@@ -47,9 +49,26 @@ class BlocksGenarator: SKSpriteNode {
     }
     
     /* This funtion wil stop generating walls after user hits a block
+     
+     invalidate() this method will stopthe generation timer
+     
     */
     func stopGeneratingBlocks (){
         
+        blockGenarateTimer?.invalidate()
+        
+    }
+    
+    /*
+     
+    */
+    
+    func stopBlocks(){
+        stopGeneratingBlocks ()
+        
+        for block in blocks {
+            block.stopMoving()
+        }
     }
 }
 

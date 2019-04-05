@@ -41,5 +41,14 @@ class Blocks : SKSpriteNode {
         let moveleft = SKAction.moveBy(x: -defaultBlocksmoveByxperSeconds, y: 0, duration: 1)
         run(SKAction.repeatForever(moveleft))
     }
+    
+    /*
+     This funtion is called inblocksGeneration class to stop generating blocks
+     after the user hits a block
+ 
+     */
+    func stopMoving(){
+        removeAllActions()
+    }
 }
 

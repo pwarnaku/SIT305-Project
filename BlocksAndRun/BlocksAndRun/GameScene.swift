@@ -90,13 +90,17 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         // stops everything after gameis over
         
-        player.physicsBody = nil 
+        player.physicsBody = nil
+        
+        blocksGenerator.stopBlocks()
     }
     
     /* This funtion will detect every time when the user hits a block
     */
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
+        gameOver()
         print("did began called")
     }
     
