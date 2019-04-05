@@ -27,6 +27,7 @@ class Blocks : SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     func loadPhisycBodyWithSize(size: CGSize){
         
         physicsBody = SKPhysicsBody(rectangleOf: size)

@@ -13,7 +13,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var movingBridge: MovingBridge!
     var player: Player!
     var blocksGenerator: BlocksGenarator!
-    var isStarted = false
+    
+    var isGameStarted = false
+    var isGameOver = false
     
     /*
      This function will run as soon as the screen loads-up
@@ -50,32 +52,28 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         blocksGenerator = BlocksGenarator(color: UIColor.clear, size: view.frame.size)
         blocksGenerator.position = view.center
         addChild(blocksGenerator)
+        
         /*
          This label is allow user to tap on the screen to start the game
          this funtion named the label again to access the node in start method
          
          */
+        
         let tapToStartLabel = SKLabelNode(text: "Tap to Start")
         tapToStartLabel.name = "tapToStartLabel"
-        //  childNode(withName: "tapToStartLabel")
         tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        // background.zPosition = 3
         tapToStartLabel.fontColor = UIColor.white
         tapToStartLabel.fontSize = 100
         self.addChild(tapToStartLabel)
         
-        
-        // let player = SKSpriteNode(imageNamed: "player-run")
-        // player.setScale(1)
-        //  player.position = CGPoint(x: 70, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
-        //player.zPosition = 2
-        
-        // self.addChild(player)// creates the player
+       
         
     }
+    
+    
     func start(){
         
-        isStarted = true
+        isGameStarted = true
         let tapToStartLable = childNode(withName: "tapToStartLabel")
         tapToStartLable?.removeFromParent()
         player.stop()
@@ -83,14 +81,28 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         movingBridge.start()
         blocksGenerator.startBlocksGenaratingIsEvery(seconds: 1)
         
+        
     }
+    
+    func gameOver(){
+        
+        isGameOver = true
+        
+        // stops everything after gameis over
+        
+        player.physicsBody = nil 
+    }
+    
+    /* This funtion will detect every time when the user hits a block
+    */
+    
     func didBegin(_ contact: SKPhysicsContact) {
         print("did began called")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if !isStarted {
+        if !isGameStarted {
             start()
             
         }else {
