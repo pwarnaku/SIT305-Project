@@ -3,7 +3,7 @@
 
 #### Working on the Demo game
 
-### Friday 5?April
+### Friday 5/April
 -Blocks random genartion successfully completed [Piumi]
 
 ### Thursday 4/April 
