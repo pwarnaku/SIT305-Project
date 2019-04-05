@@ -16,6 +16,8 @@
 		D811F21D2248AFBD00DD5E47 /* BlocksAndRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F21C2248AFBD00DD5E47 /* BlocksAndRunTests.swift */; };
 		D811F2282248AFBD00DD5E47 /* BlocksAndRunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2272248AFBD00DD5E47 /* BlocksAndRunUITests.swift */; };
 		D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B9C632252FA4A00B0A3B2 /* Player.swift */; };
+		D8DA5174225700F600BD0C9D /* BlocksGenarator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */; };
+		D8DA51762257012300BD0C9D /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA51752257012300BD0C9D /* Blocks.swift */; };
 		D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		D811F2272248AFBD00DD5E47 /* BlocksAndRunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksAndRunUITests.swift; sourceTree = "<group>"; };
 		D811F2292248AFBD00DD5E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87B9C632252FA4A00B0A3B2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksGenarator.swift; sourceTree = "<group>"; };
+		D8DA51752257012300BD0C9D /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,8 @@
 				D811F20E2248AFBD00DD5E47 /* Assets.xcassets */,
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
+				D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */,
+				D8DA51752257012300BD0C9D /* Blocks.swift */,
 			);
 			path = BlocksAndRun;
 			sourceTree = "<group>";
@@ -266,9 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D811F2082248AFBC00DD5E47 /* GameScene.swift in Sources */,
+				D8DA5174225700F600BD0C9D /* BlocksGenarator.swift in Sources */,
 				D811F20A2248AFBC00DD5E47 /* GameViewController.swift in Sources */,
 				D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */,
 				D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */,
+				D8DA51762257012300BD0C9D /* Blocks.swift in Sources */,
 				D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

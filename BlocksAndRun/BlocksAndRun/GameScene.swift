@@ -10,11 +10,15 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
     var movingBridge: MovingBridge!
     var player: Player!
+    var blocksGenerator: BlocksGenarator!
+    var isStarted = false
     
-    // this function will run as soon as the screen loads-up [piumi]
+    /*this function will run as soon as the screen loads-up
+     
+     
+     */
     override func didMove(to view: SKView) {
         
         let background = SKSpriteNode(imageNamed: "background")
@@ -24,21 +28,26 @@ class GameScene: SKScene {
         self.addChild(background) // makes the background
         
         // creates the moving bridge
-        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 120))
+        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 220))
         movingBridge.position = view.center
         movingBridge.zPosition = 1
         self.addChild(movingBridge)
         
         
-        // creates the player 
+        // creates the player
         player = Player()
         player.position = CGPoint(x: 350, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
         self.addChild(player)
         
         player.breath() // call the breath animation
         
+        // creates the blocks
+        /*
+        blocksGenerator = BlocksGenarator(color: UIColor.black, size: view.frame.size)
+        blocksGenerator.position = view.center
+        addChild(blocksGenerator)
         
-        
+        */
         // let player = SKSpriteNode(imageNamed: "player-run")
         // player.setScale(1)
         //  player.position = CGPoint(x: 70, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
@@ -47,12 +56,25 @@ class GameScene: SKScene {
         // self.addChild(player)// creates the player
         
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       // movingBridge.start() // this will call the funtion ( start)
+    func start(){
         
+        isStarted = true
         player.stop()
         player.startRunning()
+        movingBridge.start()
+//        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 1)
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if !isStarted {
+            start()
+            
+        }else {
+           // player.jump()
+        }
+        
         
     }
 }
