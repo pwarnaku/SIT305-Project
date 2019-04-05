@@ -3,8 +3,11 @@
 
 #### Working on the Demo game
 
+### Friday 5?April
+-Blocks random genartion successfully completed [Piumi]
+
 ### Thursday 4/April 
-- working on the blocks generation [Piumi]
+- Working on the blocks generation [Piumi]
 - Had a team meeting [Sachin,Piumi]
 - bugs fixing [Piumi]
 
@@ -17,12 +20,14 @@
 - Created a new class named " Player.swift" [Piumi]
     - this class will handle all the movements of the player
         - player breaths, runs
+    - Hardcoded player body parts ( face, eyes,arms,legs)
 
 ### Monday 1/April
 
 - Imported basic images into Assets.xcassets file and created basic background [Piumi]
 - Game can be scaled into any device [piumi]
 - Created the movingBridege.swift class(this will provide an unlimited bridge for running)
+-Hard coded the bridge
     - Bridge is moving when user tap on the screen [piumi]
 
 ## Week 4
