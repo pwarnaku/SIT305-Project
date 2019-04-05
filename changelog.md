@@ -7,6 +7,7 @@
 - Had a group meeting [Sachin,Piumi]
 - Blocks randomly genartion successfully completed [Piumi]
 - working on synchronizing blocks and the bridge [Piumi]
+- Working on jumping method [Piumi]
 - " Tap to start" label is created [Piumi]
     - Label dissapear when user tap on the screen
 
