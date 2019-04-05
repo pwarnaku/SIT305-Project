@@ -18,6 +18,7 @@
     - Label disapear when the user taps on the screen
 - Done with validating text inputs for Sign Up screen [Sachin]
 - Done with Validating text inputs for Sign In [Sachin]
+- Done with navigating buttons in First, Sign Up and Sign In pages [Sachin]
 
 ### Thursday 4/April 
 - Working on the blocks generation funtion [Piumi]
