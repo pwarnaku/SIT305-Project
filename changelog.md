@@ -7,14 +7,15 @@
 - Had a group meeting [Sachin,Piumi]
 - Blocks randomly genartion successfully completed [Piumi]
 - working on synchronizing blocks and the bridge [Piumi]
+- Working on collision detection [Piumi]
 - Working on jumping method [Piumi]
 - " Tap to start" label is created [Piumi]
-    - Label dissapear when user tap on the screen
+    - Label disapear when the user taps on the screen
 
 ### Thursday 4/April 
-- Working on the blocks generation [Piumi]
+- Working on the blocks generation funtion [Piumi]
 - Had a team meeting [Sachin,Piumi]
-- bugs fixing [Piumi]
+- Bugs fixing [Piumi]
 
 ### Wednesday 3/April
 - started working on sign in/ sign out [Sachin]
@@ -26,6 +27,7 @@
     - this class will handle all the movements of the player
         - player breaths, runs
     - Hardcoded player body parts ( face, eyes,arms,legs)
+        - appearence of each body part will be change after this week.
 
 ### Monday 1/April
 
