@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene , SKPhysicsContactDelegate {
     var movingBridge: MovingBridge!
     var player: Player!
     var blocksGenerator: BlocksGenarator!
@@ -83,6 +83,9 @@ class GameScene: SKScene {
         movingBridge.start()
         blocksGenerator.startBlocksGenaratingIsEvery(seconds: 1)
         
+    }
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("did began called")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

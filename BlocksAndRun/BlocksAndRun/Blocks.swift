@@ -17,13 +17,23 @@ class Blocks : SKSpriteNode {
     
     init(){
         
-        super.init(texture: nil, color: WALL_COLOUR, size: CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT))
+        let size = CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT)
+        super.init(texture: nil, color: WALL_COLOUR, size: size )
         startMoving()
+        loadPhisycBodyWithSize(size: size)
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    func loadPhisycBodyWithSize(size: CGSize){
+        
+        physicsBody = SKPhysicsBody(rectangleOf: size)
+        physicsBody?.categoryBitMask = bridgeCategory
+        
+        physicsBody?.affectedByGravity = false
+        
     }
     
     func startMoving ()  {

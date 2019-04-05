@@ -37,14 +37,24 @@ class Player: SKSpriteNode {
     // initial size of the player [piumi]
      init() {
         
-        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 80, height: 200))
+         let size = CGSize(width: 80, height: 200)
+        
+        super.init(texture: nil, color: UIColor.clear, size: size)
+        loadAppearance ()
+        loadPhisycBodyWithSize(size: size)
+        
     
    
+       
+    }
+    
+    func loadAppearance() {
+        
         body = SKSpriteNode(color: UIColor.black, size: CGSize(width: self.frame.size.width, height: 180))
         body.position = CGPoint(x:0, y: 80)
         addChild(body)
         
-      //  let skinColor = UIColor(red: 207.0/255.0, green: 193.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+        //  let skinColor = UIColor(red: 207.0/255.0, green: 193.0/255.0, blue: 168.0/255.0, alpha: 1.0)
         let face = SKSpriteNode(color: skinColour, size: CGSize(width: self.frame.size.width, height: 50))
         face.position = CGPoint(x: 0, y: 40)
         body.addChild(face)
@@ -86,6 +96,15 @@ class Player: SKSpriteNode {
         rightLeg = leftLeg.copy() as? SKSpriteNode
         rightLeg.position.x = 15
         addChild(rightLeg)
+        
+    }
+    func loadPhisycBodyWithSize(size: CGSize){
+        
+        physicsBody = SKPhysicsBody(rectangleOf: size)
+        physicsBody?.categoryBitMask = playerCategory
+        physicsBody?.contactTestBitMask = bridgeCategory
+        physicsBody?.affectedByGravity = false
+        
     }
     
     // breathing animation of the player [piumi]

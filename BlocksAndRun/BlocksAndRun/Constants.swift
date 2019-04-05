@@ -9,6 +9,15 @@
 import Foundation
 import UIKit
 
+// configuration variables
+
 let bridgeHeight: CGFloat = 120.0
+
+//innitial variables
+
 let defaultBlocksmoveByxperSeconds: CGFloat = 320.0
 
+//collision detection variables
+
+let playerCategory: UInt32 = 0x1 << 0
+let bridgeCategory: UInt32 = 0x1 << 1
