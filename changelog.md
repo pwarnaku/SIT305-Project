@@ -3,14 +3,21 @@
 
 #### Working on the Demo game
 
+### Saturday 5/April 
+- Done with storing Sign Up data using 'UserDefault' [Sachin]
+- Done with getting data that stored using 'UserDefault' [Sachin] 
+
 ### Friday 5/April
-- Had a group meeting [Sachin,Piumi]
+- Had a group meeting [Sachin,Piumi] 
 - Blocks randomly genartion successfully completed [Piumi]
 - working on synchronizing blocks and the bridge [Piumi]
+- Working with First page, Sign In and Sign Up [Sachin]
 - Working on collision detection [Piumi]
 - Working on jumping method [Piumi]
 - " Tap to start" label is created [Piumi]
     - Label disapear when the user taps on the screen
+- Done with validating text inputs for Sign Up screen [Sachin]
+- Done with Validating text inputs for Sign In [Sachin]
 
 ### Thursday 4/April 
 - Working on the blocks generation funtion [Piumi]
