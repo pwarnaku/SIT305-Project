@@ -4,9 +4,11 @@
 #### Working on the Demo game
 
 ### Friday 5/April
+- Had a group meeting [Sachin,Piumi]
 - Blocks randomly genartion successfully completed [Piumi]
 - working on synchronizing blocks and the bridge [Piumi]
 - " Tap to start" label is created [Piumi]
+    - Label dissapear when user tap on the screen
 
 ### Thursday 4/April 
 - Working on the blocks generation [Piumi]
