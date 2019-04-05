@@ -47,6 +47,8 @@ class MovingBridge : SKSpriteNode{
     
     func  start(){
         
+        let adjustDuration = TimeInterval(frame.size.width/defaultBlocksmoveByxperSeconds)
+        
         let moveLeft = SKAction.moveBy(x: -frame.size.width/2, y: 0, duration: 1.0)
         
         let resetPosition = SKAction.moveTo(x: 0, duration: 0)

@@ -27,7 +27,7 @@ class Blocks : SKSpriteNode {
     }
     
     func startMoving ()  {
-        let moveleft = SKAction.moveBy(x: -300, y: 0, duration: 1)
+        let moveleft = SKAction.moveBy(x: -defaultBlocksmoveByxperSeconds, y: 0, duration: 1)
         run(SKAction.repeatForever(moveleft))
     }
 }

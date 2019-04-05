@@ -50,6 +50,19 @@ class GameScene: SKScene {
         blocksGenerator = BlocksGenarator(color: UIColor.clear, size: view.frame.size)
         blocksGenerator.position = view.center
         addChild(blocksGenerator)
+        /*
+         This label is allow user to tap on the screen to start the game
+         this funtion named the label again to access the node in start method
+         
+         */
+        let tapToStartLabel = SKLabelNode(text: "Tap to Start")
+        tapToStartLabel.name = "tapToStartLabel"
+        //  childNode(withName: "tapToStartLabel")
+        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        // background.zPosition = 3
+        tapToStartLabel.fontColor = UIColor.white
+        tapToStartLabel.fontSize = 100
+        self.addChild(tapToStartLabel)
         
         
         // let player = SKSpriteNode(imageNamed: "player-run")
@@ -63,6 +76,8 @@ class GameScene: SKScene {
     func start(){
         
         isStarted = true
+        let tapToStartLable = childNode(withName: "tapToStartLabel")
+        tapToStartLable?.removeFromParent()
         player.stop()
         player.startRunning()
         movingBridge.start()
