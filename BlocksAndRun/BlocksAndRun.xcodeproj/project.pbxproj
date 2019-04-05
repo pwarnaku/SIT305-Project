@@ -20,6 +20,9 @@
 		D8DA51762257012300BD0C9D /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA51752257012300BD0C9D /* Blocks.swift */; };
 		D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */; };
 		D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEAB3522573781003FE2A8 /* Constants.swift */; };
+		E63CAEC72257689A0082845A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63CAEC6225768990082845A /* UserViewController.swift */; };
+		E63CAECA225768A90082845A /* UserSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63CAEC8225768A90082845A /* UserSignInViewController.swift */; };
+		E63CAECB225768A90082845A /* UserSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63CAEC9225768A90082845A /* UserSignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		D8DA51752257012300BD0C9D /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBridge.swift; sourceTree = "<group>"; };
 		D8FEAB3522573781003FE2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E63CAEC6225768990082845A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ../../../../UserViewController.swift; sourceTree = "<group>"; };
+		E63CAEC8225768A90082845A /* UserSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSignInViewController.swift; path = ../../../../UserSignInViewController.swift; sourceTree = "<group>"; };
+		E63CAEC9225768A90082845A /* UserSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSignUpViewController.swift; path = ../../../../UserSignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +126,10 @@
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
 				D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */,
 				D8DA51752257012300BD0C9D /* Blocks.swift */,
+				E63CAEC8225768A90082845A /* UserSignInViewController.swift */,
+				E63CAEC9225768A90082845A /* UserSignUpViewController.swift */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
+				E63CAEC6225768990082845A /* UserViewController.swift */,
 			);
 			path = BlocksAndRun;
 			sourceTree = "<group>";
@@ -275,6 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D811F2082248AFBC00DD5E47 /* GameScene.swift in Sources */,
+				E63CAECA225768A90082845A /* UserSignInViewController.swift in Sources */,
+				E63CAECB225768A90082845A /* UserSignUpViewController.swift in Sources */,
+				E63CAEC72257689A0082845A /* UserViewController.swift in Sources */,
 				D8DA5174225700F600BD0C9D /* BlocksGenarator.swift in Sources */,
 				D811F20A2248AFBC00DD5E47 /* GameViewController.swift in Sources */,
 				D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */,
