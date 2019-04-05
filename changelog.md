@@ -22,7 +22,7 @@
 ### Thursday 4/April 
 - Working on the blocks generation funtion [Piumi]
 - Had a team meeting [Sachin,Piumi]
-- Bugs fixing [Piumi]
+- Bugs fixing [Piumi, Sachin]
 
 ### Wednesday 3/April
 - started working on sign in/ sign out [Sachin]
