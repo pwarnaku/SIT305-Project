@@ -4,7 +4,9 @@
 #### Working on the Demo game
 
 ### Friday 5/April
--Blocks random genartion successfully completed [Piumi]
+- Blocks random genartion successfully completed [Piumi]
+- working on synchronizing blocks and the bridge [Piumi]
+- " Tap to start" label is created [Piumi]
 
 ### Thursday 4/April 
 - Working on the blocks generation [Piumi]
