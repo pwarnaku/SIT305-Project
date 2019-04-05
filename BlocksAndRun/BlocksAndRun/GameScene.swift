@@ -15,17 +15,22 @@ class GameScene: SKScene {
     var blocksGenerator: BlocksGenarator!
     var isStarted = false
     
-    /*this function will run as soon as the screen loads-up
-     
+    /*
+     This function will run as soon as the screen loads-up
+     creates the background , bridge, player and blocks ~ Piumi
      
      */
     override func didMove(to view: SKView) {
         
+        /*
+         Gets the center point for the position and makes the bridge
+        */
+        
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
-        background.position = CGPoint(x: self.size.width/2, y: self.size.height/2) //get the center point for the position
+        background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
-        self.addChild(background) // makes the background
+        self.addChild(background)
         
         // creates the moving bridge
         movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 220))
@@ -38,16 +43,15 @@ class GameScene: SKScene {
         player = Player()
         player.position = CGPoint(x: 350, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
         self.addChild(player)
-        
         player.breath() // call the breath animation
         
         // creates the blocks
-        /*
-        blocksGenerator = BlocksGenarator(color: UIColor.black, size: view.frame.size)
+       
+        blocksGenerator = BlocksGenarator(color: UIColor.clear, size: view.frame.size)
         blocksGenerator.position = view.center
         addChild(blocksGenerator)
         
-        */
+        
         // let player = SKSpriteNode(imageNamed: "player-run")
         // player.setScale(1)
         //  player.position = CGPoint(x: 70, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
@@ -62,7 +66,7 @@ class GameScene: SKScene {
         player.stop()
         player.startRunning()
         movingBridge.start()
-//        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 1)
+        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 1)
         
     }
     

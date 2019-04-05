@@ -12,8 +12,8 @@ import SpriteKit
 class Blocks : SKSpriteNode {
     
     let BLOCKS_WIDTH = 100.00
-    let BLOCKS_HEIGHT = 100.00
-    let WALL_COLOUR = UIColor.clear
+    let BLOCKS_HEIGHT = 400.00
+    let WALL_COLOUR = UIColor.black
     
     init(){
         

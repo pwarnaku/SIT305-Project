@@ -1,4 +1,4 @@
-//
+ //
 //  BlocksGenarator.swift
 //  BlocksAndRun
 //
@@ -29,6 +29,7 @@ class BlocksGenarator: SKSpriteNode {
         //var scale:CGFloat
         
         var scale: CGFloat
+        
         let rand = arc4random_uniform(2)
         if rand == 0 {
             scale = -1.0
@@ -40,7 +41,7 @@ class BlocksGenarator: SKSpriteNode {
         
         block.position.x = size.width/2 + block.size.width/2
         block.position.y = scale * (120/2 + block.size.height/2)
-        
+        addChild(block)
     }
 }
 
