@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2068" y="-159"/>
+            <point key="canvasLocation" x="-2183" y="-228"/>
         </scene>
         <!--User Sign In View Controller-->
         <scene sceneID="df2-XB-h6Q">
@@ -111,6 +111,9 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSignIn:" destination="J1D-lm-Hj4" eventType="touchUpInside" id="DZb-i3-OcO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSL-9a-qOM">
                                 <rect key="frame" x="195" y="549" width="24" height="21"/>
@@ -128,13 +131,17 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="t1X-dL-SZi" kind="presentation" id="29K-QY-BRI"/>
+                                    <segue destination="t1X-dL-SZi" kind="presentation" id="ZC5-wf-YHu"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DxC-IW-KB7"/>
                     </view>
+                    <connections>
+                        <outlet property="txtUserName" destination="4fW-yq-7L1" id="roJ-1N-0qP"/>
+                        <outlet property="txtUserPassword" destination="sTE-9K-oR9" id="CB8-xt-0vX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8HF-gG-hSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,8 +204,8 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnSignIn:" destination="t1X-dL-SZi" eventType="touchUpInside" id="u9L-vy-Svu"/>
-                                    <segue destination="J1D-lm-Hj4" kind="presentation" id="9XR-pe-IAq"/>
+                                    <action selector="btnSignIn:" destination="t1X-dL-SZi" eventType="touchUpInside" id="lxE-Yv-slM"/>
+                                    <segue destination="J1D-lm-Hj4" kind="presentation" id="QpU-7a-G7z"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osm-va-qdG">
@@ -221,8 +228,7 @@
                         <viewLayoutGuide key="safeArea" id="czE-3h-2Ft"/>
                     </view>
                     <connections>
-                        <outlet property="txtEmail" destination="YJs-0s-mWY" id="GRb-PX-Sf9"/>
-                        <outlet property="txtPassword" destination="vOT-bV-DU0" id="Cz6-44-nBA"/>
+                        <outlet property="lblSignUp" destination="zDZ-IQ-Hco" id="v5R-5i-LTm"/>
                         <outlet property="txtUserEmail" destination="YJs-0s-mWY" id="LNF-nJ-jc3"/>
                         <outlet property="txtUserName" destination="pN9-Oi-RDz" id="HIQ-eM-voI"/>
                         <outlet property="txtUserPassword" destination="vOT-bV-DU0" id="oth-bi-pbw"/>
@@ -235,7 +241,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="29K-QY-BRI"/>
-        <segue reference="9XR-pe-IAq"/>
+        <segue reference="ZC5-wf-YHu"/>
+        <segue reference="QpU-7a-G7z"/>
     </inferredMetricsTieBreakers>
 </document>

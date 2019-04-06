@@ -10,6 +10,7 @@ import UIKit
 
 class UserSignUpViewController: UIViewController {
     
+    @IBOutlet weak var lblSignUp: UILabel!
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtUserEmail: UITextField!
     @IBOutlet weak var txtUserPassword: UITextField!
@@ -17,7 +18,7 @@ class UserSignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -26,38 +27,56 @@ class UserSignUpViewController: UIViewController {
         let userEmail = txtUserEmail.text;
         let userPassword = txtUserPassword.text;
         let userPasswordRe = txtUserPasswordRe.text;
-    
-    //check for empty fields
-    
+        
+        
+        //check for empty fields
+        
         if(userName?.isEmpty)! || (userEmail?.isEmpty)! || (userPassword?.isEmpty)! || (userPasswordRe?.isEmpty)!
-    {
-        //Display an alert message
+        {
+            //Display an alert message
+            
+            displayAlertMessage(userMessage: "All fields are reuired");
+            
+            return;
+        }
         
-        displayAlertMessage(userMessage: "All fields are reuired");
-    
-        return;
+        //check if passwords match
+        
+        if (userPassword != userPasswordRe)
+        {
+            //display an alert message
+            displayAlertMessage(userMessage: "Passwords don't match");
+            
+            
+            return ;
+        }
+        
+        //store data
+        
+        UserDefaults.standard.set(userName, forKey:"userName");
+        UserDefaults.standard.set(userEmail, forKey:"userEmail");
+        UserDefaults.standard.set(userPassword, forKey:"userPassword");
+        UserDefaults.standard.synchronize();
+        
+        //display alert message
+        
+        let alert = UIAlertController(title: "Alert", message: "Registration is completed", preferredStyle: UIAlertController.Style.alert);
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default){
+            action in self.dismiss(animated: true, completion: nil);
+        }
+        alert.addAction(okAction);
+        self.present(alert, animated: true, completion: nil);
+        
+        
+        
     }
     
-    //check if passwords match
+    //function for alert messages
     
-    if (userPassword != userPasswordRe)
-    {
-        //display an alert message
-        displayAlertMessage(userMessage: "Passwords don't match");
-        
-     
-        return ;
-    }
-        
-    //store data
-        
-    //display alert message
-    
-    }
-
     func displayAlertMessage(userMessage:String)
     {
-        var alert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertController.Style.alert);
+        let alert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertController.Style.alert);
         
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil);
         
@@ -70,17 +89,21 @@ class UserSignUpViewController: UIViewController {
     }
     
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnSignIn(_ sender: Any) {
+        
     }
-    */
-
+    
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
