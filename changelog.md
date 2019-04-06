@@ -3,7 +3,7 @@
 
 #### Working on the Demo game
 
-### Saturday 5/April 
+### Saturday 6/April 
 - Done with storing Sign Up data using 'UserDefault' [Sachin]
 - Done with getting data that stored using 'UserDefault' [Sachin] 
 
