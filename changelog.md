@@ -1,4 +1,12 @@
 
+## Week 06
+
+### Monday 8/April [Henry]
+- I am happy you're both meeting and working togheter where possible.
+- That said.. I am not seeing quite enough progress here, and I worry you won't make it in time for end of semester. 
+- Also: function comments. I made a big fuss about this on the unit site last week.
+
+
 ## Week 05
 
 #### Working on the Demo game
