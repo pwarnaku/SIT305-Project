@@ -6,6 +6,8 @@
 - That said.. I am not seeing quite enough progress here, and I worry you won't make it in time for end of semester. 
 - Also: function comments. I made a big fuss about this on the unit site last week.
 
+- Working on linking demo game and sign up/ sign in part [Sachin] 
+
 
 ## Week 05
 
@@ -50,7 +52,7 @@
 - Imported basic images into Assets.xcassets file and created basic background [Piumi]
 - Game can be scaled into any device [piumi]
 - Created the movingBridege.swift class(this will provide an unlimited bridge for running)
--Hard coded the bridge
+- Hard coded the bridge
     - Bridge is moving when user tap on the screen [piumi]
 
 ## Week 4
