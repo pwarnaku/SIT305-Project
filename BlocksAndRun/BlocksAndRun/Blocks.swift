@@ -19,8 +19,9 @@ class Blocks : SKSpriteNode {
         
         let size = CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT)
         super.init(texture: nil, color: WALL_COLOUR, size: size )
-        startMoving()
         loadPhisycBodyWithSize(size: size)
+        startMoving()
+        
         
     }
     
@@ -28,10 +29,24 @@ class Blocks : SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /*
+     
+     Function: loadPhisycBodyWithSize
+     Parameters : Size of the player
+     
+     what does : loads the physics body with the given size surounding a rectangle.
+     when the player playerCategory)  hits a block (blockeCategory) it will be recorded
+     as a contact
+     
+     ** Important - This funtion is also implemented in player.swift class.
+                    Therefore no need to write "contactTestBitMask" methode again
+     
+     */
+    
     func loadPhisycBodyWithSize(size: CGSize){
         
         physicsBody = SKPhysicsBody(rectangleOf: size)
-        physicsBody?.categoryBitMask = bridgeCategory
+        physicsBody?.categoryBitMask = blockeCategory
         
         physicsBody?.affectedByGravity = false
         

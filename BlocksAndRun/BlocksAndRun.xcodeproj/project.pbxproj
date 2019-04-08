@@ -125,11 +125,9 @@
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
 				D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */,
-				D833A7252258CD6C007E1138 /* UserSignInViewController.swift */,
 				D8DA51752257012300BD0C9D /* Blocks.swift */,
-				D833A7272258CD99007E1138 /* UserSignUpViewController.swift */,
-				D833A7292258CDA8007E1138 /* UserViewController.swift */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
+				D8AB8440225B4DE9002817AB /* New Group */,
 			);
 			path = BlocksAndRun;
 			sourceTree = "<group>";
@@ -150,6 +148,16 @@
 				D811F2292248AFBD00DD5E47 /* Info.plist */,
 			);
 			path = BlocksAndRunUITests;
+			sourceTree = "<group>";
+		};
+		D8AB8440225B4DE9002817AB /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				D833A7292258CDA8007E1138 /* UserViewController.swift */,
+				D833A7252258CD6C007E1138 /* UserSignInViewController.swift */,
+				D833A7272258CD99007E1138 /* UserSignUpViewController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

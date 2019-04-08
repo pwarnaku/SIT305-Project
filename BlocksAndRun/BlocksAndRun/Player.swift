@@ -98,11 +98,22 @@ class Player: SKSpriteNode {
         addChild(rightLeg)
         
     }
+    
+    /*
+     
+     funtion name : loadPhisycBodyWithSize
+     parameters :size of the player
+     
+     what does : loads the physics body with the given size surounding a rectangle.
+     when the player playerCategory)  hits a block (blockeCategory) it will be recorded
+     as a contact
+     
+ */
     func loadPhisycBodyWithSize(size: CGSize){
         
         physicsBody = SKPhysicsBody(rectangleOf: size)
         physicsBody?.categoryBitMask = playerCategory
-        physicsBody?.contactTestBitMask = bridgeCategory
+        physicsBody?.contactTestBitMask = blockeCategory
         physicsBody?.affectedByGravity = false
         
     }
@@ -139,6 +150,8 @@ class Player: SKSpriteNode {
     // this funtion will stop all body funtions when user tap on the screen 
     func  stop () {
         body.removeAllActions()
+        leftLeg.removeAllActions()
+        rightLeg.removeAllActions()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

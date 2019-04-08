@@ -14,6 +14,21 @@ class BlocksGenarator: SKSpriteNode {
     var blockGenarateTimer : Timer?
     var blocks = [Blocks]() // created an empty array
     
+    
+    /*
+  
+     Function: startBlocksGenaratingIsEvery
+     Parameters: TimeInterval
+     
+     Definition:
+     
+     1. TimeInterval - Time interval that blocks come
+     
+     
+     
+     
+   */
+    
     func startBlocksGenaratingIsEvery(seconds: TimeInterval)  {
         
         blockGenarateTimer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector: #selector(BlocksGenarator.generateBlocks), userInfo: nil, repeats: true)
@@ -24,7 +39,13 @@ class BlocksGenarator: SKSpriteNode {
     
     
     /*
-     This funtion will generate blocks randomly  , set up the positions of blocks
+     Function: generateBlocks
+     Parameters: none
+     
+     
+     This funtion will generate blocks randomly and
+     set up the positions of blocks
+     
      */
     
     @objc func generateBlocks (){
@@ -48,18 +69,27 @@ class BlocksGenarator: SKSpriteNode {
         addChild(block)
     }
     
-    /* This funtion wil stop generating walls after user hits a block
+    /*
      
-     invalidate() this method will stopthe generation timer
+     Function: stopGeneratingBlocks
+     Parameters: none
+     
+     What does: This funtion wil stop generating walls after user hits a block.
+     invalidate() this method will stop the generation timer
      
     */
+    
     func stopGeneratingBlocks (){
         
         blockGenarateTimer?.invalidate()
-        
     }
     
     /*
+     
+     Function: stopBlocks
+     Parameters: none
+     
+     Does: This function will stop every block in "blocks" array
      
     */
     

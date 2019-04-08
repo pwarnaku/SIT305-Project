@@ -58,5 +58,9 @@ class MovingBridge : SKSpriteNode{
         run(SKAction.repeatForever(moveSequence)) {
         }
     }
+    
+    func stop()  {
+         removeAllActions()
+    }
 }
 

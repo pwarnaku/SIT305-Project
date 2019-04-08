@@ -50,6 +50,10 @@ class UserSignInViewController: UIViewController {
                 alert.addAction(okAction);
                 self.present(alert, animated: true, completion: nil);
                 
+                // link the game
+                
+                
+                
             }
                 
             else {

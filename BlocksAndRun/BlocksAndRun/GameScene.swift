@@ -18,8 +18,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var isGameOver = false
     
     /*
-     This function will run as soon as the screen loads-up
-     creates the background , bridge, player and blocks ~ Piumi
+     
+     Function: didMove
+     Parameters: SKView
+     
+     What does: This function will run as soon as the screen loads-up
+     creates all elements
+     
      
      */
     override func didMove(to view: SKView) {
@@ -66,16 +71,32 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         tapToStartLabel.fontSize = 100
         self.addChild(tapToStartLabel)
         
-       
+       /*
+        Add the physics world
+        */
+        
+        physicsWorld.contactDelegate = self
         
     }
     
+    /*
+     
+     Function: start
+     Parameters: none
+     
+     What does : Provide a lable telling user to tap to start the game.
+                After user taps, the lable disapear annd player stops breathing animation,starts running
+                Also the bridge moves and blocks generates every 1 seconds
+     
+     ** Developper can change the time of blocks generating as they want
+     
+    */
     
     func start(){
         
         isGameStarted = true
         let tapToStartLable = childNode(withName: "tapToStartLabel")
-        tapToStartLable?.removeFromParent()
+                                tapToStartLable?.removeFromParent()
         player.stop()
         player.startRunning()
         movingBridge.start()
@@ -84,29 +105,74 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
     }
     
+    /*
+     
+     Function: gameOver
+     
+     Parameters : none
+     
+     What does: This function will stop everything after player hits a block
+                User can restart the game by tapping on the label(gameOverLabel)
+     
+ 
+   */
+    
     func gameOver(){
         
         isGameOver = true
-        
-        // stops everything after gameis over
-        
         player.physicsBody = nil
-        
         blocksGenerator.stopBlocks()
+        movingBridge.stop()
+        player.stop()
+        
+        let gameOverLabel = SKLabelNode(text: "Ops! You are dead!")
+        gameOverLabel.name = "gameOverLabel"
+        gameOverLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        gameOverLabel.fontColor = UIColor.white
+        gameOverLabel.fontSize = 100
+        self.addChild(gameOverLabel)
+        
+        
     }
     
-    /* This funtion will detect every time when the user hits a block
+    
+    func restart (){
+        
+       let  newScene = GameScene(size: CGSize(width: 1536, height: 2048))
+            newScene.scaleMode = .aspectFill
+            view?.presentScene(newScene)
+        
+    }
+    
+    
+    /*
+     Funtion : didBegin
+     
+     This funtion will detect every time when the user hits a block
+     
+     ** Developpers can use  "print("did began called")" to see if the game
+     workd correctly
+     
     */
     
     func didBegin(_ contact: SKPhysicsContact) {
         
         gameOver()
-        print("did began called")
+        //print("did began called")
     }
     
+    /*
+     Funtion: touchesBegan
+     
+ 
+    */
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isGameOver {
+            restart ()
+        }
         
-        if !isGameStarted {
+       else  if !isGameStarted {
             start()
             
         }else {
