@@ -10,9 +10,14 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene , SKPhysicsContactDelegate {
+    
     var movingBridge: MovingBridge!
     var player: Player!
     var blocksGenerator: BlocksGenarator!
+    var cloudGenerator: CloudsGenarator!
+    var onGround = true
+    var velocityY = CGFloat(0)
+    var gravity = CGFloat(0.6)
     
     var isGameStarted = false
     var isGameOver = false
@@ -23,15 +28,14 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      Parameters: SKView
      
      What does: This function will run as soon as the screen loads-up
-     creates all elements
+     creates all elements of the scene
+     
+     CGPoint method is use for positioning all the elements inside od the view
      
      
      */
     override func didMove(to view: SKView) {
         
-        /*
-         Gets the center point for the position and makes the bridge
-        */
         
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -40,7 +44,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(background)
         
         // creates the moving bridge
-        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 220))
+        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 420))
         movingBridge.position = view.center
         movingBridge.zPosition = 1
         self.addChild(movingBridge)
@@ -58,6 +62,17 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         blocksGenerator.position = view.center
         addChild(blocksGenerator)
         
+        // add cloud generator
+        cloudGenerator = CloudsGenarator(color: UIColor.clear, size: view.frame.size)
+        cloudGenerator.position = CGPoint(x:800, y: 1100)
+        cloudGenerator.zPosition = 0
+        addChild(cloudGenerator)
+        cloudGenerator.populate(num: 2)
+        cloudGenerator.stratGeneratingwithSpawnTime(seconds: 5)
+        
+        
+        
+        
         /*
          This label is allow user to tap on the screen to start the game
          this funtion named the label again to access the node in start method
@@ -69,6 +84,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         tapToStartLabel.fontColor = UIColor.white
         tapToStartLabel.fontSize = 100
+       // tapToStartLabel.zPosition = 1
         self.addChild(tapToStartLabel)
         
        /*
@@ -116,7 +132,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
  
    */
-    
+
     func gameOver(){
         
         isGameOver = true
@@ -135,6 +151,14 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
     }
     
+    /*
+     
+     Function: restart
+     Parameters:none
+     
+     What does: This function will call after user taps on gameOverLabel.
+     creates a new scene to retart the game
+    */
     
     func restart (){
         
@@ -164,6 +188,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     /*
      Funtion: touchesBegan
      
+     What does: this function is called when user taps on the screen.
+                first, the game will start, all the background images will uploaded
+     
+     ** If developpers want to add animation parts of any background elements make sure those funtions
+     are called here
+     
  
     */
     
@@ -175,10 +205,24 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
        else  if !isGameStarted {
             start()
             
+                // player.jump()
+        
+            
         }else {
-           // player.jump()
+           
         }
         
         
+        
     }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.velocityY < -9.0 {
+            self.velocityY = -9.0
+        }
+    }
+    
+    
+
 }

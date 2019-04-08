@@ -11,12 +11,18 @@ import SpriteKit
 
 class MovingBridge : SKSpriteNode{
     
+    /*
+     I have use segments to show as the bridge is moving. the preview of the bridge will completely change
+ */
+    
+
+    
     let NUMBER_OF_SEGMENTS = 20
     let COLOR_ONE = UIColor(red: 47.0/255.0, green: 79.0/255.0, blue: 79.0/255.0, alpha: 1.0)
     let COLOR_TWO = UIColor(red: 0.0/255.0, green: 0.0/255.00, blue: 1.0/255.0, alpha: 1.0)
     
     init(size: CGSize) {
-        super.init(texture: nil, color: UIColor.black, size: CGSize(width: size.width*2, height: 120))
+        super.init(texture: nil, color: UIColor.black, size: CGSize(width: size.width*2, height: 320))
         anchorPoint = CGPoint(x: 0.0, y: 0.5)
         // anchorPoint = CGPoint(0.00,0.50)
         
@@ -33,7 +39,7 @@ class MovingBridge : SKSpriteNode{
             //CGFloat(i)*segment.size.width,0
             
             
-            let segment = SKSpriteNode(color: segmentColor,size: CGSize(width: self.size.width/CGFloat(NUMBER_OF_SEGMENTS), height: 120))
+            let segment = SKSpriteNode(color: segmentColor,size: CGSize(width: self.size.width/CGFloat(NUMBER_OF_SEGMENTS), height: 320))
             segment.anchorPoint = CGPoint(x: 0.0, y: 0.5)
             segment.position = CGPoint(x: CGFloat(i)*segment.size.width, y: 0.0)
             
@@ -55,8 +61,7 @@ class MovingBridge : SKSpriteNode{
         
         let moveSequence = SKAction.sequence([moveLeft,resetPosition])
         
-        run(SKAction.repeatForever(moveSequence)) {
-        }
+        run(SKAction.repeatForever(moveSequence))
     }
     
     func stop()  {

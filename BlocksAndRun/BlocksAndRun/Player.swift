@@ -19,22 +19,31 @@ class Player: SKSpriteNode {
     var head: SKSpriteNode!
     var face: SKSpriteNode!
     var body: SKSpriteNode!
-  //  var leftEye: SKSpriteNode!
-  //  var rightEye: SKSpriteNode!
     var arm: SKSpriteNode!
     var leftHand: SKSpriteNode!
     var rightHand: SKSpriteNode!
     var leftLeg: SKSpriteNode!
     var rightLeg: SKSpriteNode!
     
+    var onGround = true
+    var velocityY = CGFloat(0)
+    var gravity = CGFloat(0.6)
+    var baseline = CGFloat(0)
+    
     
     // basic colors for body parts
     let skinColour = UIColor(red: 255.0/00, green: 173.0/255.00, blue: 96.0/255.00, alpha: 1.0)
-   // let eyeColour = UIColor(red: 3.0/255.0, green: 24.0/255.0, blue: 39.0/255.0, alpha: 1.0)
-   
+ 
     
     
-    // initial size of the player [piumi]
+   /*
+     Override Function : init
+     
+     what does: this will give the iniial size and the color of the player.
+     this will provide a clear box so developpers can create different body parts of the playerinside of that
+     box
+ 
+ */
      init() {
         
          let size = CGSize(width: 80, height: 200)
@@ -42,11 +51,16 @@ class Player: SKSpriteNode {
         super.init(texture: nil, color: UIColor.clear, size: size)
         loadAppearance ()
         loadPhisycBodyWithSize(size: size)
-        
-    
-   
-       
     }
+    
+    /*
+     Function : loadAppearance
+     Parameters: none
+     
+     what does: this function will creates all the body parts of the player inside of the box created in init()
+     and gives position to each part.
+     
+     */
     
     func loadAppearance() {
         
@@ -118,7 +132,14 @@ class Player: SKSpriteNode {
         
     }
     
-    // breathing animation of the player [piumi]
+    /*
+     Function: breath
+     parameters: none
+     
+     what does: this funtion will call before user starts the game.
+     this will gives the player a real look by giving a breath animation.
+     the body part of the player simply move up and down when the player is not running
+    */
     func breath()  {
         
         let breathIn = SKAction.moveBy(x: 0, y: 4, duration: 0.5)
@@ -126,6 +147,16 @@ class Player: SKSpriteNode {
         let breath = SKAction.sequence([breathIn,breathOut])
         body.run(SKAction.repeatForever(breath))
     }
+    
+    
+    /*
+     Function: startRunning
+     parameters: none
+     
+     what does: when player is running, arms of the player will rotate back.
+     this will gives a real look of running
+     
+     */
     
     func startRunning()  {
         let rotateBack  = SKAction.rotate(byAngle: -CGFloat(M_PI)/2.0, duration: 0.2)
@@ -147,7 +178,35 @@ class Player: SKSpriteNode {
         })
     }
     
-    // this funtion will stop all body funtions when user tap on the screen 
+    func jump () {
+        if self.onGround{
+            self.velocityY = -400.0
+            self.onGround = false
+            self.velocityY += self.gravity
+            self.body.position.y -= velocityY
+            self.leftLeg.position.y -= velocityY
+            self.rightLeg.position.y -= velocityY
+            if self.body.position.y < self.baseline && self.leftLeg.position.y < self.baseline && self.rightLeg.position.y < self.baseline {
+                self.body.position.y = self.baseline
+                self.leftLeg.position.y = self.baseline
+                self.rightLeg.position.y = self.baseline
+                velocityY = 0.0
+                self.onGround = true
+            }
+           
+        }
+       
+        
+        
+        
+    }
+    /*
+     
+     Function: stop
+     
+    what does: this funtion will stop all body funtions when user tap on the screen
+ 
+ */
     func  stop () {
         body.removeAllActions()
         leftLeg.removeAllActions()

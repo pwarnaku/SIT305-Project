@@ -12,7 +12,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    var scene: GameScene!
+    var scene: StartScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +22,9 @@ class GameViewController: UIViewController {
         
         let skView = self.view as! SKView
         skView.isMultipleTouchEnabled = false
-        //   skView.showsFPS = true
-        // skView.showsNodeCount = true
         
         //create andconfigure the scene
-        scene = GameScene(size: CGSize(width: 1536, height: 2048)) // can scale to any device [piumi]
+        scene = StartScene(size: CGSize(width: 1536, height: 2048)) // can scale to any device [piumi]
         //skView.ignoresSiblingOrder = true
         
         scene.scaleMode = .aspectFill
