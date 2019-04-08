@@ -6,7 +6,7 @@
 - That said.. I am not seeing quite enough progress here, and I worry you won't make it in time for end of semester. 
 - Also: function comments. I made a big fuss about this on the unit site last week.
 
-- Working on linking demo game and sign up/ sign in part [Sachin] 
+- Working on linking demo game and sign up/ sign in part [Sachin, Piumi] 
 
 
 ## Week 05
