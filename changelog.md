@@ -1,12 +1,19 @@
 
 ## Week 06
 
-### Monday 8/April 
+### Tuesday 9/April [Henry]
+- Please don't delete my comments (one of you deleted my Monday comments, that I just copied back in)
+
+### Monday 8/April [Henry]
+
+- I am happy you're both meeting and working togheter where possible.
+- That said.. I am not seeing quite enough progress here, and I worry you won't make it in time for end of semester.
+- Also: function comments. I made a big fuss about this on the unit site last week.
 
 ### Monday 8/April 
 - Working on linking demo game and sign up/ sign in part [Sachin] 
 - working on clouds generation [Piumi]
--Working on launch screen [Piumi]
+- Working on launch screen [Piumi]
 
 
 ## Week 05
