@@ -12,9 +12,9 @@ import SpriteKit
 class Player: SKSpriteNode {
     
     /*
-        Body parts of the player
-        These parts will be used to animate the player
-    */
+     Body parts of the player
+     These parts will be used to animate the player
+     */
     
     var head: SKSpriteNode!
     var face: SKSpriteNode!
@@ -25,28 +25,32 @@ class Player: SKSpriteNode {
     var leftLeg: SKSpriteNode!
     var rightLeg: SKSpriteNode!
     
+    var isUpsideDown = false
     var onGround = true
-    var velocityY = CGFloat(0)
-    var gravity = CGFloat(0.6)
-    var baseline = CGFloat(0)
+    
     
     
     // basic colors for body parts
     let skinColour = UIColor(red: 255.0/00, green: 173.0/255.00, blue: 96.0/255.00, alpha: 1.0)
- 
     
     
-   /*
+    
+    /*
      Override Function : init
+     Parameters: none
      
-     what does: this will give the iniial size and the color of the player.
+     Purpose: this will give the iniial size and the color of the player.
      this will provide a clear box so developpers can create different body parts of the playerinside of that
      box
- 
- */
-     init() {
+     
+     ** Important note for developpers **
+     Developers can user a image instead of using a color. to do that remove nil form "texture" and
+     add SKTexture textureWithImage:[UIImage imageNamed:"imagename.png"]
+     
+     */
+    init() {
         
-         let size = CGSize(width: 80, height: 200)
+        let size = CGSize(width: 80, height: 200)
         
         super.init(texture: nil, color: UIColor.clear, size: size)
         loadAppearance ()
@@ -57,8 +61,12 @@ class Player: SKSpriteNode {
      Function : loadAppearance
      Parameters: none
      
-     what does: this function will creates all the body parts of the player inside of the box created in init()
+     Purpose: this function will creates all the body parts of the player inside of the box created in init()
      and gives position to each part.
+     
+     ** Important note for developpers **
+     Developers can user a image instead of using a color. to do that remove nil form "texture" and
+     add SKTexture textureWithImage:[UIImage imageNamed:"imagename.png"]
      
      */
     
@@ -122,7 +130,7 @@ class Player: SKSpriteNode {
      when the player playerCategory)  hits a block (blockeCategory) it will be recorded
      as a contact
      
- */
+     */
     func loadPhisycBodyWithSize(size: CGSize){
         
         physicsBody = SKPhysicsBody(rectangleOf: size)
@@ -139,7 +147,8 @@ class Player: SKSpriteNode {
      what does: this funtion will call before user starts the game.
      this will gives the player a real look by giving a breath animation.
      the body part of the player simply move up and down when the player is not running
-    */
+     
+     */
     func breath()  {
         
         let breathIn = SKAction.moveBy(x: 0, y: 4, duration: 0.5)
@@ -153,7 +162,7 @@ class Player: SKSpriteNode {
      Function: startRunning
      parameters: none
      
-     what does: when player is running, arms of the player will rotate back.
+     Purpose: when player is running, arms of the player will rotate back.
      this will gives a real look of running
      
      */
@@ -179,42 +188,30 @@ class Player: SKSpriteNode {
     }
     
     func jump () {
-        if self.onGround{
-            self.velocityY = -400.0
-            self.onGround = false
-            self.velocityY += self.gravity
-            self.body.position.y -= velocityY
-            self.leftLeg.position.y -= velocityY
-            self.rightLeg.position.y -= velocityY
-            if self.body.position.y < self.baseline && self.leftLeg.position.y < self.baseline && self.rightLeg.position.y < self.baseline {
-                self.body.position.y = self.baseline
-                self.leftLeg.position.y = self.baseline
-                self.rightLeg.position.y = self.baseline
-                velocityY = 0.0
-                self.onGround = true
-            }
-           
-        }
-       
         
-        
+        let up = SKAction.moveBy(x: 0, y: 400, duration: 0.5)
+        let down = SKAction.moveBy(x: 0, y: -400, duration: 0.5)
+        let jump = SKAction.sequence([up,down])
+        run(jump)
         
     }
     /*
      
      Function: stop
      
-    what does: this funtion will stop all body funtions when user tap on the screen
- 
- */
+     Purpose: This funtion will stop all body funtions when user tap on the screen
+     
+     */
     func  stop () {
         body.removeAllActions()
         leftLeg.removeAllActions()
         rightLeg.removeAllActions()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     
         

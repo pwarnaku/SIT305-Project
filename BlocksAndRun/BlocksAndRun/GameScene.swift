@@ -15,9 +15,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var player: Player!
     var blocksGenerator: BlocksGenarator!
     var cloudGenerator: CloudsGenarator!
-    var onGround = true
-    var velocityY = CGFloat(0)
-    var gravity = CGFloat(0.6)
     
     var isGameStarted = false
     var isGameOver = false
@@ -27,11 +24,14 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      Function: didMove
      Parameters: SKView
      
-     What does: This function will run as soon as the screen loads-up
+     Purpose: This function will run as soon as the screen loads-up
      creates all elements of the scene
      
-     CGPoint method is use for positioning all the elements inside od the view
+     "CGPoint" method is use for positioning all the elements inside od the view
      
+     **Important note for developpers**
+     Developers can user a image instead of using a color. to do that remove nil form "texture" and
+     add SKTexture textureWithImage:[UIImage imageNamed:"imagename.png"]
      
      */
     override func didMove(to view: SKView) {
@@ -57,7 +57,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         player.breath() // call the breath animation
         
         // creates the blocks
-       
+        
         blocksGenerator = BlocksGenarator(color: UIColor.clear, size: view.frame.size)
         blocksGenerator.position = view.center
         addChild(blocksGenerator)
@@ -84,12 +84,17 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         tapToStartLabel.fontColor = UIColor.white
         tapToStartLabel.fontSize = 100
-       // tapToStartLabel.zPosition = 1
+        // tapToStartLabel.zPosition = 1
         self.addChild(tapToStartLabel)
         
-       /*
-        Add the physics world
-        */
+        
+        func addPointsLabels(){
+            // let pointLabel = PointsLabel(num:0)
+            
+        }
+        /*
+         Add the physics world
+         */
         
         physicsWorld.contactDelegate = self
         
@@ -100,19 +105,20 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      Function: start
      Parameters: none
      
-     What does : Provide a lable telling user to tap to start the game.
-                After user taps, the lable disapear annd player stops breathing animation,starts running
-                Also the bridge moves and blocks generates every 1 seconds
+     Purpose : Provide a lable telling user to tap to start the game.
+     After user taps, the lable disapear annd player stops breathing animation,starts running
+     Also the bridge moves and blocks generates every 1 seconds
      
-     ** Developper can change the time of blocks generating as they want
+     ** Important note for developers**
+     Developer can change the time of blocks generating as they want
      
-    */
+     */
     
     func start(){
         
         isGameStarted = true
         let tapToStartLable = childNode(withName: "tapToStartLabel")
-                                tapToStartLable?.removeFromParent()
+        tapToStartLable?.removeFromParent()
         player.stop()
         player.startRunning()
         movingBridge.start()
@@ -127,12 +133,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      Parameters : none
      
-     What does: This function will stop everything after player hits a block
-                User can restart the game by tapping on the label(gameOverLabel)
+     Purpose: This function will stop everything after player hits a block
+     User can restart the game by tapping on the label(gameOverLabel)
      
- 
-   */
-
+     
+     */
+    
     func gameOver(){
         
         isGameOver = true
@@ -156,15 +162,15 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      Function: restart
      Parameters:none
      
-     What does: This function will call after user taps on gameOverLabel.
+     Purpose: This function will call after user taps on gameOverLabel.
      creates a new scene to retart the game
-    */
+     */
     
     func restart (){
         
-       let  newScene = GameScene(size: CGSize(width: 1536, height: 2048))
-            newScene.scaleMode = .aspectFill
-            view?.presentScene(newScene)
+        let  newScene = GameScene(size: CGSize(width: 1536, height: 2048))
+        newScene.scaleMode = .aspectFill
+        view?.presentScene(newScene)
         
     }
     
@@ -172,12 +178,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     /*
      Funtion : didBegin
      
-     This funtion will detect every time when the user hits a block
+     Purpose: This funtion will detect every time when the user hits a block
      
-     ** Developpers can use  "print("did began called")" to see if the game
+     ** Important note for developers**
+     Developers can use  "print("did began called")" to see if the game
      workd correctly
      
-    */
+     */
     
     func didBegin(_ contact: SKPhysicsContact) {
         
@@ -188,40 +195,43 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     /*
      Funtion: touchesBegan
      
-     What does: this function is called when user taps on the screen.
-                first, the game will start, all the background images will uploaded
+     Purpose: this function is called when user taps on the screen.
+     first, the game will start, all the background images will uploaded
      
-     ** If developpers want to add animation parts of any background elements make sure those funtions
+     if the game is over, user can tap on the screen to restart the game
+     if game game is not over but not started (newgame), user can tap on the screen to strat.
+     while running, user can tap to jump
+     
+     ** Important note for developers**
+     If developers want to add animation parts of any background elements make sure those funtions
      are called here
      
- 
-    */
+     
+     */
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isGameOver {
             restart ()
         }
-        
-       else  if !isGameStarted {
+            
+        else  if !isGameStarted {
             start()
             
-                // player.jump()
-        
             
         }else {
-           
+            player.jump()
+            
         }
         
         
-        
     }
+    
     
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.velocityY < -9.0 {
-            self.velocityY = -9.0
-        }
+        
     }
+    
     
     
 
