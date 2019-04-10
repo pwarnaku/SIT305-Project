@@ -93,7 +93,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         let skView = self.view as! SKView
         skView.isMultipleTouchEnabled = false
         
-        let scene = GameScene(size: CGSize(width: 1536, height: 2048))
+        let scene = MenuScene(size: CGSize(width: 1536, height: 2048))
         scene.scaleMode = .aspectFill
         
         skView.presentScene(scene)
