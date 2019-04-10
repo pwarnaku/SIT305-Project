@@ -11,14 +11,16 @@ import SpriteKit
 
 class Blocks : SKSpriteNode {
     
+    
     let BLOCKS_WIDTH = 100.00
-    let BLOCKS_HEIGHT = 400.00
+    let BLOCKS_HEIGHT = 300.00
     let WALL_COLOUR = UIColor.black
     
     init(){
         
+        let blockTexture = SKTexture(imageNamed: "fire")
         let size = CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT)
-        super.init(texture: nil, color: WALL_COLOUR, size: size )
+        super.init(texture: nil, color: UIColor.black, size: size )
         loadPhisycBodyWithSize(size: size)
         startMoving()
         
@@ -39,7 +41,7 @@ class Blocks : SKSpriteNode {
      as a contact
      
      ** Important - This funtion is also implemented in player.swift class.
-                    Therefore no need to write "contactTestBitMask" methode again
+     Therefore no need to write "contactTestBitMask" methode again
      
      */
     
@@ -60,7 +62,7 @@ class Blocks : SKSpriteNode {
     /*
      This funtion is called inblocksGeneration class to stop generating blocks
      after the user hits a block
- 
+     
      */
     func stopMoving(){
         removeAllActions()

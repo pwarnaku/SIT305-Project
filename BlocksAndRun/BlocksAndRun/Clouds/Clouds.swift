@@ -9,14 +9,20 @@
 import Foundation
 import SpriteKit
 
-class Clouds : SKShapeNode {
+class Clouds : SKSpriteNode {
     
-     init(size: CGSize) {
-        super.init()
+    
+    init(size: CGSize) {
+        // super.init()
         
-        let path = CGPath(ellipseIn: CGRect(x:0, y:0, width: size.width, height:size.height), transform: nil)
-        self.path = path
-        fillColor = UIColor.white
+        /* let path = CGPath(ellipseIn: CGRect(x:0, y:0, width: 300, height:100), transform: nil)
+         self.path = path
+         fillColor = UIColor.white
+         fillTexture = SKTexture(imageNamed: "clouds") */
+        let cloudTexture = SKTexture(imageNamed: "cloud")
+        let size = CGSize(width: 300 ,height : 100)
+        super.init(texture: cloudTexture, color: UIColor.clear, size: size )
+        
         startMoving()
     }
     
@@ -26,8 +32,7 @@ class Clouds : SKShapeNode {
     
     func startMoving()
     {
-        let moveLeft = SKAction.moveBy(x: -10, y: 0, duration: 1)
-         run(SKAction.repeatForever(moveLeft))
+        let moveLeft = SKAction.moveBy(x: -20, y: 0, duration: 1)
+        run(SKAction.repeatForever(moveLeft))
     }
-    
 }

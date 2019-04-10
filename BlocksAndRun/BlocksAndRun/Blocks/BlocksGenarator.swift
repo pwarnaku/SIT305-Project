@@ -11,12 +11,13 @@ import SpriteKit
 
 class BlocksGenarator: SKSpriteNode {
     
+    
     var blockGenarateTimer : Timer?
     var blocks = [Blocks]() // created an empty array
     
     
     /*
-  
+     
      Function: startBlocksGenaratingIsEvery
      Parameters: TimeInterval
      
@@ -27,7 +28,7 @@ class BlocksGenarator: SKSpriteNode {
      
      
      
-   */
+     */
     
     func startBlocksGenaratingIsEvery(seconds: TimeInterval)  {
         
@@ -43,7 +44,7 @@ class BlocksGenarator: SKSpriteNode {
      Parameters: none
      
      
-     This funtion will generate blocks randomly and
+     Purpose: This funtion will generate blocks randomly and
      set up the positions of blocks
      
      */
@@ -63,7 +64,7 @@ class BlocksGenarator: SKSpriteNode {
         
         let block = Blocks()
         
-        block.position.x = size.width/2 + block.size.width/2
+        block.position.x = 800
         block.position.y = scale * (120/2 + block.size.height/2)
         blocks.append(block)
         addChild(block)
@@ -77,7 +78,7 @@ class BlocksGenarator: SKSpriteNode {
      What does: This funtion wil stop generating walls after user hits a block.
      invalidate() this method will stop the generation timer
      
-    */
+     */
     
     func stopGeneratingBlocks (){
         
@@ -91,7 +92,7 @@ class BlocksGenarator: SKSpriteNode {
      
      Does: This function will stop every block in "blocks" array
      
-    */
+     */
     
     func stopBlocks(){
         stopGeneratingBlocks ()

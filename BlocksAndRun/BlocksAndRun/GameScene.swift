@@ -64,11 +64,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         // add cloud generator
         cloudGenerator = CloudsGenarator(color: UIColor.clear, size: view.frame.size)
-        cloudGenerator.position = CGPoint(x:800, y: 1100)
+        cloudGenerator.position = CGPoint(x:900, y: 1800)
         cloudGenerator.zPosition = 0
         addChild(cloudGenerator)
-        cloudGenerator.populate(num: 2)
-        cloudGenerator.stratGeneratingwithSpawnTime(seconds: 5)
+        cloudGenerator.populate(num: 10)
+        cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
         
         
         
