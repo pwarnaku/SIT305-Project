@@ -59,7 +59,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         
         let nameOfTheGameLabel = SKLabelNode(text: "Blocks and Run")
         nameOfTheGameLabel.name = "tapToStartLabel"
-        nameOfTheGameLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        nameOfTheGameLabel.position = CGPoint(x: self.size.width/2, y: 1200)
         nameOfTheGameLabel.fontColor = UIColor.white
         nameOfTheGameLabel.fontSize = 100
         // tapToStartLabel.zPosition = 1

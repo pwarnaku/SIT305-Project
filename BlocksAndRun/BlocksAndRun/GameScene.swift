@@ -168,6 +168,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func restart (){
         
+       
+        cloudGenerator.stopGeneratingClouds()
         let  newScene = GameScene(size: CGSize(width: 1536, height: 2048))
         newScene.scaleMode = .aspectFill
         view?.presentScene(newScene)

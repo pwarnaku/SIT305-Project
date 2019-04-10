@@ -27,6 +27,8 @@ class CloudsGenarator: SKSpriteNode {
             cloud.position = CGPoint(x:x, y:y)
             cloud.zPosition = 0
             addChild(cloud)
+            
+            // run(SKAction.repeatForever(stratGeneratingwithSpawnTime))
         }
     }
     
@@ -36,7 +38,13 @@ class CloudsGenarator: SKSpriteNode {
         let y = CGFloat(arc4random_uniform(UInt32(size.height)))-size.height/2
         let cloud = Clouds(size: CGSize(width: CLOUD_WIDTH, height: CLOUD_HEIGHT ))
         cloud.position = CGPoint(x: x, y:y)
+        
         addChild(cloud)
+    }
+    
+    func stopGeneratingClouds(){
+        
+        cloudsGenarateTimer?.invalidate()
     }
     
     
