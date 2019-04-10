@@ -65,8 +65,16 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         // tapToStartLabel.zPosition = 1
         self.addChild(nameOfTheGameLabel)
         
+        addSnowEmitter()
         
         
+        
+    }
+    
+    func addSnowEmitter(){
+        let snowEmitter = SKEmitterNode(fileNamed: "Snow")!
+        snowEmitter.position = CGPoint(x: size.width/2 , y: 1800)
+        addChild(snowEmitter)
     }
     
     /*

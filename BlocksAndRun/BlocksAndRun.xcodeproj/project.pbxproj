@@ -24,6 +24,7 @@
 		D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8441225B9237002817AB /* CloudsGenerator.swift */; };
 		D8AB8444225B93F5002817AB /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8443225B93F5002817AB /* Clouds.swift */; };
 		D8AB844A225BAC16002817AB /* StartScne.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8449225BAC16002817AB /* StartScne.swift */; };
+		D8D03833225E39BB00E2B09D /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8D03832225E39BB00E2B09D /* Snow.sks */; };
 		D8DA5174225700F600BD0C9D /* BlocksGenarator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */; };
 		D8DA51762257012300BD0C9D /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA51752257012300BD0C9D /* Blocks.swift */; };
 		D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */; };
@@ -71,6 +72,7 @@
 		D8AB8441225B9237002817AB /* CloudsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGenerator.swift; sourceTree = "<group>"; };
 		D8AB8443225B93F5002817AB /* Clouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
 		D8AB8449225BAC16002817AB /* StartScne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScne.swift; sourceTree = "<group>"; };
+		D8D03832225E39BB00E2B09D /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksGenarator.swift; sourceTree = "<group>"; };
 		D8DA51752257012300BD0C9D /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBridge.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				D8AB8446225BA91C002817AB /* Blocks */,
 				D8AB8445225BA90A002817AB /* Clouds */,
 				D8AB8440225B4DE9002817AB /* New Group */,
+				D8D03832225E39BB00E2B09D /* Snow.sks */,
 			);
 			path = BlocksAndRun;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				D811F20D2248AFBC00DD5E47 /* Main.storyboard in Resources */,
 				D811F20F2248AFBD00DD5E47 /* Assets.xcassets in Resources */,
 				D811F2122248AFBD00DD5E47 /* LaunchScreen.storyboard in Resources */,
+				D8D03833225E39BB00E2B09D /* Snow.sks in Resources */,
 				D83364D2225DDE9D00CF2D52 /* MenuScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
