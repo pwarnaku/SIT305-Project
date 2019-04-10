@@ -4,6 +4,7 @@
 ### Wednesday 10/April
 
 - Working on polishing elements [Piumi]
+- Working on Data store [Sachin]
 
 ### Tuesday 9/April [Henry]
 - Please don't delete my comments (one of you deleted my Monday comments, that I just copied back in)
