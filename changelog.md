@@ -4,6 +4,8 @@
 ### Wednesday 10/April
 
 - Working on polishing elements [Piumi]
+- Added a snow effect [Piumi]
+- Working on lives [Piumi]
 - Working on Data store [Sachin]
 
 ### Tuesday 9/April [Henry]
