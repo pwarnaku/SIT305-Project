@@ -190,6 +190,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
+        player.burn()
         gameOver()
         //print("did began called")
     }

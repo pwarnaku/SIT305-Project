@@ -28,6 +28,8 @@
 		D8DA5174225700F600BD0C9D /* BlocksGenarator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */; };
 		D8DA51762257012300BD0C9D /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA51752257012300BD0C9D /* Blocks.swift */; };
 		D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */; };
+		D8ED0251225E3CBE00A3D7F9 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8ED0250225E3CBE00A3D7F9 /* Fire.sks */; };
+		D8ED0253225E49AB00A3D7F9 /* Burn.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8ED0252225E49AB00A3D7F9 /* Burn.sks */; };
 		D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEAB3522573781003FE2A8 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		D8DA5173225700F600BD0C9D /* BlocksGenarator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksGenarator.swift; sourceTree = "<group>"; };
 		D8DA51752257012300BD0C9D /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBridge.swift; sourceTree = "<group>"; };
+		D8ED0250225E3CBE00A3D7F9 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
+		D8ED0252225E49AB00A3D7F9 /* Burn.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Burn.sks; sourceTree = "<group>"; };
 		D8FEAB3522573781003FE2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +131,7 @@
 		D811F2002248AFBC00DD5E47 /* BlocksAndRun */ = {
 			isa = PBXGroup;
 			children = (
+				D8ED0254225E4ABF00A3D7F9 /* Effects */,
 				D811F2012248AFBC00DD5E47 /* AppDelegate.swift */,
 				D811F2072248AFBC00DD5E47 /* GameScene.swift */,
 				D8AB8449225BAC16002817AB /* StartScne.swift */,
@@ -143,7 +148,6 @@
 				D8AB8446225BA91C002817AB /* Blocks */,
 				D8AB8445225BA90A002817AB /* Clouds */,
 				D8AB8440225B4DE9002817AB /* New Group */,
-				D8D03832225E39BB00E2B09D /* Snow.sks */,
 			);
 			path = BlocksAndRun;
 			sourceTree = "<group>";
@@ -192,6 +196,16 @@
 				D8DA51752257012300BD0C9D /* Blocks.swift */,
 			);
 			path = Blocks;
+			sourceTree = "<group>";
+		};
+		D8ED0254225E4ABF00A3D7F9 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				D8ED0250225E3CBE00A3D7F9 /* Fire.sks */,
+				D8ED0252225E49AB00A3D7F9 /* Burn.sks */,
+				D8D03832225E39BB00E2B09D /* Snow.sks */,
+			);
+			path = Effects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,8 +315,10 @@
 				D811F20D2248AFBC00DD5E47 /* Main.storyboard in Resources */,
 				D811F20F2248AFBD00DD5E47 /* Assets.xcassets in Resources */,
 				D811F2122248AFBD00DD5E47 /* LaunchScreen.storyboard in Resources */,
+				D8ED0251225E3CBE00A3D7F9 /* Fire.sks in Resources */,
 				D8D03833225E39BB00E2B09D /* Snow.sks in Resources */,
 				D83364D2225DDE9D00CF2D52 /* MenuScene.sks in Resources */,
+				D8ED0253225E49AB00A3D7F9 /* Burn.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -208,6 +208,20 @@ class Player: SKSpriteNode {
         rightLeg.removeAllActions()
     }
     
+    func burn(){
+        
+        let burntBodyTexture = SKTexture(imageNamed: "burntBody")
+        body = SKSpriteNode(texture: burntBodyTexture, size: CGSize(width: 300, height: 180))
+       addChild(body)
+        // let size = CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT)
+        //super.init(texture: burntBodyTexture, color: UIColor.clear, size: size )
+        
+        
+        let burnEmitter = SKEmitterNode(fileNamed: "Burn")!
+        // fireEmitter.position = block.position
+        body.addChild(burnEmitter)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

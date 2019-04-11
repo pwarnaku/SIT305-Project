@@ -12,15 +12,15 @@ import SpriteKit
 class Blocks : SKSpriteNode {
     
     
-    let BLOCKS_WIDTH = 100.00
-    let BLOCKS_HEIGHT = 300.00
+    let BLOCKS_WIDTH = 400.00
+    let BLOCKS_HEIGHT = 500.00
     let WALL_COLOUR = UIColor.black
     
     init(){
         
-        let blockTexture = SKTexture(imageNamed: "fire")
+      //  let blockTexture = SKTexture(imageNamed: "flame")
         let size = CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT)
-        super.init(texture: nil, color: UIColor.black, size: size )
+        super.init(texture: nil, color: UIColor.clear, size: size )
         loadPhisycBodyWithSize(size: size)
         startMoving()
         

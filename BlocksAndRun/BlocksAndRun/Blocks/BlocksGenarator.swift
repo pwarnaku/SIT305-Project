@@ -57,17 +57,23 @@ class BlocksGenarator: SKSpriteNode {
         
         let rand = arc4random_uniform(2)
         if rand == 0 {
-            scale = -1.0
+            scale = -5.0
         } else {
             scale = 1.0
         }
         
         let block = Blocks()
         
-        block.position.x = 800
-        block.position.y = scale * (120/2 + block.size.height/2)
+        
+        
+        block.position.x = 1000
+        block.position.y = scale * 130
         blocks.append(block)
         addChild(block)
+        
+        let fireEmitter = SKEmitterNode(fileNamed: "Fire")!
+       // fireEmitter.position = block.position
+        block.addChild(fireEmitter)
     }
     
     /*
