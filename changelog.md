@@ -1,6 +1,9 @@
 
 ## Week 06
 
+### Thursday 11/April
+- Good for code - BUT!... function comments missing in places (still) [Henry]
+
 ### Wednesday 10/April
 
 - Working on polishing elements [Piumi]
