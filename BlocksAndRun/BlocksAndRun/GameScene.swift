@@ -180,7 +180,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     /*
      Funtion : didBegin
      
-     Purpose: This funtion will detect every time when the user hits a block
+     Purpose: This funtion will detect every time when the user hits a block. all the animatons after
+     player hiting a block will call here
      
      ** Important note for developers**
      Developers can use  "print("did began called")" to see if the game

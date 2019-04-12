@@ -131,7 +131,6 @@
 		D811F2002248AFBC00DD5E47 /* BlocksAndRun */ = {
 			isa = PBXGroup;
 			children = (
-				D8ED0254225E4ABF00A3D7F9 /* Effects */,
 				D811F2012248AFBC00DD5E47 /* AppDelegate.swift */,
 				D811F2072248AFBC00DD5E47 /* GameScene.swift */,
 				D8AB8449225BAC16002817AB /* StartScne.swift */,
@@ -145,6 +144,7 @@
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
+				D8ED0254225E4ABF00A3D7F9 /* Effects */,
 				D8AB8446225BA91C002817AB /* Blocks */,
 				D8AB8445225BA90A002817AB /* Clouds */,
 				D8AB8440225B4DE9002817AB /* New Group */,

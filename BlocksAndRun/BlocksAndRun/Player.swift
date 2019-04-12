@@ -48,6 +48,7 @@ class Player: SKSpriteNode {
      add SKTexture textureWithImage:[UIImage imageNamed:"imagename.png"]
      
      */
+    
     init() {
         
         let size = CGSize(width: 80, height: 200)
@@ -144,11 +145,12 @@ class Player: SKSpriteNode {
      Function: breath
      parameters: none
      
-     what does: this funtion will call before user starts the game.
+     what does: this funtion is called before user starts the game.
      this will gives the player a real look by giving a breath animation.
      the body part of the player simply move up and down when the player is not running
      
      */
+    
     func breath()  {
         
         let breathIn = SKAction.moveBy(x: 0, y: 4, duration: 0.5)
@@ -159,6 +161,7 @@ class Player: SKSpriteNode {
     
     
     /*
+     
      Function: startRunning
      parameters: none
      
@@ -168,10 +171,23 @@ class Player: SKSpriteNode {
      */
     
     func startRunning()  {
+        
         let rotateBack  = SKAction.rotate(byAngle: -CGFloat(M_PI)/2.0, duration: 0.2)
         arm.run(rotateBack)
         performOneCycle()
     }
+    
+    /*
+     
+     Function: performOneCycle
+     parameters: none
+     
+     Purpose: This function is to animate one step forward of running. I have user "forward" and "backward" variables with values and assign them to each left leg and right leg.this will gives a real look of running
+    
+     ** Important note for developers**
+     This function is called in  startRunning function.
+     
+     */
     
     func performOneCycle()  {
         let forward = SKAction.moveBy(x: 4, y: 4, duration: 0.03)
@@ -187,6 +203,19 @@ class Player: SKSpriteNode {
         })
     }
     
+    /*
+    
+    Function: jump
+    parameters: none
+    
+    Purpose: This function is to jump when user tap on the screen while running. I have user "up" and "down" variables with values and assign them to the body.
+    
+    ** Important note for developers**
+    This function is called in  touchesBegan function in gamescene.swift.
+    usage of 'SKAction' - you dont need to assign a same value in to seperate body part.
+    
+    */
+    
     func jump () {
         
         let up = SKAction.moveBy(x: 0, y: 400, duration: 0.5)
@@ -195,41 +224,61 @@ class Player: SKSpriteNode {
         run(jump)
         
     }
+    
     /*
      
      Function: stop
      
      Purpose: This funtion will stop all body funtions when user tap on the screen
      
+     ** Important note for developers**
+     This function is called in gamescene.swift file under touchesBegan function.
+     
      */
+    
     func  stop () {
         body.removeAllActions()
         leftLeg.removeAllActions()
         rightLeg.removeAllActions()
     }
     
+    
+    /*
+     
+     Function: burn
+     
+     Purpose: This funtion is to add a texture after player hits a fire to look like he is buring
+     I have added a emititer to make it looks like real
+     
+     ** Important note for developers**
+     This function is called in gamescene.swift file under gameOver function.
+     
+     */
+    
     func burn(){
         
         let burntBodyTexture = SKTexture(imageNamed: "burntBody")
         body = SKSpriteNode(texture: burntBodyTexture, size: CGSize(width: 300, height: 180))
        addChild(body)
-        // let size = CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT)
-        //super.init(texture: burntBodyTexture, color: UIColor.clear, size: size )
         
         
         let burnEmitter = SKEmitterNode(fileNamed: "Burn")!
-        // fireEmitter.position = block.position
         body.addChild(burnEmitter)
     }
+    
+    /*
+     Function: required init?(coder aDecoder: NSCoder)
+     
+     Purpose: This is a default function comes wity ithe init
+     
+     */
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    
-        
-    }
+}
         
     
     

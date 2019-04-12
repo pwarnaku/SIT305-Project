@@ -23,10 +23,7 @@ class BlocksGenarator: SKSpriteNode {
      
      Definition:
      
-     1. TimeInterval - Time interval that blocks come
-     
-     
-     
+     1. TimeInterval - Time interval that blocks generate
      
      */
     
@@ -37,9 +34,8 @@ class BlocksGenarator: SKSpriteNode {
         
     }
     
-    
-    
     /*
+     
      Function: generateBlocks
      Parameters: none
      
@@ -47,11 +43,17 @@ class BlocksGenarator: SKSpriteNode {
      Purpose: This funtion will generate blocks randomly and
      set up the positions of blocks
      
+      ** Important note for developers**
+     
+     arc4random_uniform - This method generate random numbers from 0 to given number.
+     I have use scale to assign 1.0 or -1.0. The purpose of having theese values is to assign them into
+     blocks as their positions. -1.0 meaning that block will generate upside dowm of the bridge.
+     
+     I have use a emitter here andadded into each block.
+     
      */
     
     @objc func generateBlocks (){
-        
-        //var scale:CGFloat
         
         var scale: CGFloat
         
@@ -64,15 +66,12 @@ class BlocksGenarator: SKSpriteNode {
         
         let block = Blocks()
         
-        
-        
         block.position.x = 1000
         block.position.y = scale * 130
         blocks.append(block)
         addChild(block)
         
         let fireEmitter = SKEmitterNode(fileNamed: "Fire")!
-       // fireEmitter.position = block.position
         block.addChild(fireEmitter)
     }
     
@@ -81,8 +80,11 @@ class BlocksGenarator: SKSpriteNode {
      Function: stopGeneratingBlocks
      Parameters: none
      
-     What does: This funtion wil stop generating walls after user hits a block.
+     Purpose: This funtion wil stop generating walls after user hits a block.
      invalidate() this method will stop the generation timer
+     
+     ** Important note for developers**
+     This function is called in gamescene.swift file under gameOver function.
      
      */
     
@@ -96,7 +98,11 @@ class BlocksGenarator: SKSpriteNode {
      Function: stopBlocks
      Parameters: none
      
-     Does: This function will stop every block in "blocks" array
+     Purpose: This function will stop every block in "blocks" array
+     
+     ** Important note for developers**
+     This function is called in gamescene.swift file under gameOver function.
+     
      
      */
     

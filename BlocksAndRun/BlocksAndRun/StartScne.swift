@@ -70,6 +70,19 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         
         
     }
+    /*
+     
+     Function: addSnowEmitter
+     
+     Purpose: This function uses swift snow emitter. as this is the first screen of the app, i use snow emitter
+     to decorate the user interface
+     
+     **Important note for developpers**
+     
+     Developpers can use different emiters as they want. in order to add an emitter, go to create newfile ->
+     choose "Spritekit prcatice file" and then choose the efect you want
+     
+    */
     
     func addSnowEmitter(){
         let snowEmitter = SKEmitterNode(fileNamed: "Snow")!
@@ -78,7 +91,8 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     }
     
     /*
-     Funtion: touchesBegan
+     
+     Function: touchesBegan
      
      Purpose : This is the launching screen of the game. after upse taps on the screen
      , it will open the second screen ( GameScene) andthe game will start, all the background images will uploaded.

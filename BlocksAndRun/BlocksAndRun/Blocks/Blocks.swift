@@ -16,16 +16,29 @@ class Blocks : SKSpriteNode {
     let BLOCKS_HEIGHT = 500.00
     let WALL_COLOUR = UIColor.black
     
+    /*
+    
+    Function init
+     
+    Purpose: This funtion will give the innitial appearence of the block.
+     
+   */
+    
     init(){
         
-      //  let blockTexture = SKTexture(imageNamed: "flame")
         let size = CGSize(width: BLOCKS_WIDTH ,height : BLOCKS_HEIGHT)
         super.init(texture: nil, color: UIColor.clear, size: size )
         loadPhisycBodyWithSize(size: size)
         startMoving()
         
-        
     }
+    
+    /*
+     Function: required init?(coder aDecoder: NSCoder)
+     
+     Purpose: This is a default function comes wity ithe init
+     
+     */
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,16 +67,45 @@ class Blocks : SKSpriteNode {
         
     }
     
+    /*
+     
+     Function: startMoving
+     Parameters: none
+     
+     Purpose : This function is to move each block by given -x value defaultBlocksmoveByxperSeconds
+     After user taps, the lable disapear annd player stops breathing animation,starts moving
+     
+     
+     run(SKAction.repeatForever(moveSequence)) will keep moving the blocks during an unlimited time
+     
+     ** Important note for developers**
+     Developer can change the speed of moving as they want by changing the "adjustDuration".
+     "defaultBlocksmoveByxperSeconds" is declared in constants.swift file
+     
+     */
+    
     func startMoving ()  {
         let moveleft = SKAction.moveBy(x: -defaultBlocksmoveByxperSeconds, y: 0, duration: 1)
         run(SKAction.repeatForever(moveleft))
     }
     
-    /*
-     This funtion is called inblocksGeneration class to stop generating blocks
-     after the user hits a block
+    
+     /*
+     
+     Function: stop
+     
+     Parameters: none
+     
+     Purpose: This funtion will stop blocks moving.
+     
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under gameOver() function.
+     after hiting a block bridge will stop moving
      
      */
+     
+ 
     func stopMoving(){
         removeAllActions()
     }
