@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameScene: SKScene , SKPhysicsContactDelegate {
     
+    var button: SKNode!
+   
     var movingBridge: MovingBridge!
     var player: Player!
     var blocksGenerator: BlocksGenarator!
@@ -36,6 +38,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      */
     override func didMove(to view: SKView) {
         
+       createLiveButton()
         
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -97,6 +100,29 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
          */
         
         physicsWorld.contactDelegate = self
+        
+    }
+    
+    /*
+     
+     Function: createLiveButton
+     
+     Purpose:  You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
+     
+     ** Important note for developers**
+     This function is called in gamescene.swift file under didMove function.
+    */
+    
+    func createLiveButton(){
+        
+        // Create a simple red rectangle that's 100x44
+        let liveButtonTexture = SKTexture(imageNamed: "lives")
+        button = SKSpriteNode(texture: liveButtonTexture , size: CGSize(width: 100, height: 100))
+        // Put it in the center of the scene
+        button.position = CGPoint(x: 400, y: 1800)
+        button.zPosition = 1
+        
+        self.addChild(button)
         
     }
     
@@ -219,10 +245,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         }
             
         else  if !isGameStarted {
-            start()
+            
+             // start()
+            }
+        
             
             
-        }else {
+    else {
             player.jump()
             
         }
@@ -234,9 +263,19 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        for touch: AnyObject in touches {
+            // Get the location of the touch in this scene
+            let location = touch.location(in: self)
+            // Check if the location of the touch is within the button's bounds
+            if button.contains(location) {
+                print("tapped!")
+            }
+        }
+    }
+        
     }
     
     
     
 
-}
+
