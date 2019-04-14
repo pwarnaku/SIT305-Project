@@ -12,6 +12,9 @@ import GameplayKit
 class GameScene: SKScene , SKPhysicsContactDelegate {
     
     var button: SKNode!
+    var liveScreen: SKSpriteNode!
+    
+    var liveScene: StartScene!
    
     var movingBridge: MovingBridge!
     var player: Player!
@@ -107,11 +110,15 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      Function: createLiveButton
      
-     Purpose:  You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
+     Purpose: This function creates the button (heart) top left corner of the view
      
      ** Important note for developers**
+     
+     You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
+     
      This function is called in gamescene.swift file under didMove function.
-    */
+    
+     */
     
     func createLiveButton(){
         
@@ -123,6 +130,38 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         button.zPosition = 1
         
         self.addChild(button)
+        
+    }
+    
+    /*
+     
+     Function: createLiveButton
+     
+     Purpose: This function creates the window and its elements when user taps onthe heart button
+     ** Important note for developers**
+     
+     You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
+     
+     This function is called in gamescene.swift file under touchesEnded function.
+     
+     */
+    
+    func createLivesWindow()
+    {
+        
+        liveScreen = SKSpriteNode(color: UIColor(red: 153.0/255.0, green: 255.0/255.0, blue: 204.0/255.0, alpha: 5.0), size: CGSize(width: 700, height: 700))
+        liveScreen.position = CGPoint(x:770, y: 1300)
+        self.isUserInteractionEnabled = true
+        addChild(liveScreen)
+        
+        
+        let livesLabel1 = SKLabelNode(text: "Get more Lives ")
+        livesLabel1.name = "livesLabel1"
+        livesLabel1.position = CGPoint(x:870, y: 1900)
+        livesLabel1.zPosition = 10
+        livesLabel1.fontColor = UIColor.black
+        livesLabel1.fontSize = 200
+        liveScreen.addChild(livesLabel1)
         
     }
     
@@ -165,7 +204,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      */
     
-    func gameOver(){
+    func gameOver()
+    {
         
         isGameOver = true
         player.physicsBody = nil
@@ -219,6 +259,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         player.burn()
         gameOver()
+        
         //print("did began called")
     }
     
@@ -251,10 +292,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
             
             
-    else {
+        else {
+            
             player.jump()
             
-        }
+            }
         
         
     }
@@ -269,6 +311,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             // Check if the location of the touch is within the button's bounds
             if button.contains(location) {
                 print("tapped!")
+                
+            createLivesWindow()
+ 
+ 
+ 
+ 
             }
         }
     }

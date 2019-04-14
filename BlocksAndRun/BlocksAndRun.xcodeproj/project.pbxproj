@@ -20,6 +20,7 @@
 		D833A7262258CD6C007E1138 /* UserSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7252258CD6C007E1138 /* UserSignInViewController.swift */; };
 		D833A7282258CD99007E1138 /* UserSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7272258CD99007E1138 /* UserSignUpViewController.swift */; };
 		D833A72A2258CDA8007E1138 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7292258CDA8007E1138 /* UserViewController.swift */; };
+		D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B1FEF2262E4AB00B1272A /* LivesScene.swift */; };
 		D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B9C632252FA4A00B0A3B2 /* Player.swift */; };
 		D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8441225B9237002817AB /* CloudsGenerator.swift */; };
 		D8AB8444225B93F5002817AB /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8443225B93F5002817AB /* Clouds.swift */; };
@@ -70,6 +71,7 @@
 		D833A7252258CD6C007E1138 /* UserSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignInViewController.swift; sourceTree = "<group>"; };
 		D833A7272258CD99007E1138 /* UserSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpViewController.swift; sourceTree = "<group>"; };
 		D833A7292258CDA8007E1138 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		D86B1FEF2262E4AB00B1272A /* LivesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesScene.swift; sourceTree = "<group>"; };
 		D87B9C632252FA4A00B0A3B2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D8AB8441225B9237002817AB /* CloudsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGenerator.swift; sourceTree = "<group>"; };
 		D8AB8443225B93F5002817AB /* Clouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				D811F2092248AFBC00DD5E47 /* GameViewController.swift */,
 				D83364D1225DDE9D00CF2D52 /* MenuScene.sks */,
 				D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */,
+				D86B1FEF2262E4AB00B1272A /* LivesScene.swift */,
 				D811F20B2248AFBC00DD5E47 /* Main.storyboard */,
 				D87B9C632252FA4A00B0A3B2 /* Player.swift */,
 				D811F20E2248AFBD00DD5E47 /* Assets.xcassets */,
@@ -355,6 +358,7 @@
 				D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */,
 				D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */,
 				D8AB844A225BAC16002817AB /* StartScne.swift in Sources */,
+				D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */,
 				D83364D0225DDE9600CF2D52 /* MenuScene.swift in Sources */,
 				D833A7282258CD99007E1138 /* UserSignUpViewController.swift in Sources */,
 				D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */,
