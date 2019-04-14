@@ -1,6 +1,13 @@
 
 ## Week 06
 
+### Sunday 14/April
+- bugs fixing [Piumi]
+- Button for lives [Piumi]
+    - By clicking on the button (heart) a pop-up window appears 
+- Working on Power - ups [Piumi]
+
+
 ### Thursday 11/April
 - Good for code - BUT!... function comments missing in places (still) [Henry]
 
