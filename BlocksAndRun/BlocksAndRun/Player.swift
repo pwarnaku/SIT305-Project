@@ -73,13 +73,16 @@ class Player: SKSpriteNode {
     
     func loadAppearance() {
         
-        body = SKSpriteNode(color: UIColor.black, size: CGSize(width: self.frame.size.width, height: 180))
-        body.position = CGPoint(x:0, y: 80)
+        
+        let BodyTexture = SKTexture(imageNamed: "body")
+        body = SKSpriteNode(texture:BodyTexture, size: CGSize(width: 100, height: 200))
+        body.position = CGPoint(x:0, y: 180)
         addChild(body)
         
         //  let skinColor = UIColor(red: 207.0/255.0, green: 193.0/255.0, blue: 168.0/255.0, alpha: 1.0)
-        let face = SKSpriteNode(color: skinColour, size: CGSize(width: self.frame.size.width, height: 50))
-        face.position = CGPoint(x: 0, y: 40)
+        let faceTexture = SKTexture(imageNamed: "face")
+        let face = SKSpriteNode(texture:faceTexture, size: CGSize(width: 120, height: 150))
+        face.position = CGPoint(x: 30, y: 140)
         body.addChild(face)
         
         let eyeColor = UIColor.white
@@ -88,37 +91,51 @@ class Player: SKSpriteNode {
         let pupil = SKSpriteNode(color: UIColor.black, size: CGSize(width: 8, height: 8))
         
         pupil.position = CGPoint(x:2,y: 0)
-        leftEye.addChild(pupil)
-        rightEye.addChild(pupil.copy() as! SKSpriteNode)
+        rightEye.addChild(pupil)
+        //rightEye.addChild(pupil.copy() as! SKSpriteNode)
         
-        leftEye.position = CGPoint(x:-4, y: 0)
+        rightEye.position = CGPoint(x:-4, y: 0)
         face.addChild(leftEye)
         
-        rightEye.position = CGPoint(x:14, y: 0)
-        face.addChild(rightEye)
+        //rightEye.position = CGPoint(x:14, y: 0)
+       // face.addChild(rightEye)
         
         let eyebrow = SKSpriteNode(color: UIColor.black, size: CGSize(width: 11,height:  5))
         eyebrow.position = CGPoint(x: -1, y: leftEye.size.height/2)
-        leftEye.addChild(eyebrow)
-        rightEye.addChild(eyebrow.copy() as! SKSpriteNode)
+        rightEye.addChild(eyebrow)
+       // rightEye.addChild(eyebrow.copy() as! SKSpriteNode)
+        
+        
+        let lefthadTexture = SKTexture(imageNamed: "lefthand")
         
         let armColor = UIColor(red: 46/255, green: 46/255, blue: 46/255, alpha: 1.0)
-        arm = SKSpriteNode(color: armColor, size: CGSize(width:20, height: 54))
+        arm = SKSpriteNode(texture:lefthadTexture, size: CGSize(width:100, height: 180))
         arm.anchorPoint = CGPoint(x: 0.5, y: 0.9)
-        arm.position = CGPoint(x: -10, y: -7)
+        arm.position = CGPoint(x: 30, y: 60)
         body.addChild(arm)
         
-        let hand = SKSpriteNode(color: skinColour, size: CGSize(width: arm.size.width,height:  10))
+      /*  let lefthadTexture = SKTexture(imageNamed: "lefthand")
+        let hand = SKSpriteNode(texture:lefthadTexture, size: CGSize(width: arm.size.width,height:  10))
         hand.position = CGPoint(x: 0, y: -arm.size.height*0.9 + hand.size.height/2)
         arm.addChild(hand)
+        */
         
-        leftLeg = SKSpriteNode(color: skinColour, size: CGSize(width: 15, height: 100))
-        leftLeg.position = CGPoint(x: -8,y:  -size.height/2 + leftLeg.size.height/2)
-        addChild(leftLeg)
+        let leftShortTexture = SKTexture(imageNamed: "shortLeft")
+        let leftshort = SKSpriteNode(texture:leftShortTexture, size: CGSize(width: 120, height: 110))
+        leftshort.position = CGPoint(x: 5,y:  25)
+        leftshort.zPosition = 7
+        addChild(leftshort)
+        
+         let rightLegTexture = SKTexture(imageNamed: "rightleg")
+        leftLeg = SKSpriteNode(texture:rightLegTexture, size: CGSize(width: 55, height: 200))
+        leftLeg.position = CGPoint(x: 20,y: -130)
+        leftLeg.zPosition = 6
+        leftshort.addChild(leftLeg)
         
         rightLeg = leftLeg.copy() as? SKSpriteNode
         rightLeg.position.x = 15
-        addChild(rightLeg)
+        leftshort.addChild(rightLeg)
+
         
     }
     

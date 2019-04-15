@@ -287,7 +287,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             
         else  if !isGameStarted {
             
-             // start()
+             start()
             }
         
             
