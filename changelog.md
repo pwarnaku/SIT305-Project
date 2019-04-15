@@ -3,7 +3,7 @@
 
 ### Monday 15/April
 - Polishing the start scene [Piumi]
--Polishing the appearance of the player [Piumi]
+- Polishing the appearance of the player [Piumi]
 
 ### Monday 15/April
 - Feedback: Good job adding comments
