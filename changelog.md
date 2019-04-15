@@ -1,4 +1,11 @@
 
+## Week 07
+
+### Monday 15/April
+- Feedback: Good job adding comments
+- Feedback: Watch your variable names, and ensure they're understandable. E.g. I don't know 're' in "userPasswordRe".
+
+
 ## Week 06
 
 ### Sunday 14/April
