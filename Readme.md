@@ -6,7 +6,7 @@
 
 ## Overview 
 
-- This is an unlimited running IOS  game called **Blocks & RUN** coded in Swift using XCode,built for people to stress relief with no age limit.
+- This is an unlimited running IOS  game called **Blocks & RUN** coded in Swift Spritekit,built for people to stress relief with no age limit.
 
 
 You can simply view [changelog.md](https://github.com/pwarnaku/SIT305-Project/blob/master/Changedlog.md) to check all changes that we make during each week for the project. 
