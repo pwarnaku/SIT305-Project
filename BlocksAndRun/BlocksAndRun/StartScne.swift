@@ -11,7 +11,12 @@ import GameplayKit
 
 class StartScene: SKScene , SKPhysicsContactDelegate {
     
+    var mainRunningAnimation: SKSpriteNode!
+    
     var cloudGenerator: CloudsGenarator!
+    
+    var textureAtlas = SKTextureAtlas()
+    var textureArray = [SKTexture]()
     
     
     /*
@@ -31,6 +36,23 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
+        textureAtlas = SKTextureAtlas(named: "running")
+        
+        for i in 1...textureAtlas.textureNames.count{
+            
+            let imageName = "run\(i)"
+            textureArray.append(SKTexture(imageNamed: imageName))
+        }
+        
+        mainRunningAnimation = SKSpriteNode(imageNamed: textureAtlas.textureNames[0] as! String)
+        mainRunningAnimation.size = CGSize(width: 600, height: 900)
+        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 500)
+        mainRunningAnimation.zPosition = 2
+        
+        self.addChild(mainRunningAnimation)
+        
+        
+        mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.05)))
         
         
         let background = SKSpriteNode(imageNamed: "background")
