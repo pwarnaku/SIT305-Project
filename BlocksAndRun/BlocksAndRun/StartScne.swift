@@ -14,6 +14,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     var mainRunningAnimation: SKSpriteNode!
     
     var cloudGenerator: CloudsGenarator!
+    var movingBridge: MovingBridge!
     
     var textureAtlas = SKTextureAtlas()
     var textureArray = [SKTexture]()
@@ -46,7 +47,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         
         mainRunningAnimation = SKSpriteNode(imageNamed: textureAtlas.textureNames[0] as! String)
         mainRunningAnimation.size = CGSize(width: 600, height: 900)
-        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 500)
+        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 690)
         mainRunningAnimation.zPosition = 2
         
         self.addChild(mainRunningAnimation)
@@ -55,7 +56,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.05)))
         
         
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "startBackground")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
@@ -70,6 +71,12 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         addChild(cloudGenerator)
         cloudGenerator.populate(num: 10)
         cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
+        
+        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 420))
+        movingBridge.position = CGPoint(x: 0, y: 300)
+        movingBridge.zPosition = 1
+        self.addChild(movingBridge)
+         movingBridge.start()
         
         
         
