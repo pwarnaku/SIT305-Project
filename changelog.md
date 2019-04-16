@@ -1,9 +1,13 @@
 
 ## Week 07
 
+### Tuesday 16/April
+- Starting works on Score [Sachin]
+
 ### Monday 15/April
 - Polishing the start scene [Piumi]
 - Polishing the appearance of the player [Piumi]
+- Working on sign up and sign in [Sachin] 
 
 ### Monday 15/April
 - Feedback: Good job adding comments
