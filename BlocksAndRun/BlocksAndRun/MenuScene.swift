@@ -42,7 +42,7 @@ class MenuScene: SKScene {
         
         //sign in button
         let signInButtonTexture = SKTexture(imageNamed: "signin")
-        signInButton = SKSpriteNode(texture: signInButtonTexture , size: CGSize(width: 400, height: 200))
+        signInButton = SKSpriteNode(texture: signInButtonTexture , size: CGSize(width: 600, height: 150))
         signInButton.position = CGPoint(x: self.size.width/2, y: 1100)
         signInButton.name = "btnSignIn"
         signInButton.zPosition = 1
@@ -50,7 +50,7 @@ class MenuScene: SKScene {
         
         //sign up button
         let signUpButtonTexture = SKTexture(imageNamed: "signup")
-        signUpButton = SKSpriteNode(texture: signUpButtonTexture , size: CGSize(width: 400, height: 200))
+        signUpButton = SKSpriteNode(texture: signUpButtonTexture , size: CGSize(width: 600, height: 150))
         signUpButton.position = CGPoint(x: self.size.width/2, y: 800)
         signUpButton.name = "btnSignUp"
         signUpButton.zPosition = 1
@@ -62,11 +62,25 @@ class MenuScene: SKScene {
         
         let skView = self.view as! SKView
         skView.isMultipleTouchEnabled = false
-        
-        let scene = GameScene(size: CGSize(width: 1536, height: 2048))
-        scene.scaleMode = .aspectFill
-        
-        skView.presentScene(scene)
+    
+        let touch = touches.first
+        if let location = touch?.location(in: self){
+            let nodesArray = self.nodes(at: location)
+            
+            if nodesArray.first?.name == "btnSignIn" {
+                let scene = SignInScene(size: CGSize(width: 1536, height: 2048))
+                scene.scaleMode = .aspectFill
+            
+                skView.presentScene(scene)
+            }
+            
+            else if nodesArray.first?.name == "btnSignUp" {
+                let scene = SignUpScene(size: CGSize(width: 1536, height: 2048))
+                scene.scaleMode = .aspectFill
+                
+                skView.presentScene(scene)
+            }
+        }
         
         
     }

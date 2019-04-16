@@ -56,13 +56,11 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.05)))
         
         
-        let background = SKSpriteNode(imageNamed: "startBackground")
+        let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)
-        
-        
         
         // add cloud generator
         cloudGenerator = CloudsGenarator(color: UIColor.clear, size: view.frame.size)
@@ -95,8 +93,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(nameOfTheGameLabel)
         
         addSnowEmitter()
-        
-        
+    
         
     }
     /*
@@ -144,7 +141,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         let skView = self.view as! SKView
         skView.isMultipleTouchEnabled = false
         
-        let scene = MenuScene(size: CGSize(width: 1536, height: 2048))
+        let scene = GameScene(size: CGSize(width: 1536, height: 2048))
         scene.scaleMode = .aspectFill
         
         skView.presentScene(scene)

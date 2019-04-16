@@ -33,6 +33,8 @@
 		D8ED0251225E3CBE00A3D7F9 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8ED0250225E3CBE00A3D7F9 /* Fire.sks */; };
 		D8ED0253225E49AB00A3D7F9 /* Burn.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8ED0252225E49AB00A3D7F9 /* Burn.sks */; };
 		D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEAB3522573781003FE2A8 /* Constants.swift */; };
+		E64F5ACA22655A6300E84388 /* SignInScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5AC922655A6300E84388 /* SignInScene.swift */; };
+		E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5ACB2265682D00E84388 /* SignUpScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		D8ED0250225E3CBE00A3D7F9 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		D8ED0252225E49AB00A3D7F9 /* Burn.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Burn.sks; sourceTree = "<group>"; };
 		D8FEAB3522573781003FE2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E64F5AC922655A6300E84388 /* SignInScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScene.swift; sourceTree = "<group>"; };
+		E64F5ACB2265682D00E84388 /* SignUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 				D87B9C632252FA4A00B0A3B2 /* Player.swift */,
 				D811F20E2248AFBD00DD5E47 /* Assets.xcassets */,
 				D83364CF225DDE9600CF2D52 /* MenuScene.swift */,
+				E64F5AC922655A6300E84388 /* SignInScene.swift */,
+				E64F5ACB2265682D00E84388 /* SignUpScene.swift */,
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
@@ -370,7 +376,9 @@
 				D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */,
 				D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */,
 				D8AB844A225BAC16002817AB /* StartScne.swift in Sources */,
+				E64F5ACA22655A6300E84388 /* SignInScene.swift in Sources */,
 				D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */,
+				E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */,
 				D83364D0225DDE9600CF2D52 /* MenuScene.swift in Sources */,
 				D833A7282258CD99007E1138 /* UserSignUpViewController.swift in Sources */,
 				D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */,

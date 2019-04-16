@@ -24,6 +24,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var isGameStarted = false
     var isGameOver = false
     
+    var lblScore:SKLabelNode!
+    var score:Int = 0 {
+        didSet{
+            lblScore.text = "Score: \(score)"
+        }
+    }
+    
     /*
      
      Function: didMove
@@ -48,6 +55,16 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)
+        
+        // create score
+        lblScore = SKLabelNode(text: "Score: 0")
+        lblScore.position = CGPoint(x: 1080, y: 1800)
+        lblScore.fontName = "AmericanTypewiter-Bold"
+        lblScore.fontSize = 50
+        lblScore.fontColor = UIColor.white
+        score = 0
+        self.addChild(lblScore)
+
         
         // creates the moving bridge
         movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 420))
