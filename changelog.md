@@ -3,6 +3,7 @@
 
 ### Wednesday 17/April
 - Working on Score and SignIn/SignUp [Sachin]
+- Score part done [Sachin]
 
 ### Tuesday 16/April
 - Starting works on Score [Sachin]
