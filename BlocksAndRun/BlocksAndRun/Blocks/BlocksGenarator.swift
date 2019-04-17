@@ -15,6 +15,8 @@ class BlocksGenarator: SKSpriteNode {
     var blockGenarateTimer : Timer?
     var blocks = [Blocks]() // created an empty array
     
+    var blocksTracker = [Blocks]()
+    
     
     /*
      
@@ -69,6 +71,7 @@ class BlocksGenarator: SKSpriteNode {
         block.position.x = 1000
         block.position.y = scale * 130
         blocks.append(block)
+        blocksTracker.append(block)
         addChild(block)
         
         let fireEmitter = SKEmitterNode(fileNamed: "Fire")!

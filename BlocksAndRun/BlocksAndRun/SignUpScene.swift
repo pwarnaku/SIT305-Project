@@ -39,8 +39,6 @@ class SignUpScene: SKScene {
         cloudGenerator.populate(num: 10)
         cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
         
-        
-        
         //sign up button
         let signUpButtonTexture = SKTexture(imageNamed: "signup")
         signUpButton = SKSpriteNode(texture: signUpButtonTexture , size: CGSize(width: 300, height: 75))
@@ -48,6 +46,8 @@ class SignUpScene: SKScene {
         signUpButton.name = "btnSignUp"
         signUpButton.zPosition = 1
         self.addChild(signUpButton)
+        
+        
         
         
         

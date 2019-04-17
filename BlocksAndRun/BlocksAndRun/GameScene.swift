@@ -24,12 +24,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var isGameStarted = false
     var isGameOver = false
     
-    var lblScore:SKLabelNode!
-    var score:Int = 0 {
+    var scoreLable:SKLabelNode!
+    var score:Int = 0{
         didSet{
-            lblScore.text = "Score: \(score)"
+            scoreLable.text = "Score: \(score)"
         }
     }
+    
     
     /*
      
@@ -56,15 +57,15 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         background.zPosition = 0
         self.addChild(background)
         
-        // create score
-        lblScore = SKLabelNode(text: "Score: 0")
-        lblScore.position = CGPoint(x: 1080, y: 1800)
-        lblScore.fontName = "AmericanTypewiter-Bold"
-        lblScore.fontSize = 50
-        lblScore.fontColor = UIColor.white
+        scoreLable = SKLabelNode(text: "Score: 0")
+        scoreLable.position = CGPoint(x: 1080, y: 1800)
+        scoreLable.fontName = "AmericanTypewiter-Bold"
+        scoreLable.fontColor = UIColor.white
+        scoreLable.fontSize = 50
         score = 0
-        self.addChild(lblScore)
-
+        self.addChild(scoreLable)
+        
+        
         
         // creates the moving bridge
         movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 420))
@@ -93,14 +94,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         cloudGenerator.populate(num: 10)
         cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
         
-        
-        
-        
         /*
          This label is allow user to tap on the screen to start the game
          this funtion named the label again to access the node in start method
          
-         */
+        */
         
         let tapToStartLabel = SKLabelNode(text: "Tap to Start")
         tapToStartLabel.name = "tapToStartLabel"
@@ -110,14 +108,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         // tapToStartLabel.zPosition = 1
         self.addChild(tapToStartLabel)
         
-        
-        func addPointsLabels(){
-            // let pointLabel = PointsLabel(num:0)
-            
-        }
         /*
          Add the physics world
-         */
+         
+        */
         
         physicsWorld.contactDelegate = self
         
@@ -247,6 +241,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      Purpose: This function will call after user taps on gameOverLabel.
      creates a new scene to retart the game
+     
+     The score label will be become to 0
      */
     
     func restart (){
@@ -256,8 +252,36 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         let  newScene = GameScene(size: CGSize(width: 1536, height: 2048))
         newScene.scaleMode = .aspectFill
         view?.presentScene(newScene)
+        score = 0 
         
     }
+    
+    /*
+     Function : Update
+     
+     Purpose: This function will add score for the player. Player get 5 points when the player jump and avoid a block.
+     
+     
+ 
+    */
+    
+    override func update(_ currentTime: CFTimeInterval){
+        
+        if blocksGenerator.blocksTracker.count > 0 {
+            let block = blocksGenerator.blocksTracker[0] as Blocks
+            
+            let blockLocation = blocksGenerator.convert(block.position, to: self)
+            if blockLocation.x < player.position.x{
+                blocksGenerator.blocksTracker.remove(at: 0)
+                
+                score+=5
+            }
+            
+        }
+        
+        
+    }
+    
     
     
     /*
