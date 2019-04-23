@@ -1,6 +1,10 @@
 
 ## Week 07
 
+### Tuesday 23/April
+- Working on lives scene [Piumi]
+- Working on facebook login [Piumi]
+
 ### Wednesday 17/April
 - Working on Score and SignIn/SignUp [Sachin]
 - Score part done [Sachin]
