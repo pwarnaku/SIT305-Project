@@ -353,7 +353,14 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             if button.contains(location) {
                 print("tapped!")
                 
-            createLivesWindow()
+           // createLivesWindow()
+                let skView = self.view as! SKView
+                skView.isMultipleTouchEnabled = false
+                
+                let scene = LivesScene(size: CGSize(width: 1536, height: 2048))
+                scene.scaleMode = .aspectFill
+                
+                skView.presentScene(scene)
  
  
  
