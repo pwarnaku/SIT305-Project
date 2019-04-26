@@ -68,7 +68,7 @@ class BlocksGenarator: SKSpriteNode {
         */
         let block = Blocks()
         
-        block.position = CGPoint(x: 1000, y: 110)
+        block.position = CGPoint(x: 1000, y: 180)
        // block.position.y = scale * 130
        // blocks.append(block)
       blocksTracker.append(block)

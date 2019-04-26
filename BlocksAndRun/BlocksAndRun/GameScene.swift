@@ -24,6 +24,16 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var isGameStarted = false
     var isGameOver = false
     var isLivesAvailable: Bool!
+    
+    var badGuys:[Diamonds] = []
+    
+    enum ColliderType:UInt32 {
+        case Player = 1
+        case Diamonds = 2
+    }
+    
+    var endOfScreenRight = CGFloat()
+    var endOfScreenLeft = CGFloat()
 
     
     var scoreLable:SKLabelNode!
@@ -51,7 +61,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      */
     override func didMove(to view: SKView) {
         
-       createLiveButton()
+        createLiveButton()
+        
+        endOfScreenLeft = (self.size.width / 2) * CGFloat(-1)
+        endOfScreenRight = self.size.width / 2
+        addBadGuys()
         
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -80,7 +94,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         player = Player()
         player.position = CGPoint(x: 350, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
         self.addChild(player)
-        player.breath() // call the breath animation
+      //  player.breath() // call the breath animation
         
         // creates the blocks
         
@@ -135,16 +149,47 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func createLiveButton(){
         
-        // Create a simple red rectangle that's 100x44
         let liveButtonTexture = SKTexture(imageNamed: "lives")
         button = SKSpriteNode(texture: liveButtonTexture , size: CGSize(width: 100, height: 100))
-        // Put it in the center of the scene
         button.position = CGPoint(x: 400, y: 1800)
         button.zPosition = 1
         
         self.addChild(button)
         
     }
+    
+    
+    func addBadGuys() {
+        addBadGuy(named: "diamond1", speed: 1.0, yPos: CGFloat(1700))
+      //  addBadGuy(named: "diamond1", speed: 1.5, yPos: CGFloat())
+      //  addBadGuy(named: "diamond1", speed: 3.0, yPos: CGFloat(-(self.size.height/4)))
+    }
+    
+    func addBadGuy(named: String, speed:Float, yPos:CGFloat) {
+        var badGuyNode = SKSpriteNode(imageNamed: named)
+        
+       // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
+      //  badGuyNode.physicsBody!.affectedByGravity = false
+      //  badGuyNode.physicsBody!.categoryBitMask = ColliderType.Diamonds.rawValue
+      //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
+       // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
+        
+        var badGuy = Diamonds(speed: speed, guy: badGuyNode)
+        badGuys.append(badGuy)
+        resetBadGuy(badGuyNode: badGuyNode, yPos: yPos)
+        badGuy.yPos = badGuyNode.position.y
+        badGuyNode.zPosition = 10
+        
+        let fireEmitter = SKEmitterNode(fileNamed: "bok")!
+        badGuyNode.addChild(fireEmitter)
+        addChild(badGuyNode)
+    }
+    
+    func resetBadGuy(badGuyNode:SKSpriteNode, yPos:CGFloat) {
+        badGuyNode.position.x = endOfScreenRight
+        badGuyNode.position.y = yPos
+    }
+    
     
     /*
      
@@ -197,10 +242,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         isGameStarted = true
         let tapToStartLable = childNode(withName: "tapToStartLabel")
         tapToStartLable?.removeFromParent()
-        player.stop()
+      //  player.stop()
         player.startRunning()
         movingBridge.start()
-        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 5)
+        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 10)
         
         
     }
@@ -269,6 +314,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     override func update(_ currentTime: CFTimeInterval){
         
+        if !isGameOver {
+           // updateBadGuysPosition()
+        }
         if blocksGenerator.blocksTracker.count > 0 {
             let block = blocksGenerator.blocksTracker[0] as Blocks
             
@@ -279,10 +327,34 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 score+=5
             }
             
+        }}
+    
+  /*  func updateBadGuysPosition() {
+        for badGuy in badGuys {
+            if !badGuy.moving {
+                badGuy.currentFrame = +1
+                if badGuy.currentFrame > badGuy.randomFrame {
+                    badGuy.moving = true
+                }
+            } else {
+                badGuy.guy.position.y = CGFloat(Double(badGuy.guy.position.y) + sin(badGuy.angle) * badGuy.range)
+              //  badGuy.angle += hero.speed
+                if badGuy.guy.position.x > endOfScreenLeft {
+                    badGuy.guy.position.x -= CGFloat(badGuy.speed)
+                } else {
+                    badGuy.guy.position.x = endOfScreenRight
+                    badGuy.currentFrame = 0
+                    badGuy.setRandomFrame()
+                    badGuy.moving = false
+                    badGuy.range += 0.1
+                   // updateScore()
+                }
+            }
         }
+    } */
         
         
-    }
+    
     
     
     
@@ -331,7 +403,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-        player.burn()
+      //  player.burn()
         gameOver()
        
         if manageLives() == false{
