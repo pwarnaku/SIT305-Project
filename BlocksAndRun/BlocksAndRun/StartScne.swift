@@ -46,14 +46,14 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         }
         
         mainRunningAnimation = SKSpriteNode(imageNamed: textureAtlas.textureNames[0] as! String)
-        mainRunningAnimation.size = CGSize(width: 600, height: 900)
-        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 690)
+        mainRunningAnimation.size = CGSize(width: 500, height: 800)
+        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 770)
         mainRunningAnimation.zPosition = 2
         
         self.addChild(mainRunningAnimation)
         
         
-        mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.05)))
+        mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.06)))
         
         
         let background = SKSpriteNode(imageNamed: "background")
@@ -70,11 +70,11 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         cloudGenerator.populate(num: 10)
         cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
         
-        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 420))
+        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 620))
         movingBridge.position = CGPoint(x: 0, y: 300)
         movingBridge.zPosition = 1
         self.addChild(movingBridge)
-         movingBridge.start()
+        movingBridge.start()
         
         
         
@@ -84,14 +84,36 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
          
          */
         
-        let nameOfTheGameLabel = SKLabelNode(text: "Blocks and Run")
+        if let nodeToMask = SKEmitterNode(fileNamed: "MyParticlekoji") {
+            
+            backgroundColor = UIColor.blue
+            let cropNode = SKCropNode()
+            cropNode.position = CGPoint(x: self.size.width/2, y: 1700)
+            
+            let mask = SKLabelNode(fontNamed: "GillSans-BoldItalic")
+            mask.text = "Run"
+            mask.fontColor = UIColor.green
+            mask.fontSize = 180
+            
+            cropNode.maskNode = mask
+            cropNode.zPosition = 6
+            
+            nodeToMask.position = CGPoint(x: 0, y: 0)
+            nodeToMask.name = "character"
+            cropNode.addChild(nodeToMask)
+            
+            addChild(cropNode)
+        }
+        
+     /*   let nameOfTheGameLabel = SKLabelNode(text: "Blocks and Run")
         nameOfTheGameLabel.name = "tapToStartLabel"
         nameOfTheGameLabel.position = CGPoint(x: self.size.width/2, y: 1200)
         nameOfTheGameLabel.fontColor = UIColor.white
         nameOfTheGameLabel.fontSize = 100
         // tapToStartLabel.zPosition = 1
-        self.addChild(nameOfTheGameLabel)
+        self.addChild(nameOfTheGameLabel) */
         
+    
         addSnowEmitter()
     
         

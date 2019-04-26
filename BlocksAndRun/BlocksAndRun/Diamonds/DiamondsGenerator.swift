@@ -1,15 +1,15 @@
- //
-//  BlocksGenarator.swift
+//
+//  DiamondsGenerator.swift
 //  BlocksAndRun
 //
-//  Created by Piumi on 5/4/19.
+//  Created by Piumi on 26/4/19.
 //  Copyright © 2019 Deakin. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class BlocksGenarator: SKSpriteNode {
+class DiamondsGenarator: SKSpriteNode {
     
     
     var blockGenarateTimer : Timer?
@@ -45,7 +45,7 @@ class BlocksGenarator: SKSpriteNode {
      Purpose: This funtion will generate blocks randomly and
      set up the positions of blocks
      
-      ** Important note for developers**
+     ** Important note for developers**
      
      arc4random_uniform - This method generate random numbers from 0 to given number.
      I have use scale to assign 1.0 or -1.0. The purpose of having theese values is to assign them into
@@ -59,19 +59,19 @@ class BlocksGenarator: SKSpriteNode {
         
         var scale: CGFloat
         
-    /*    let rand = arc4random_uniform(2)
-        if rand == 0 {
-            scale = -5.0
-        } else {
-            scale = 1.0
-        }
-        */
+            let rand = arc4random_uniform(5)
+         if rand == 0 {
+         scale = -5.0
+         } else {
+         scale = 1.0
+         }
+        
         let block = Blocks()
         
         block.position = CGPoint(x: 1000, y: 110)
-       // block.position.y = scale * 130
-       // blocks.append(block)
-      blocksTracker.append(block)
+        // block.position.y = scale * 130
+        // blocks.append(block)
+        blocksTracker.append(block)
         addChild(block)
         
         let fireEmitter = SKEmitterNode(fileNamed: "Fire")!
@@ -117,4 +117,5 @@ class BlocksGenarator: SKSpriteNode {
         }
     }
 }
+
 

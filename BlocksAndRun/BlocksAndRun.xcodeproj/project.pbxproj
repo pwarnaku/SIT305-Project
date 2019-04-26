@@ -21,6 +21,11 @@
 		D833A7262258CD6C007E1138 /* UserSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7252258CD6C007E1138 /* UserSignInViewController.swift */; };
 		D833A7282258CD99007E1138 /* UserSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7272258CD99007E1138 /* UserSignUpViewController.swift */; };
 		D833A72A2258CDA8007E1138 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7292258CDA8007E1138 /* UserViewController.swift */; };
+		D83FF7482272043700BA9A43 /* FireFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7462272043700BA9A43 /* FireFlies.sks */; };
+		D83FF7492272043700BA9A43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7472272043700BA9A43 /* Assets.xcassets */; };
+		D83FF7532272081400BA9A43 /* MyParticlekoji.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7522272081400BA9A43 /* MyParticlekoji.sks */; };
+		D83FF7552272D16600BA9A43 /* Diamonds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83FF7542272D16600BA9A43 /* Diamonds.swift */; };
+		D83FF7572272D17D00BA9A43 /* DiamondsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83FF7562272D17D00BA9A43 /* DiamondsGenerator.swift */; };
 		D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B1FEF2262E4AB00B1272A /* LivesScene.swift */; };
 		D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B9C632252FA4A00B0A3B2 /* Player.swift */; };
 		D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8441225B9237002817AB /* CloudsGenerator.swift */; };
@@ -75,6 +80,11 @@
 		D833A7252258CD6C007E1138 /* UserSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignInViewController.swift; sourceTree = "<group>"; };
 		D833A7272258CD99007E1138 /* UserSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpViewController.swift; sourceTree = "<group>"; };
 		D833A7292258CDA8007E1138 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		D83FF7462272043700BA9A43 /* FireFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireFlies.sks; sourceTree = "<group>"; };
+		D83FF7472272043700BA9A43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D83FF7522272081400BA9A43 /* MyParticlekoji.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticlekoji.sks; sourceTree = "<group>"; };
+		D83FF7542272D16600BA9A43 /* Diamonds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diamonds.swift; sourceTree = "<group>"; };
+		D83FF7562272D17D00BA9A43 /* DiamondsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondsGenerator.swift; sourceTree = "<group>"; };
 		D86B1FEF2262E4AB00B1272A /* LivesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesScene.swift; sourceTree = "<group>"; };
 		D87B9C632252FA4A00B0A3B2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D8AB8441225B9237002817AB /* CloudsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGenerator.swift; sourceTree = "<group>"; };
@@ -163,6 +173,7 @@
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
+				D83FF7582272D18300BA9A43 /* Diamonds */,
 				D80429CD226442C800F9FC9F /* running */,
 				D8ED0254225E4ABF00A3D7F9 /* Effects */,
 				D8AB8446225BA91C002817AB /* Blocks */,
@@ -188,6 +199,15 @@
 				D811F2292248AFBD00DD5E47 /* Info.plist */,
 			);
 			path = BlocksAndRunUITests;
+			sourceTree = "<group>";
+		};
+		D83FF7582272D18300BA9A43 /* Diamonds */ = {
+			isa = PBXGroup;
+			children = (
+				D83FF7542272D16600BA9A43 /* Diamonds.swift */,
+				D83FF7562272D17D00BA9A43 /* DiamondsGenerator.swift */,
+			);
+			path = Diamonds;
 			sourceTree = "<group>";
 		};
 		D8AB8440225B4DE9002817AB /* New Group */ = {
@@ -222,6 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				D8ED0250225E3CBE00A3D7F9 /* Fire.sks */,
+				D83FF7522272081400BA9A43 /* MyParticlekoji.sks */,
+				D83FF7462272043700BA9A43 /* FireFlies.sks */,
+				D83FF7472272043700BA9A43 /* Assets.xcassets */,
 				D8ED0252225E49AB00A3D7F9 /* Burn.sks */,
 				D8D03832225E39BB00E2B09D /* Snow.sks */,
 			);
@@ -332,14 +355,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83FF7482272043700BA9A43 /* FireFlies.sks in Resources */,
 				D811F20D2248AFBC00DD5E47 /* Main.storyboard in Resources */,
 				D80429CF226442ED00F9FC9F /* running.atlas in Resources */,
 				D811F20F2248AFBD00DD5E47 /* Assets.xcassets in Resources */,
+				D83FF7492272043700BA9A43 /* Assets.xcassets in Resources */,
 				D811F2122248AFBD00DD5E47 /* LaunchScreen.storyboard in Resources */,
 				D8ED0251225E3CBE00A3D7F9 /* Fire.sks in Resources */,
 				D8D03833225E39BB00E2B09D /* Snow.sks in Resources */,
 				D83364D2225DDE9D00CF2D52 /* MenuScene.sks in Resources */,
 				D8ED0253225E49AB00A3D7F9 /* Burn.sks in Resources */,
+				D83FF7532272081400BA9A43 /* MyParticlekoji.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,8 +402,10 @@
 				D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */,
 				D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */,
 				D8AB844A225BAC16002817AB /* StartScne.swift in Sources */,
+				D83FF7572272D17D00BA9A43 /* DiamondsGenerator.swift in Sources */,
 				E64F5ACA22655A6300E84388 /* SignInScene.swift in Sources */,
 				D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */,
+				D83FF7552272D16600BA9A43 /* Diamonds.swift in Sources */,
 				E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */,
 				D83364D0225DDE9600CF2D52 /* MenuScene.swift in Sources */,
 				D833A7282258CD99007E1138 /* UserSignUpViewController.swift in Sources */,

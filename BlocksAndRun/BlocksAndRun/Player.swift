@@ -16,6 +16,10 @@ class Player: SKSpriteNode {
      These parts will be used to animate the player
      */
     
+     var mainRunningAnimation: SKSpriteNode!
+    var textureAtlas = SKTextureAtlas()
+    var textureArray = [SKTexture]()
+    
     var head: SKSpriteNode!
     var face: SKSpriteNode!
     var body: SKSpriteNode!
@@ -189,8 +193,8 @@ class Player: SKSpriteNode {
     
     func startRunning()  {
         
-        let rotateBack  = SKAction.rotate(byAngle: -CGFloat(M_PI)/2.0, duration: 0.2)
-        arm.run(rotateBack)
+      /*  let rotateBack  = SKAction.rotate(byAngle: -CGFloat(M_PI)/2.0, duration: 0.2)
+        arm.run(rotateBack)*/
         performOneCycle()
     }
     
@@ -206,7 +210,28 @@ class Player: SKSpriteNode {
      
      */
     
-    func performOneCycle()  {
+    func performOneCycle()  {textureAtlas = SKTextureAtlas(named: "running")
+        
+        for i in 1...textureAtlas.textureNames.count{
+            
+            let imageName = "run\(i)"
+            textureArray.append(SKTexture(imageNamed: imageName))
+        }
+        
+        mainRunningAnimation = SKSpriteNode(imageNamed: textureAtlas.textureNames[0] as! String)
+        mainRunningAnimation.size = CGSize(width: 600, height: 900)
+        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 110)
+        mainRunningAnimation.zPosition = 2
+        
+        self.addChild(mainRunningAnimation)
+        
+        
+        mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.05)))
+        
+        
+        
+        /*
+        
         let forward = SKAction.moveBy(x: 4, y: 4, duration: 0.03)
         let backward = SKAction.moveBy(x: -4, y: -4, duration: 0.03)
         
@@ -217,7 +242,7 @@ class Player: SKSpriteNode {
                     self.performOneCycle() // repeats cycle
                 })
             })
-        })
+        }) */
     }
     
     /*
@@ -257,6 +282,7 @@ class Player: SKSpriteNode {
         body.removeAllActions()
         leftLeg.removeAllActions()
         rightLeg.removeAllActions()
+       // mainRunningAnimation.removeAllActions()
     }
     
     
@@ -274,9 +300,9 @@ class Player: SKSpriteNode {
     
     func burn(){
         
-        let burntBodyTexture = SKTexture(imageNamed: "burntBody")
-        body = SKSpriteNode(texture: burntBodyTexture, size: CGSize(width: 300, height: 180))
-       addChild(body)
+      //  let burntBodyTexture = SKTexture(imageNamed: "burntBody")
+      //  body = SKSpriteNode(texture: burntBodyTexture, size: CGSize(width: 300, height: 180))
+      // addChild(body)
         
         
         let burnEmitter = SKEmitterNode(fileNamed: "Burn")!

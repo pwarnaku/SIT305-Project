@@ -8,6 +8,8 @@
 
 import Foundation
 import GameplayKit
+import Social
+
 
 class LivesScene: SKScene , SKPhysicsContactDelegate {
     
@@ -18,6 +20,8 @@ class LivesScene: SKScene , SKPhysicsContactDelegate {
     var heart2: SKSpriteNode!
     var coin: SKSpriteNode!
     var fb: SKSpriteNode!
+    
+    var cancelButton: SKNode!
     
     
     /*
@@ -38,6 +42,8 @@ class LivesScene: SKScene , SKPhysicsContactDelegate {
   
     
     override func didMove(to view: SKView) {
+        
+        createCancelButton()
         
         let background = SKSpriteNode(color: UIColor(red: 255.00/255.0, green: 182.00/255.0, blue: 193.00/255.0, alpha: 5.0), size: CGSize(width: 700, height: 700))
         background.size = self.size
@@ -68,6 +74,7 @@ class LivesScene: SKScene , SKPhysicsContactDelegate {
         lives1.position = CGPoint(x: 860, y: 1280)
         lives1.fontColor = UIColor.white
         lives1.fontSize = 60
+        
         self.addChild(lives1)
         
         
@@ -84,7 +91,6 @@ class LivesScene: SKScene , SKPhysicsContactDelegate {
         fb = SKSpriteNode(imageNamed: "fb")
         fb.size = CGSize(width: 100, height: 100)
         fb.position = CGPoint(x:1100, y: 910)
-        // self.isUserInteractionEnabled = true
         addChild(fb)
         
         let lives2 = SKLabelNode(text: "Ask lives")
@@ -97,5 +103,57 @@ class LivesScene: SKScene , SKPhysicsContactDelegate {
         
         
        
+    }
+    
+    /*
+     
+     Function: createCancelButton
+     
+     Purpose: This function takesback to the game
+     
+     ** Important note for developers**
+     
+     You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     */
+    
+    func createCancelButton(){
+        
+        // Create a simple red rectangle that's 100x44
+        let CancelButtonTexture = SKTexture(imageNamed: "close")
+        cancelButton = SKSpriteNode(texture: CancelButtonTexture , size: CGSize(width: 100, height: 100))
+        // Put it in the center of the scene
+        cancelButton.position = CGPoint(x: 1000, y: 1800)
+        cancelButton.zPosition = 1
+        
+        self.addChild(cancelButton)
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for touch: AnyObject in touches {
+            // Get the location of the touch in this scene
+            let location = touch.location(in: self)
+            // Check if the location of the touch is within the button's bounds
+            if cancelButton.contains(location) {
+                print("tapped!")
+                
+                // createLivesWindow()
+                let skView = self.view as! SKView
+                skView.isMultipleTouchEnabled = false
+                
+                let scene = GameScene(size: CGSize(width: 1536, height: 2048))
+                scene.scaleMode = .aspectFill
+                
+                skView.presentScene(scene)
+                
+                
+                
+                
+            }
+        }
     }
 }

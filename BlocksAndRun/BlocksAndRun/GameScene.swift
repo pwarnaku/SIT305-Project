@@ -23,6 +23,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     var isGameStarted = false
     var isGameOver = false
+    var isLivesAvailable: Bool!
+
     
     var scoreLable:SKLabelNode!
     var score:Int = 0{
@@ -198,7 +200,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         player.stop()
         player.startRunning()
         movingBridge.start()
-        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 1)
+        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 5)
         
         
     }
@@ -295,11 +297,52 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      workd correctly
      
      */
+   
+    
+    
+  
+    
+    
+    func manageLives() -> Bool {
+       
+        
+        Defaultlives -= 1
+        let currentlives = Defaultlives
+        
+        
+        if currentlives == 0
+            
+        {
+            isLivesAvailable = false
+            
+            // print("waithvgvvjhbhv")
+         
+        }
+            
+        else
+            
+        {
+            isLivesAvailable = true
+        }
+        
+        return isLivesAvailable
+    }
+    
     
     func didBegin(_ contact: SKPhysicsContact) {
         
         player.burn()
         gameOver()
+       
+        if manageLives() == false{
+            
+             print("wait")
+            
+        }
+        if manageLives() == true{
+        
+             print("ok")
+        }
         
         //print("did began called")
     }
