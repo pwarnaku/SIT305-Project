@@ -25,7 +25,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var isGameOver = false
     var isLivesAvailable: Bool!
     
-    var badGuys:[Diamonds] = []
+    var diamonds:[Diamonds] = []
+    
+     var Defaultlives: Int = 2
     
     enum ColliderType:UInt32 {
         case Player = 1
@@ -63,9 +65,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         createLiveButton()
         
-        endOfScreenLeft = (self.size.width / 2) * CGFloat(-1)
-        endOfScreenRight = self.size.width / 2
-        addBadGuys()
+        endOfScreenLeft = (1200) * CGFloat(-1)
+        endOfScreenRight = 1200
+        addDiamonds()
         
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
@@ -118,9 +120,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         let tapToStartLabel = SKLabelNode(text: "Tap to Start")
         tapToStartLabel.name = "tapToStartLabel"
-        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: 1600)
+        tapToStartLabel.fontName = "GillSans-BoldItalic"
         tapToStartLabel.fontColor = UIColor.white
-        tapToStartLabel.fontSize = 100
+        tapToStartLabel.fontSize = 80
         // tapToStartLabel.zPosition = 1
         self.addChild(tapToStartLabel)
         
@@ -158,15 +161,27 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
     }
     
+    /*
+     
+     Function: addDiamonds
+     
+     Purpose: This function add diamonds and give speeds to each diamond
+     
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     */
     
-    func addBadGuys() {
-        addBadGuy(named: "diamond1", speed: 1.0, yPos: CGFloat(1700))
+    func addDiamonds() {
+        addDiamond(named: "diamond1", speed: 3.0, yPos: CGFloat(1500))
+        
       //  addBadGuy(named: "diamond1", speed: 1.5, yPos: CGFloat())
       //  addBadGuy(named: "diamond1", speed: 3.0, yPos: CGFloat(-(self.size.height/4)))
     }
     
-    func addBadGuy(named: String, speed:Float, yPos:CGFloat) {
-        var badGuyNode = SKSpriteNode(imageNamed: named)
+    func addDiamond(named: String, speed:Float, yPos:CGFloat) {
+        var diamondNode = SKSpriteNode(imageNamed: named)
         
        // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
       //  badGuyNode.physicsBody!.affectedByGravity = false
@@ -174,20 +189,20 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
       //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
        // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
         
-        var badGuy = Diamonds(speed: speed, guy: badGuyNode)
-        badGuys.append(badGuy)
-        resetBadGuy(badGuyNode: badGuyNode, yPos: yPos)
-        badGuy.yPos = badGuyNode.position.y
-        badGuyNode.zPosition = 10
-        
+        var diamond = Diamonds(speed: speed, guy: diamondNode)
+        diamonds.append(diamond)
+        resetBadGuy(diamondNode: diamondNode, yPos: yPos)
+        diamond.yPos = diamondNode.position.y
+        diamondNode.zPosition = 10
+        diamondNode.size = CGSize(width: 200, height: 250)
         let fireEmitter = SKEmitterNode(fileNamed: "bok")!
-        badGuyNode.addChild(fireEmitter)
-        addChild(badGuyNode)
+        diamondNode.addChild(fireEmitter)
+        addChild(diamondNode)
     }
     
-    func resetBadGuy(badGuyNode:SKSpriteNode, yPos:CGFloat) {
-        badGuyNode.position.x = endOfScreenRight
-        badGuyNode.position.y = yPos
+    func resetBadGuy(diamondNode:SKSpriteNode, yPos:CGFloat) {
+        diamondNode.position.x = endOfScreenRight
+        diamondNode.position.y = yPos
     }
     
     
@@ -299,7 +314,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         let  newScene = GameScene(size: CGSize(width: 1536, height: 2048))
         newScene.scaleMode = .aspectFill
         view?.presentScene(newScene)
-        score = 0 
+        score = 0
+        //Defaultlives =
         
     }
     
@@ -308,50 +324,51 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      Purpose: This function will add score for the player. Player get 5 points when the player jump and avoid a block.
      
-     
- 
     */
     
     override func update(_ currentTime: CFTimeInterval){
         
-        if !isGameOver {
-           // updateBadGuysPosition()
-        }
-        if blocksGenerator.blocksTracker.count > 0 {
-            let block = blocksGenerator.blocksTracker[0] as Blocks
+        if !isGameOver{
+            updateDiamondsPosition()
             
-            let blockLocation = blocksGenerator.convert(block.position, to: self)
-            if blockLocation.x < player.position.x{
-                blocksGenerator.blocksTracker.remove(at: 0)
+            if blocksGenerator.blocksTracker.count > 0 {
+                let block = blocksGenerator.blocksTracker[0] as Blocks
                 
-                score+=5
+                let blockLocation = blocksGenerator.convert(block.position, to: self)
+                if blockLocation.x < player.position.x{
+                    blocksGenerator.blocksTracker.remove(at: 0)
+                    
+                    score+=5
+                }
+                
             }
-            
-        }}
+        }
+        }
     
-  /*  func updateBadGuysPosition() {
-        for badGuy in badGuys {
-            if !badGuy.moving {
-                badGuy.currentFrame = +1
-                if badGuy.currentFrame > badGuy.randomFrame {
-                    badGuy.moving = true
+    func updateDiamondsPosition() {
+        
+        for diamond in diamonds {
+            if !diamond.moving {
+                diamond.currentFrame = +1
+                if diamond.currentFrame > diamond.randomFrame {
+                    diamond.moving = true
                 }
             } else {
-                badGuy.guy.position.y = CGFloat(Double(badGuy.guy.position.y) + sin(badGuy.angle) * badGuy.range)
-              //  badGuy.angle += hero.speed
-                if badGuy.guy.position.x > endOfScreenLeft {
-                    badGuy.guy.position.x -= CGFloat(badGuy.speed)
+                diamond.guy.position.y = CGFloat(Double(diamond.guy.position.y) + sin(diamond.angle) * diamond.range)
+                diamond.angle += 0.10
+                if diamond.guy.position.x > endOfScreenLeft {
+                    diamond.guy.position.x -= CGFloat(diamond.speed)
                 } else {
-                    badGuy.guy.position.x = endOfScreenRight
-                    badGuy.currentFrame = 0
-                    badGuy.setRandomFrame()
-                    badGuy.moving = false
-                    badGuy.range += 0.1
-                   // updateScore()
+                    diamond.guy.position.x = endOfScreenRight
+                    diamond.currentFrame = 0
+                    diamond.setRandomFrame()
+                    diamond.moving = false
+                    diamond.range += 0.1
+                    //updateScore()
                 }
             }
         }
-    } */
+    }
         
         
     
@@ -406,15 +423,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
       //  player.burn()
         gameOver()
        
-        if manageLives() == false{
-            
-             print("wait")
-            
-        }
-        if manageLives() == true{
-        
-             print("ok")
-        }
+      
         
         //print("did began called")
     }

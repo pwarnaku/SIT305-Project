@@ -22,5 +22,5 @@ let defaultBlocksmoveByxperSeconds: CGFloat = 320.0
 let playerCategory: UInt32 = 0x1 << 0
 let blockeCategory: UInt32 = 0x1 << 1
 
- var Defaultlives: Int = 2
+
 

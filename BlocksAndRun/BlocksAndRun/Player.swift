@@ -16,6 +16,8 @@ class Player: SKSpriteNode {
      These parts will be used to animate the player
      */
     
+//override var speed = 0.1
+    
     var mainRunningAnimation: SKSpriteNode!
     var textureAtlas = SKTextureAtlas()
     var textureArray = [SKTexture]()
