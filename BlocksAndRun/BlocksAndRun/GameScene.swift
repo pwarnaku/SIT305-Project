@@ -27,7 +27,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     var diamonds:[Diamonds] = []
     
-     var Defaultlives: Int = 2
+    var Defaultlives: Int = 2
     
     enum ColliderType:UInt32 {
         case Player = 1
@@ -66,7 +66,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         createLiveButton()
         
         endOfScreenLeft = (1200) * CGFloat(-1)
-        endOfScreenRight = 1200
+        endOfScreenRight = 1900
         addDiamonds()
         
         let background = SKSpriteNode(imageNamed: "background")
@@ -175,9 +175,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func addDiamonds() {
         addDiamond(named: "diamond1", speed: 3.0, yPos: CGFloat(1500))
-        
-      //  addBadGuy(named: "diamond1", speed: 1.5, yPos: CGFloat())
-      //  addBadGuy(named: "diamond1", speed: 3.0, yPos: CGFloat(-(self.size.height/4)))
     }
     
     func addDiamond(named: String, speed:Float, yPos:CGFloat) {
@@ -189,9 +186,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
       //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
        // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
         
+        
+        
+        
         var diamond = Diamonds(speed: speed, guy: diamondNode)
         diamonds.append(diamond)
-        resetBadGuy(diamondNode: diamondNode, yPos: yPos)
+        resetDiamonds(diamondNode: diamondNode, yPos: yPos)
         diamond.yPos = diamondNode.position.y
         diamondNode.zPosition = 10
         diamondNode.size = CGSize(width: 200, height: 250)
@@ -200,7 +200,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         addChild(diamondNode)
     }
     
-    func resetBadGuy(diamondNode:SKSpriteNode, yPos:CGFloat) {
+    func resetDiamonds(diamondNode:SKSpriteNode, yPos:CGFloat) {
         diamondNode.position.x = endOfScreenRight
         diamondNode.position.y = yPos
     }
@@ -315,7 +315,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         newScene.scaleMode = .aspectFill
         view?.presentScene(newScene)
         score = 0
-        //Defaultlives =
         
     }
     
@@ -327,8 +326,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     */
     
     override func update(_ currentTime: CFTimeInterval){
+        if !isGameOver {
         
-        if !isGameOver{
             updateDiamondsPosition()
             
             if blocksGenerator.blocksTracker.count > 0 {
@@ -349,7 +348,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         for diamond in diamonds {
             if !diamond.moving {
-                diamond.currentFrame = +1
+                diamond.currentFrame += 10
                 if diamond.currentFrame > diamond.randomFrame {
                     diamond.moving = true
                 }

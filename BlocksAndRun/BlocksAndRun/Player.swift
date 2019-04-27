@@ -227,8 +227,8 @@ class Player: SKSpriteNode {
         }
         
         mainRunningAnimation = SKSpriteNode(imageNamed: textureAtlas.textureNames[0] as! String)
-        mainRunningAnimation.size = CGSize(width: 400, height: 700)
-        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 130)
+        mainRunningAnimation.size = CGSize(width: 300, height: 600)
+        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 80)
         mainRunningAnimation.zPosition = 2
         
         self.addChild(mainRunningAnimation)
