@@ -1,9 +1,19 @@
 
-## Week 07
+
+## Week 08
+
+### Friday 26/April
+- Polished the app [Piumi]
+- Add diamonds [Piumi]
+    - player can jump to collect diamonds. 
+    - player gets bonus points 
+
 
 ### Tuesday 23/April
 - Working on lives scene [Piumi]
 - Working on facebook login [Piumi]
+
+## Week 07
 
 ### Wednesday 17/April
 - Working on Score and SignIn/SignUp [Sachin]
