@@ -2,6 +2,11 @@
 
 ## Week 08
 
+### Sunday 28/April
+
+- Working on player selection [piumi]
+    - User can select a charator as their want
+
 ### Friday 26/April
 - Polished the app [Piumi]
 - Add diamonds [Piumi]
