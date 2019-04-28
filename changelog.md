@@ -6,6 +6,7 @@
 
 - Working on player selection [piumi]
     - User can select a charator as their want
+- Working on scrolling windows [Piumi]
 
 ### Friday 26/April
 - Polished the app [Piumi]
