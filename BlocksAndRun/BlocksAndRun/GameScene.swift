@@ -12,6 +12,8 @@ import GameplayKit
 class GameScene: SKScene , SKPhysicsContactDelegate {
     
     var button: SKNode!
+    var settingsButton: SKNode!
+    
     var liveScreen: SKSpriteNode!
     
     var liveScene: StartScene!
@@ -64,6 +66,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         createLiveButton()
+        createSettingsButton()
         
         endOfScreenLeft = (1200) * CGFloat(-1)
         endOfScreenRight = 1900
@@ -154,10 +157,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         let liveButtonTexture = SKTexture(imageNamed: "lives")
         button = SKSpriteNode(texture: liveButtonTexture , size: CGSize(width: 100, height: 100))
-        button.position = CGPoint(x: 400, y: 1800)
+        button.position = CGPoint(x: 460, y: 1800)
         button.zPosition = 1
         
         self.addChild(button)
+        
+    }
+    
+    func createSettingsButton(){
+        
+        let settingsButtonTexture = SKTexture(imageNamed: "settings")
+        settingsButton = SKSpriteNode(texture: settingsButtonTexture , size: CGSize(width: 100, height: 100))
+        settingsButton.position = CGPoint(x: 400, y: 1800)
+        settingsButton.zPosition = 1
+        
+        self.addChild(settingsButton)
         
     }
     
@@ -321,7 +335,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     /*
      Function : Update
      
-     Purpose: This function will add score for the player. Player get 5 points when the player jump and avoid a block.
+     Purpose: This function will add score for the player.
+     Player get 5 points when the player jump and avoid a block.
+     
+     
      
     */
     
@@ -488,6 +505,24 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
  
  
  
+            }
+            
+            
+            if settingsButton.contains(location) {
+                print("tapped!")
+                
+                // createLivesWindow()
+                let skView = self.view as! SKView
+                skView.isMultipleTouchEnabled = false
+                
+                let scene = PlayerSelection(size: CGSize(width: 1536, height: 2048))
+                scene.scaleMode = .aspectFill
+                
+                skView.presentScene(scene)
+                
+                
+                
+                
             }
         }
     }

@@ -11,7 +11,7 @@ import GameplayKit
 import Social
 
 
-class LivesScene: SKScene , SKPhysicsContactDelegate {
+class LivesScene: SKScene  {
     
     
     var backgroundSegment1: SKSpriteNode!
