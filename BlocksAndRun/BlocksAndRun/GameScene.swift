@@ -11,18 +11,38 @@ import GameplayKit
 
 class GameScene: SKScene , SKPhysicsContactDelegate {
     
+    //Buttons
     var button: SKNode!
-    var liveScreen: SKSpriteNode!
+    var settingsButton: SKNode!
     
+    //Scenes
     var liveScene: StartScene!
    
+    //Objects
     var movingBridge: MovingBridge!
     var player: Player!
     var blocksGenerator: BlocksGenarator!
     var cloudGenerator: CloudsGenarator!
     
+    //boolean values
     var isGameStarted = false
     var isGameOver = false
+    var isLivesAvailable: Bool!
+    
+    //diamonds
+    var diamonds:[Diamonds] = []
+    
+    var Defaultlives: Int = 2
+    
+    enum ColliderType:UInt32 {
+        case Player = 1
+        case Diamonds = 2
+    }
+    
+    //limits
+    var endOfScreenRight = CGFloat()
+    var endOfScreenLeft = CGFloat()
+
     
     var scoreLable:SKLabelNode!
     var score:Int = 0{
@@ -47,15 +67,183 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      add SKTexture textureWithImage:[UIImage imageNamed:"imagename.png"]
      
      */
+    
     override func didMove(to view: SKView) {
         
-       createLiveButton()
+        //creates buttons
+        createLiveButton()
+        createSettingsButton()
+        
+        endOfScreenLeft = (1200) * CGFloat(-1)
+        endOfScreenRight = 1900
+        
+        // creates objects
+        createTheBackground()
+        createTheMovingBridge()
+        createThePlayer()
+        createBlocks()
+        addDiamonds()
+        generateClouds()
+        startGameLable()
+        scoreLabel()
+        
+        // Add the physics world
+        physicsWorld.contactDelegate = self
+        
+    }
+    
+    /*
+     
+     Function: createTheBackground
+     
+     Purpose: This function creates the background.
+     
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     */
+    
+    func createTheBackground(){
         
         let background = SKSpriteNode(imageNamed: "background")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         background.zPosition = 0
         self.addChild(background)
+    }
+    
+    /*
+     
+     Function: createTheMovingBridge
+     
+     Purpose: This function creates the moving bridge.
+     
+     ** Important note for developers**
+     
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     */
+    
+    func createTheMovingBridge(){
+        
+        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 420))
+        movingBridge.position = view!.center
+        movingBridge.zPosition = 1
+        self.addChild(movingBridge)
+        
+        }
+    
+    
+    /*
+     
+     Function: createThePlayer
+     
+     Purpose: This function creates the player and starting animations.
+     
+     ** Important note for developers**
+     
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     */
+    
+    func createThePlayer(){
+        
+        player = Player()
+        player.position = CGPoint(x: 380, y: 800)
+        self.addChild(player)
+        //  player.breath() // call the breath animation
+        
+    }
+    
+    /*
+ 
+     Function: createBlocks
+ 
+     Purpose: This function creates tblocks (fire).
+ 
+     ** Important note for developers**
+ 
+ 
+     This function is called in gamescene.swift file under didMove function.
+     */
+    
+    func createBlocks(){
+        
+        blocksGenerator = BlocksGenarator(color: UIColor.clear, size: view!.frame.size)
+        blocksGenerator.position = view!.center
+        addChild(blocksGenerator)
+    }
+    
+    
+        /*
+     
+         Function: generateClouds
+     
+         Purpose: This function generate clouds
+     
+         ** Important note for developers**
+     
+     
+         This function is called in gamescene.swift file under didMove function.
+     
+         */
+    
+    func generateClouds(){
+        
+        cloudGenerator = CloudsGenarator(color: UIColor.clear, size: view!.frame.size)
+        cloudGenerator.position = CGPoint(x:900, y: 1800)
+        cloudGenerator.zPosition = 0
+        addChild(cloudGenerator)
+        cloudGenerator.populate(num: 10)
+        cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
+        
+    }
+    
+    /*
+     
+     Function: startGameLable
+     
+     Purpose: This function creates the  label which allows user to tap on the screen to start the game
+     this funtion named the label again to access the node in start method
+     
+     ** Important note for developers**
+     
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     
+     */
+    
+    func startGameLable(){
+        
+        let tapToStartLabel = SKLabelNode(text: "Tap to Start")
+        tapToStartLabel.name = "tapToStartLabel"
+        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        tapToStartLabel.fontName = "Marion-Italic"
+        tapToStartLabel.fontColor = UIColor.white
+        tapToStartLabel.fontSize = 80
+        self.addChild(tapToStartLabel)
+        tapToStartLabel.run(fadeInOut())
+    }
+    
+    /*
+     
+     Function: scoreLabel
+     
+     Purpose: This function creates the  score label
+     
+     ** Important note for developers**
+     
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     
+     */
+    
+    func scoreLabel(){
         
         scoreLable = SKLabelNode(text: "Score: 0")
         scoreLable.position = CGPoint(x: 1080, y: 1800)
@@ -64,57 +252,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         scoreLable.fontSize = 50
         score = 0
         self.addChild(scoreLable)
-        
-        
-        
-        // creates the moving bridge
-        movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 420))
-        movingBridge.position = view.center
-        movingBridge.zPosition = 1
-        self.addChild(movingBridge)
-        
-        
-        // creates the player
-        player = Player()
-        player.position = CGPoint(x: 350, y: movingBridge.position.y + movingBridge.frame.size.height/2 + player.frame.size.height/2)
-        self.addChild(player)
-        player.breath() // call the breath animation
-        
-        // creates the blocks
-        
-        blocksGenerator = BlocksGenarator(color: UIColor.clear, size: view.frame.size)
-        blocksGenerator.position = view.center
-        addChild(blocksGenerator)
-        
-        // add cloud generator
-        cloudGenerator = CloudsGenarator(color: UIColor.clear, size: view.frame.size)
-        cloudGenerator.position = CGPoint(x:900, y: 1800)
-        cloudGenerator.zPosition = 0
-        addChild(cloudGenerator)
-        cloudGenerator.populate(num: 10)
-        cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
-        
-        /*
-         This label is allow user to tap on the screen to start the game
-         this funtion named the label again to access the node in start method
-         
-        */
-        
-        let tapToStartLabel = SKLabelNode(text: "Tap to Start")
-        tapToStartLabel.name = "tapToStartLabel"
-        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        tapToStartLabel.fontColor = UIColor.white
-        tapToStartLabel.fontSize = 100
-        // tapToStartLabel.zPosition = 1
-        self.addChild(tapToStartLabel)
-        
-        /*
-         Add the physics world
-         
-        */
-        
-        physicsWorld.contactDelegate = self
-        
     }
     
     /*
@@ -133,48 +270,135 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func createLiveButton(){
         
-        // Create a simple red rectangle that's 100x44
         let liveButtonTexture = SKTexture(imageNamed: "lives")
         button = SKSpriteNode(texture: liveButtonTexture , size: CGSize(width: 100, height: 100))
-        // Put it in the center of the scene
-        button.position = CGPoint(x: 400, y: 1800)
+        button.position = CGPoint(x: 390, y: 1850)
         button.zPosition = 1
         
         self.addChild(button)
+        button.run(scalingAnimation())
+        
+        
+    }
+    func scalingAnimation() -> SKAction{
+        
+        //let delayAction = SKAction.wait(forDuration: TimeInterval(index) * 0.2)
+        
+        // Scale up and then back down
+        let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.3)
+        let scaleDownAction = SKAction.scale(to: 1, duration: 0.3)
+        
+        // Wait for 2 seconds before repeating the action
+        let waitAction = SKAction.wait(forDuration: 2)
+        
+        // Form a sequence with the scale actions, as well as the wait action
+        let scallingSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
+        
+        return SKAction.repeatForever(scallingSequence)
+        
+        
+        // Combine the delay and the repeat actions into another sequence
+        // let actionSequence = SKAction.sequence([delayAction, repeatAction])
+        
+        // Run the action
+        
+        
+    }
+    
+    func fadeInOut() -> SKAction {
+        
+        let duration = 0.4
+        let fadeOut = SKAction.fadeAlpha(to: 0.0, duration: duration)
+        let fadeIn = SKAction.fadeAlpha(to: 1.0, duration: duration)
+        let blink = SKAction.sequence([fadeOut,fadeIn])
+        
+        return SKAction.repeatForever(blink)
+        
+    
+    }
+    
+    /*
+     
+     Function: createSettingsButton
+     
+     Purpose: This function creates settings  button (gear) top left corner of the view
+     
+     ** Important note for developers**
+     
+     You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     */
+    
+    func createSettingsButton(){
+        
+        let settingsButtonTexture = SKTexture(imageNamed: "settings")
+        settingsButton = SKSpriteNode(texture: settingsButtonTexture , size: CGSize(width: 100, height: 100))
+        settingsButton.position = CGPoint(x: 490, y: 1850)
+        settingsButton.zPosition = 1
+        
+        self.addChild(settingsButton)
+        
         
     }
     
     /*
      
-     Function: createLiveButton
+     Function: addDiamonds
      
-     Purpose: This function creates the window and its elements when user taps onthe heart button
+     Purpose: This function add diamonds and give speeds to each diamond
+     
      ** Important note for developers**
      
-     You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
-     
-     This function is called in gamescene.swift file under touchesEnded function.
+     This function is called in gamescene.swift file under didMove function.
      
      */
     
-    func createLivesWindow()
-    {
-        
-        liveScreen = SKSpriteNode(color: UIColor(red: 153.0/255.0, green: 255.0/255.0, blue: 204.0/255.0, alpha: 5.0), size: CGSize(width: 700, height: 700))
-        liveScreen.position = CGPoint(x:770, y: 1300)
-        self.isUserInteractionEnabled = true
-        addChild(liveScreen)
-        
-        
-        let livesLabel1 = SKLabelNode(text: "Get more Lives ")
-        livesLabel1.name = "livesLabel1"
-        livesLabel1.position = CGPoint(x:870, y: 1900)
-        livesLabel1.zPosition = 10
-        livesLabel1.fontColor = UIColor.black
-        livesLabel1.fontSize = 200
-        liveScreen.addChild(livesLabel1)
-        
+    func addDiamonds() {
+        addDiamond(named: "diamond1", speed: 3.0, yPos: CGFloat(1500))
     }
+    
+    func addDiamond(named: String, speed:Float, yPos:CGFloat) {
+        var diamondNode = SKSpriteNode(imageNamed: named)
+        
+       // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
+      //  badGuyNode.physicsBody!.affectedByGravity = false
+      //  badGuyNode.physicsBody!.categoryBitMask = ColliderType.Diamonds.rawValue
+      //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
+       // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
+        
+        
+        
+        
+        var diamond = Diamonds(speed: speed, guy: diamondNode)
+        diamonds.append(diamond)
+        resetDiamonds(diamondNode: diamondNode, yPos: yPos)
+        diamond.yPos = diamondNode.position.y
+        diamondNode.zPosition = 10
+        diamondNode.size = CGSize(width: 200, height: 250)
+        let fireEmitter = SKEmitterNode(fileNamed: "bok")!
+        diamondNode.addChild(fireEmitter)
+        addChild(diamondNode)
+    }
+    
+    /*
+     
+     Function: resetDiamonds
+     
+     Purpose: This function will reset the position of diamonds
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under addDiamond function.
+     
+     */
+    
+    func resetDiamonds(diamondNode:SKSpriteNode, yPos:CGFloat) {
+        
+        diamondNode.position.x = endOfScreenRight
+        diamondNode.position.y = yPos
+    }
+    
     
     /*
      
@@ -195,10 +419,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         isGameStarted = true
         let tapToStartLable = childNode(withName: "tapToStartLabel")
         tapToStartLable?.removeFromParent()
-        player.stop()
+      //  player.stop()
         player.startRunning()
         movingBridge.start()
-        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 1)
+        blocksGenerator.startBlocksGenaratingIsEvery(seconds: 10)
         
         
     }
@@ -252,36 +476,98 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         let  newScene = GameScene(size: CGSize(width: 1536, height: 2048))
         newScene.scaleMode = .aspectFill
         view?.presentScene(newScene)
-        score = 0 
+        score = 0
         
     }
     
     /*
      Function : Update
      
-     Purpose: This function will add score for the player. Player get 5 points when the player jump and avoid a block.
+     Purpose: this funtion check whether the game is over.if not it calles the updateDiamondsPosition()
+     function and will add score for the player.
+     Player get 5 points when the player jump and avoid a block.
      
-     
- 
     */
     
     override func update(_ currentTime: CFTimeInterval){
+        if isGameStarted {
         
-        if blocksGenerator.blocksTracker.count > 0 {
-            let block = blocksGenerator.blocksTracker[0] as Blocks
+            updateDiamondsPosition()
             
-            let blockLocation = blocksGenerator.convert(block.position, to: self)
-            if blockLocation.x < player.position.x{
-                blocksGenerator.blocksTracker.remove(at: 0)
+            if blocksGenerator.blocksTracker.count > 0 {
+                let block = blocksGenerator.blocksTracker[0] as Blocks
                 
-                score+=5
+                let blockLocation = blocksGenerator.convert(block.position, to: self)
+                if blockLocation.x < player.position.x{
+                    blocksGenerator.blocksTracker.remove(at: 0)
+                    
+                    score+=5
+                }
+                
             }
+        }
+        }
+    
+    /*
+     
+     Function: updateDiamondsPosition
+     Parameters:none
+     
+     Purpose: This function check if diamonds are already moving. if not it will increase the fram by 1
+     
+     */
+    
+    func updateDiamondsPosition() {
+        
+        for diamond in diamonds {
+            if !diamond.moving {
+                diamond.currentFrame += 10
+                if diamond.currentFrame > diamond.randomFrame {
+                    diamond.moving = true
+                }
+            } else {
+                diamond.guy.position.y = CGFloat(Double(diamond.guy.position.y) + sin(diamond.angle) * diamond.range)
+                diamond.angle += 0.10
+                if diamond.guy.position.x > endOfScreenLeft {
+                    diamond.guy.position.x -= CGFloat(diamond.speed)
+                } else {
+                    diamond.guy.position.x = endOfScreenRight
+                    diamond.currentFrame = 0
+                    diamond.setRandomFrame()
+                    diamond.moving = false
+                    diamond.range += 0.1
+                    //updateScore()
+                }
+            }
+        }
+    }
+        
+    
+    
+    func manageLives() -> Bool {
+       
+        
+        Defaultlives -= 1
+        let currentlives = Defaultlives
+        
+        
+        if currentlives == 0
             
+        {
+            isLivesAvailable = false
+            
+            // print("waithvgvvjhbhv")
+         
+        }
+            
+        else
+            
+        {
+            isLivesAvailable = true
         }
         
-        
+        return isLivesAvailable
     }
-    
     
     
     /*
@@ -298,9 +584,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-        player.burn()
+      //  player.burn()
         gameOver()
-        
+       
+      
         //print("did began called")
     }
     
@@ -321,28 +608,35 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      */
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isGameOver {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        if isGameOver
+        {
             restart ()
         }
             
-        else  if !isGameStarted {
+        else  if !isGameStarted
+        {
             
              start()
-            }
-        
-            
-            
-        else {
-            
+        }
+
+        else
+        {
             player.jump()
             
-            }
+        }
         
         
     }
     
     
+    /*
+     Funtion: touchesEnded
+     
+     Purpose: this funtion handles button click events
+     
+     */
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -352,8 +646,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             // Check if the location of the touch is within the button's bounds
             if button.contains(location) {
                 print("tapped!")
-                
-           // createLivesWindow()
                 let skView = self.view as! SKView
                 skView.isMultipleTouchEnabled = false
                 
@@ -361,10 +653,26 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 scene.scaleMode = .aspectFill
                 
                 skView.presentScene(scene)
+
  
- 
- 
- 
+            }
+            
+            
+            if settingsButton.contains(location) {
+                print("tapped!")
+                
+                // createLivesWindow()
+                let skView = self.view as! SKView
+                skView.isMultipleTouchEnabled = false
+                
+                let scene = PlayerSelection(size: CGSize(width: 1536, height: 2048))
+                scene.scaleMode = .aspectFill
+                
+                skView.presentScene(scene)
+                
+                
+                
+                
             }
         }
     }

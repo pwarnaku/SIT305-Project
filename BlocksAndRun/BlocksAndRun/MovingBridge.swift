@@ -35,7 +35,7 @@ class MovingBridge : SKSpriteNode{
     
     init(size: CGSize) {
         
-        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: size.width*2, height: 320))
+        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: size.width*2, height: 620))
         anchorPoint = CGPoint(x: 0.0, y: 0.5)
         // anchorPoint = CGPoint(0.00,0.50)
         
@@ -46,7 +46,7 @@ class MovingBridge : SKSpriteNode{
             let segment2 = SKTexture(imageNamed: "bridgeSegmentOne")
             if i % 2 == 0 {
                 
-                let segment = SKSpriteNode(texture:segment1,size: CGSize(width: self.size.width/CGFloat(NUMBER_OF_SEGMENTS), height: 320))
+                let segment = SKSpriteNode(texture:segment1,size: CGSize(width: self.size.width/CGFloat(NUMBER_OF_SEGMENTS), height: 620))
                 segment.anchorPoint = CGPoint(x: 0.0, y: 0.5)
                 segment.position = CGPoint(x: CGFloat(i)*segment.size.width, y: 0.0)
                 
@@ -55,7 +55,7 @@ class MovingBridge : SKSpriteNode{
             }
             else
             {
-                let segment = SKSpriteNode(texture: segment2,size: CGSize(width: self.size.width/CGFloat(NUMBER_OF_SEGMENTS), height: 320))
+                let segment = SKSpriteNode(texture: segment2,size: CGSize(width: self.size.width/CGFloat(NUMBER_OF_SEGMENTS), height: 620))
                 segment.anchorPoint = CGPoint(x: 0.0, y: 0.5)
                 segment.position = CGPoint(x: CGFloat(i)*segment.size.width, y: 0.0)
                 

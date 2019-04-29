@@ -16,6 +16,17 @@ class Player: SKSpriteNode {
      These parts will be used to animate the player
      */
     
+    var animation: Animations!
+    
+    var mainRunningAnimation: SKSpriteNode!
+    var textureAtlas = SKTextureAtlas()
+    var textureArray = [SKTexture]()
+    
+    
+    var burningAnimation: SKSpriteNode!
+    var burningTextureAtlas = SKTextureAtlas()
+    var burningTextureArray = [SKTexture]()
+    
     var head: SKSpriteNode!
     var face: SKSpriteNode!
     var body: SKSpriteNode!
@@ -73,7 +84,7 @@ class Player: SKSpriteNode {
     
     func loadAppearance() {
         
-        
+       /*
         let BodyTexture = SKTexture(imageNamed: "body")
         body = SKSpriteNode(texture:BodyTexture, size: CGSize(width: 100, height: 200))
         body.position = CGPoint(x:0, y: 180)
@@ -136,7 +147,7 @@ class Player: SKSpriteNode {
         rightLeg.position.x = 15
         leftshort.addChild(rightLeg)
 
-        
+        */
     }
     
     /*
@@ -168,13 +179,13 @@ class Player: SKSpriteNode {
      
      */
     
-    func breath()  {
+  /*  func breath()  {
         
         let breathIn = SKAction.moveBy(x: 0, y: 4, duration: 0.5)
         let breathOut = SKAction.moveBy(x: 0, y: -4, duration: 0.5)
         let breath = SKAction.sequence([breathIn,breathOut])
         body.run(SKAction.repeatForever(breath))
-    }
+    }*/
     
     
     /*
@@ -189,8 +200,8 @@ class Player: SKSpriteNode {
     
     func startRunning()  {
         
-        let rotateBack  = SKAction.rotate(byAngle: -CGFloat(M_PI)/2.0, duration: 0.2)
-        arm.run(rotateBack)
+      /*  let rotateBack  = SKAction.rotate(byAngle: -CGFloat(M_PI)/2.0, duration: 0.2)
+        arm.run(rotateBack)*/
         performOneCycle()
     }
     
@@ -207,6 +218,28 @@ class Player: SKSpriteNode {
      */
     
     func performOneCycle()  {
+        textureAtlas = SKTextureAtlas(named: "running")
+        
+        for i in 1...textureAtlas.textureNames.count{
+            
+            let imageName = "run\(i)"
+            textureArray.append(SKTexture(imageNamed: imageName))
+        }
+        
+        mainRunningAnimation = SKSpriteNode(imageNamed: textureAtlas.textureNames[0] as! String)
+        mainRunningAnimation.size = CGSize(width: 300, height: 600)
+        mainRunningAnimation.position = CGPoint(x: self.size.width/2, y: 80)
+        mainRunningAnimation.zPosition = 2
+        
+        self.addChild(mainRunningAnimation)
+        
+        
+        mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.07)))
+        
+        
+        
+        /*
+        
         let forward = SKAction.moveBy(x: 4, y: 4, duration: 0.03)
         let backward = SKAction.moveBy(x: -4, y: -4, duration: 0.03)
         
@@ -217,7 +250,7 @@ class Player: SKSpriteNode {
                     self.performOneCycle() // repeats cycle
                 })
             })
-        })
+        }) */
     }
     
     /*
@@ -254,11 +287,35 @@ class Player: SKSpriteNode {
      */
     
     func  stop () {
-        body.removeAllActions()
-        leftLeg.removeAllActions()
-        rightLeg.removeAllActions()
+      //  body.removeAllActions()
+        //leftLeg.removeAllActions()
+   //     rightLeg.removeAllActions()
+        mainRunningAnimation.removeFromParent()
+        burning()
     }
     
+    func burning()  {
+        
+        burningTextureAtlas = SKTextureAtlas(named: "burning")
+        
+        for i in 1...burningTextureAtlas.textureNames.count
+        {
+            
+            let imageName = "burning\(i)"
+            burningTextureArray.append(SKTexture(imageNamed: imageName))
+        }
+        
+        burningAnimation = SKSpriteNode(imageNamed: burningTextureAtlas.textureNames[0] as! String)
+        burningAnimation.size = CGSize(width: 400, height: 700)
+        burningAnimation.position = CGPoint(x: self.size.width/2, y: 140)
+        burningAnimation.zPosition = 2
+        
+        self.addChild(burningAnimation)
+        
+        
+        burningAnimation.run(SKAction.repeatForever(SKAction.animate(with: burningTextureArray, timePerFrame: 0.07)))
+        
+    }
     
     /*
      
@@ -274,13 +331,13 @@ class Player: SKSpriteNode {
     
     func burn(){
         
-        let burntBodyTexture = SKTexture(imageNamed: "burntBody")
-        body = SKSpriteNode(texture: burntBodyTexture, size: CGSize(width: 300, height: 180))
-       addChild(body)
+      //  let burntBodyTexture = SKTexture(imageNamed: "burntBody")
+      //  body = SKSpriteNode(texture: burntBodyTexture, size: CGSize(width: 300, height: 180))
+      // addChild(body)
         
         
         let burnEmitter = SKEmitterNode(fileNamed: "Burn")!
-        body.addChild(burnEmitter)
+       // body.addChild(burnEmitter)
     }
     
     /*
