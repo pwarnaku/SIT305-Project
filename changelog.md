@@ -1,4 +1,8 @@
+## Week 09
 
+### Monday 29/April
+
+- Start working on Data store [Sachin] 
 
 ## Week 08
 
@@ -14,6 +18,8 @@
     - player can jump to collect diamonds. 
     - player gets bonus points 
 
+### Wednesday 14/April
+ - Working on SignIn/ SignUp [Sachin]
 
 ### Tuesday 23/April
 - Working on lives scene [Piumi]
