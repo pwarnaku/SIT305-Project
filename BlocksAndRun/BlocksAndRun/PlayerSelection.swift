@@ -25,6 +25,7 @@ class PlayerSelection: SKScene  {
     var backgroundSegment2: SKSpriteNode!
     var man1: SKSpriteNode!
     var man2: SKSpriteNode!
+    var frame1: SKSpriteNode!
     
     var button1: SKSpriteNode!
     
@@ -62,6 +63,13 @@ class PlayerSelection: SKScene  {
         //self.isUserInteractionEnabled = true
         addChild(backgroundSegment1)
         
+        let frame1Texture = SKTexture(imageNamed: "frame1")
+        frame1 = SKSpriteNode(texture: frame1Texture, size: CGSize(width: 720, height: 450))
+         frame1.position = CGPoint(x:760, y: 1300)
+        frame1.zPosition = 10
+        
+        addChild(frame1)
+        
         textureAtlas1 = SKTextureAtlas(named: "running")
         
         for i in 1...textureAtlas1.textureNames.count{
@@ -87,7 +95,7 @@ class PlayerSelection: SKScene  {
         //self.isUserInteractionEnabled = true
         addChild(backgroundSegment2)
         
-        textureAtlas2 = SKTextureAtlas(named: "man2")
+        textureAtlas2 = SKTextureAtlas(named: "man")
         
         for i in 1...textureAtlas2.textureNames.count{
             
@@ -95,15 +103,15 @@ class PlayerSelection: SKScene  {
             textureArray2.append(SKTexture(imageNamed: imageName))
         }
         
-        man1 = SKSpriteNode(imageNamed: textureAtlas2.textureNames[0] as! String)
-        man1.size = CGSize(width: 300, height: 600)
-        man1.position = CGPoint(x: 600, y: 800)
-        man1.zPosition = 10
+        man2 = SKSpriteNode(imageNamed: textureAtlas2.textureNames[0] as! String)
+        man2.size = CGSize(width: 300, height: 600)
+        man2.position = CGPoint(x: 600, y: 800)
+        man2.zPosition = 20
         
-        self.addChild(man1)
+        self.addChild(man2)
         
         
-        man1.run(SKAction.repeatForever(SKAction.animate(with: textureArray2, timePerFrame: 0.06)))
+        man2.run(SKAction.repeatForever(SKAction.animate(with: textureArray2, timePerFrame: 0.06)))
     }
     
 

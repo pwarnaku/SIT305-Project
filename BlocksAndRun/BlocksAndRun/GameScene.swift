@@ -221,12 +221,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         let tapToStartLabel = SKLabelNode(text: "Tap to Start")
         tapToStartLabel.name = "tapToStartLabel"
-        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: 1600)
-        tapToStartLabel.fontName = "GillSans-BoldItalic"
+        tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        tapToStartLabel.fontName = "Marion-Italic"
         tapToStartLabel.fontColor = UIColor.white
         tapToStartLabel.fontSize = 80
-        // tapToStartLabel.zPosition = 1
         self.addChild(tapToStartLabel)
+        tapToStartLabel.run(fadeInOut())
     }
     
     /*
@@ -276,7 +276,45 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         button.zPosition = 1
         
         self.addChild(button)
+        button.run(scalingAnimation())
         
+        
+    }
+    func scalingAnimation() -> SKAction{
+        
+        //let delayAction = SKAction.wait(forDuration: TimeInterval(index) * 0.2)
+        
+        // Scale up and then back down
+        let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.3)
+        let scaleDownAction = SKAction.scale(to: 1, duration: 0.3)
+        
+        // Wait for 2 seconds before repeating the action
+        let waitAction = SKAction.wait(forDuration: 2)
+        
+        // Form a sequence with the scale actions, as well as the wait action
+        let scallingSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
+        
+        return SKAction.repeatForever(scallingSequence)
+        
+        
+        // Combine the delay and the repeat actions into another sequence
+        // let actionSequence = SKAction.sequence([delayAction, repeatAction])
+        
+        // Run the action
+        
+        
+    }
+    
+    func fadeInOut() -> SKAction {
+        
+        let duration = 0.4
+        let fadeOut = SKAction.fadeAlpha(to: 0.0, duration: duration)
+        let fadeIn = SKAction.fadeAlpha(to: 1.0, duration: duration)
+        let blink = SKAction.sequence([fadeOut,fadeIn])
+        
+        return SKAction.repeatForever(blink)
+        
+    
     }
     
     /*
@@ -301,6 +339,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         settingsButton.zPosition = 1
         
         self.addChild(settingsButton)
+        
         
     }
     
