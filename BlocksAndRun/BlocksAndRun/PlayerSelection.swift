@@ -66,8 +66,8 @@ class PlayerSelection: SKScene  {
         
         for i in 1...textureAtlas1.textureNames.count{
             
-            let imageName = "run\(i)"
-            textureArray1.append(SKTexture(imageNamed: imageName))
+            let imageName1 = "run\(i)"
+            textureArray1.append(SKTexture(imageNamed: imageName1))
         }
         
         man1 = SKSpriteNode(imageNamed: textureAtlas1.textureNames[0] as! String)
