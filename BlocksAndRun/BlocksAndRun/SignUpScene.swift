@@ -47,7 +47,26 @@ class SignUpScene: SKScene {
         signUpButton.zPosition = 1
         self.addChild(signUpButton)
         
+        //text fields
+        let textNameFrame = CGRect(origin: .init(x: 60.00, y: 300.00), size: CGSize( width: 300,height: 50))
+        let textUserName = UITextField(frame: textNameFrame)
+        textUserName.backgroundColor = UIColor.white
+        textUserName.placeholder = "Enter Your User Name"
+        self.view!.addSubview(textUserName)
         
+        let textPasswordFrame = CGRect(origin: .init(x: 60.00, y: 400.00), size: CGSize( width: 300,height: 50))
+        let textPassword = UITextField(frame: textPasswordFrame)
+        textPassword.backgroundColor = UIColor.white
+        textPassword.placeholder = "Enter Your Password"
+        textPassword.isSecureTextEntry = true
+        self.view!.addSubview(textPassword)
+        
+        let textRePasswordFrame = CGRect(origin: .init(x: 60.00, y: 500.00), size: CGSize( width: 300,height: 50))
+        let textRePassword = UITextField(frame: textRePasswordFrame)
+        textRePassword.backgroundColor = UIColor.white
+        textRePassword.placeholder = "Re Enter Your Password"
+        textRePassword.isSecureTextEntry = true
+        self.view!.addSubview(textRePassword)
         
         
         

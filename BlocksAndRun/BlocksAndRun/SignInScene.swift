@@ -40,11 +40,28 @@ class SignInScene: SKScene {
         cloudGenerator.populate(num: 10)
         cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
         
+        let skView = self.view as! SKView
+        skView.isMultipleTouchEnabled = false
+        
         //text fields
-        let textUserName = UITextField(frame: CGRect(x: self.frame.width/2, y: self.frame.size.height - 60, width: 600,height: 100))
+        let textNameFrame = CGRect(origin: .init(x: 60.00, y: 400.00), size: CGSize( width: 300,height: 50))
+        let textUserName = UITextField(frame: textNameFrame)
         textUserName.backgroundColor = UIColor.white
-        textUserName.placeholder = "User Name"
-       // self.view!.addSubview(textUserName)
+        textUserName.placeholder = "Enter Your User Name"
+        textUserName.textColor = UIColor.white
+        textUserName.minimumFontSize = 25
+        textUserName.layer.borderColor = UIColor.gray.cgColor
+        self.view!.addSubview(textUserName)
+        
+        let textPasswordFrame = CGRect(origin: .init(x: 60.00, y: 500.00), size: CGSize( width: 300,height: 50))
+        let textPassword = UITextField(frame: textPasswordFrame)
+        textPassword.backgroundColor = UIColor.white
+        textPassword.placeholder = "Enter Your Password"
+        textPassword.isSecureTextEntry = true
+        self.view!.addSubview(textPassword)
+        
+        
+        
         
         //sign in button
         let signInButtonTexture = SKTexture(imageNamed: "signin")
@@ -53,14 +70,6 @@ class SignInScene: SKScene {
         signInButton.name = "btnSignIn"
         signInButton.zPosition = 1
         self.addChild(signInButton)
-        
-        
-        
-        
-       let skView = self.view as! SKView
-       skView.isMultipleTouchEnabled = false
-       skView.addSubview(textUserName)
-       //skView.presentScene(SKScene(size: frame.size))
         
         
         
