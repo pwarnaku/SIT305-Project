@@ -13,7 +13,8 @@
 - Working on scrolling windows [Piumi]
 
 ### Friday 26/April
-- Polished the app [Piumi]
+- Polished the app [Piumi,Sachin]
+- Had a group meeting [Piumi,Sachin]
 - Add diamonds [Piumi]
     - player can jump to collect diamonds. 
     - player gets bonus points 
