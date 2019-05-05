@@ -1,3 +1,8 @@
+## Week 10 
+
+## Sunday 05/May
+- Payment method is done 
+ 
 ## Week 09
 
 ### Monday 29/April
