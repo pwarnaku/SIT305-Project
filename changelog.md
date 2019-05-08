@@ -1,15 +1,21 @@
-## Week 10 
+## Week 09
+
+## Wednesday 8/May [Henry]
+- This week is Week 9 (I think you got confused by 1 week)
+- Good progress. Glad to see it's getting closer. Final stretch now. 
+- Make sure you go over everything in the Grading Criteria super carefully, to ensure you meet each point.
+
+
+## Week 08
+
 
 ## Sunday 05/May
 - Payment method is done 
  
-## Week 09
 
 ### Monday 29/April
 
 - Start working on Data store [Sachin] 
-
-## Week 08
 
 ### Sunday 28/April
 
