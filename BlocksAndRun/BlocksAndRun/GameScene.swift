@@ -32,6 +32,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     //diamonds
     var diamonds:[Diamonds] = []
     
+    //Evil birds
+    var birds: [Birds] = []
+    
     var Defaultlives: Int = 2
     
     enum ColliderType:UInt32 {
@@ -42,6 +45,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     //limits
     var endOfScreenRight = CGFloat()
     var endOfScreenLeft = CGFloat()
+
+    //limits for birds
+    var endOfScreenRightofBirds = CGFloat()
+    var endOfScreenLeftofBirds = CGFloat()
 
     
     var scoreLable:SKLabelNode!
@@ -71,23 +78,30 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         //creates buttons
+        
         createLiveButton()
         createSettingsButton()
         
         endOfScreenLeft = (1200) * CGFloat(-1)
         endOfScreenRight = 1900
         
+        endOfScreenLeftofBirds = (1200) * CGFloat(-1)
+        endOfScreenRightofBirds = 2000
+        
         // creates objects
+        
         createTheBackground()
         createTheMovingBridge()
         createThePlayer()
         createBlocks()
         addDiamonds()
+        addBirds()
         generateClouds()
         startGameLable()
         scoreLabel()
         
         // Add the physics world
+        
         physicsWorld.contactDelegate = self
         
     }
@@ -133,7 +147,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         movingBridge.zPosition = 1
         self.addChild(movingBridge)
         
-        }
+    }
     
     
     /*
@@ -170,6 +184,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      This function is called in gamescene.swift file under didMove function.
      */
     
+    
     func createBlocks(){
         
         blocksGenerator = BlocksGenarator(color: UIColor.clear, size: view!.frame.size)
@@ -186,8 +201,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
          ** Important note for developers**
      
-     
-         This function is called in gamescene.swift file under didMove function.
+        This function is called in gamescene.swift file under didMove function.
      
          */
     
@@ -270,7 +284,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func createLiveButton(){
         
-        let liveButtonTexture = SKTexture(imageNamed: "lives")
+        let liveButtonTexture = SKTexture(imageNamed: "heart")
         button = SKSpriteNode(texture: liveButtonTexture , size: CGSize(width: 100, height: 100))
         button.position = CGPoint(x: 390, y: 1850)
         button.zPosition = 1
@@ -280,30 +294,46 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         
     }
+    
+    /*
+     
+     Function: scalingAnimation
+     
+     Purpose: This function is to animate nodes. this will scale up and Wait for 2 seconds before
+     repeating the actionown an node. Form a sequence with the scale actions, as well as the wait action.
+     return the scalling sequence
+     
+     ** Important note for developers**
+     
+     if you want to apply the animation use nodename.run(action:scalingAnimation())
+     
+     */
+    
+    
     func scalingAnimation() -> SKAction{
         
-        //let delayAction = SKAction.wait(forDuration: TimeInterval(index) * 0.2)
-        
-        // Scale up and then back down
+      
         let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.3)
         let scaleDownAction = SKAction.scale(to: 1, duration: 0.3)
-        
-        // Wait for 2 seconds before repeating the action
         let waitAction = SKAction.wait(forDuration: 2)
-        
-        // Form a sequence with the scale actions, as well as the wait action
         let scallingSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
-        
         return SKAction.repeatForever(scallingSequence)
         
-        
-        // Combine the delay and the repeat actions into another sequence
-        // let actionSequence = SKAction.sequence([delayAction, repeatAction])
-        
-        // Run the action
-        
-        
     }
+    
+    /*
+     
+     Function: fadeInOut
+     
+     Purpose: This function is to animate nodes. this will fade in and out  and Wait for 2 seconds before
+     repeating the actionown an node. Form a sequence with the scale actions, as well as the wait action.
+     return the scalling sequence
+     
+     ** Important note for developers**
+     
+     if you want to apply the animation use nodename.run(action:scalingAnimation())
+     
+     */
     
     func fadeInOut() -> SKAction {
         
@@ -335,7 +365,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         let settingsButtonTexture = SKTexture(imageNamed: "settings")
         settingsButton = SKSpriteNode(texture: settingsButtonTexture , size: CGSize(width: 100, height: 100))
-        settingsButton.position = CGPoint(x: 490, y: 1850)
+        settingsButton.position = CGPoint(x: 500, y: 1850)
         settingsButton.zPosition = 1
         
         self.addChild(settingsButton)
@@ -355,21 +385,23 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      */
     
-    func addDiamonds() {
+    
+    
+    func addDiamonds()
+    {
         addDiamond(named: "diamond1", speed: 3.0, yPos: CGFloat(1500))
     }
     
-    func addDiamond(named: String, speed:Float, yPos:CGFloat) {
-        var diamondNode = SKSpriteNode(imageNamed: named)
+    func addDiamond(named: String, speed:Float, yPos:CGFloat)
+    {
+        
+    var diamondNode = SKSpriteNode(imageNamed: named)
         
        // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
       //  badGuyNode.physicsBody!.affectedByGravity = false
       //  badGuyNode.physicsBody!.categoryBitMask = ColliderType.Diamonds.rawValue
       //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
        // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
-        
-        
-        
         
         var diamond = Diamonds(speed: speed, guy: diamondNode)
         diamonds.append(diamond)
@@ -419,7 +451,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         isGameStarted = true
         let tapToStartLable = childNode(withName: "tapToStartLabel")
         tapToStartLable?.removeFromParent()
-      //  player.stop()
+        //player.stop()
         player.startRunning()
         movingBridge.start()
         blocksGenerator.startBlocksGenaratingIsEvery(seconds: 10)
@@ -493,6 +525,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         if isGameStarted {
         
             updateDiamondsPosition()
+            updateBirdsPosition()
             
             if blocksGenerator.blocksTracker.count > 0 {
                 let block = blocksGenerator.blocksTracker[0] as Blocks
@@ -520,17 +553,22 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     func updateDiamondsPosition() {
         
         for diamond in diamonds {
-            if !diamond.moving {
+            if !diamond.moving
+            {
                 diamond.currentFrame += 10
                 if diamond.currentFrame > diamond.randomFrame {
                     diamond.moving = true
                 }
-            } else {
+            } else
+            
+            {
                 diamond.guy.position.y = CGFloat(Double(diamond.guy.position.y) + sin(diamond.angle) * diamond.range)
                 diamond.angle += 0.10
                 if diamond.guy.position.x > endOfScreenLeft {
                     diamond.guy.position.x -= CGFloat(diamond.speed)
-                } else {
+                } else
+                    
+                {
                     diamond.guy.position.x = endOfScreenRight
                     diamond.currentFrame = 0
                     diamond.setRandomFrame()
@@ -541,8 +579,85 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
         }
     }
-        
     
+    func addBirds()
+    {
+        addBird(named: "heart", speed: 3.0, yPos: CGFloat(1500))
+    
+    }
+    
+    func addBird(named: String, speed:Float, yPos:CGFloat) {
+        var birdNode = SKSpriteNode(imageNamed: named)
+        
+        // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
+        //  badGuyNode.physicsBody!.affectedByGravity = false
+        //  badGuyNode.physicsBody!.categoryBitMask = ColliderType.Diamonds.rawValue
+        //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
+        // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
+        
+        
+        
+        
+        var bird = Birds(speed: speed, guy: birdNode)
+        birds.append(bird)
+        resetBirds(birdNode: birdNode, yPos: yPos)
+        bird.yPos = birdNode.position.y
+        birdNode.zPosition = 10
+        birdNode.size = CGSize(width: 200, height: 250)
+        let fireEmitter = SKEmitterNode(fileNamed: "bok")!
+        birdNode.addChild(fireEmitter)
+        addChild(birdNode)
+        
+    }
+    
+    /*
+     
+     Function: resetDiamonds
+     
+     Purpose: This function will reset the position of diamonds
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under addDiamond function.
+     
+     */
+    
+    func resetBirds(birdNode:SKSpriteNode, yPos:CGFloat) {
+        
+        birdNode.position.x = endOfScreenRight
+        birdNode.position.y = yPos
+    }
+    
+    func updateBirdsPosition() {
+        
+        for bird in birds {
+            if !bird.moving
+            {
+                bird.currentFrame += 10
+                if bird.currentFrame > bird.randomFrame {
+                    bird.moving = true
+                }
+            } else
+                
+            {
+                bird.guy.position.y = CGFloat(Double(bird.guy.position.y) + sin(bird.angle) * bird.range)
+                bird.angle += 0.10
+                if bird.guy.position.x > endOfScreenLeft {
+                    bird.guy.position.x -= CGFloat(bird.speed)
+                } else
+                    
+                {
+                    bird.guy.position.x = endOfScreenRightofBirds
+                    bird.currentFrame = 0
+                    bird.setRandomFrame()
+                    bird.moving = false
+                    bird.range += 0.1
+                    //updateScore()
+                }
+            }
+        }
+    }
+    
+   
     
     func manageLives() -> Bool {
        

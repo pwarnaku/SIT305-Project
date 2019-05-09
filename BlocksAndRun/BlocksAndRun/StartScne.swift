@@ -90,7 +90,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
             let cropNode = SKCropNode()
             cropNode.position = CGPoint(x: self.size.width/2, y: 1700)
             
-            let mask = SKLabelNode(fontNamed: "SavoyeLetPlain")
+            let mask = SKLabelNode(fontNamed: "GillSans-BoldItalic")
             mask.text = "Run"
             mask.fontColor = UIColor.green
             mask.fontSize = 180

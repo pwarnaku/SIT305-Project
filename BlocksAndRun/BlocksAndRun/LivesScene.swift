@@ -9,10 +9,10 @@
 import Foundation
 import GameplayKit
 import Social
+import StoreKit
 
 
-class LivesScene: SKScene  {
-    
+class LivesScene: SKScene, SKPaymentTransactionObserver, SKProductsRequestDelegate  {
     
     var backgroundSegment1: SKShapeNode!
     var backgroundSegment2: SKShapeNode!
@@ -24,6 +24,107 @@ class LivesScene: SKScene  {
     
     var cancelButton: SKNode!
     
+    
+    //In App Purchases
+    var list = [SKProduct]()
+    var p = SKProduct()
+    
+    func buyProduct() {
+        
+        print("buy " + p.productIdentifier)
+        var pay = SKPayment(product: p)
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(pay as SKPayment)
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("add paymnet")
+        
+        for transaction:AnyObject in transactions {
+            var trans = transaction as! SKPaymentTransaction
+            print(trans.error)
+            
+            switch trans.transactionState {
+                
+            case .purchased, .restored:
+                print("buy, ok unlock iap here")
+                print(p.productIdentifier)
+                
+                let prodID = p.productIdentifier as String
+                switch prodID {
+                case "piumi_fernandz@icloud.com":
+                    
+                    //Here you should put the function you want to execute when the purchase is complete
+                    var alert = UIAlertView(title: "Thank You", message: "You may have to restart the app before the banner ads are removed.", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                default:
+                    print("IAP not setup")
+                }
+                
+                queue.finishTransaction(trans)
+                break;
+            case .failed:
+                print("buy error")
+                queue.finishTransaction(trans)
+                break;
+            default:
+                print("default")
+                break;
+                
+            }
+        }
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        print("product request")
+        var myProduct = response.products
+        
+        for product in myProduct {
+            print("product added")
+            print(product.productIdentifier)
+            print(product.localizedTitle)
+            print(product.localizedDescription)
+            print(product.price)
+            
+            list.append(product as! SKProduct)
+        }
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue!) {
+        print("transactions restored")
+        
+        _ = []
+        for transaction in queue.transactions {
+            var t: SKPaymentTransaction = transaction as! SKPaymentTransaction
+            
+            let prodID = t.payment.productIdentifier as String
+            
+            switch prodID {
+            case "piumi_fernandz@icloud.come": break
+                
+            //Right here is where you should put the function that you want to execute when your in app purchase is complete
+            default:
+                print("IAP not setup")
+            }
+            
+        }
+        
+        var alert = UIAlertView(title: "Thank You", message: "Your purchase(s) were restored. You may have to restart the app before banner ads are removed.", delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
+    }
+    
+    func finishTransaction(trans:SKPaymentTransaction)
+    {
+        print("finish trans")
+    }
+    func paymentQueue(queue: SKPaymentQueue!, removedTransactions transactions: [AnyObject]!)
+    {
+        print("remove trans");
+    }
+    
+    
+    
+   
     
     /*
      
@@ -45,6 +146,17 @@ class LivesScene: SKScene  {
     override func didMove(to view: SKView) {
         
         createCancelButton()
+        
+        // Set IAPS
+        if(SKPaymentQueue.canMakePayments()) {
+            print("IAP is enabled, loading")
+            var productID:NSSet = NSSet(objects: "piumi_fernandz@icloud.com")
+            var request: SKProductsRequest = SKProductsRequest(productIdentifiers: productID as Set<NSObject> as Set<NSObject> as! Set<String>)
+            request.delegate = self
+            request.start()
+        } else {
+            print("please enable IAPS")
+        }
         
         let background = SKSpriteNode(color: UIColor(red: 88.00/255.0, green: 101.00/255.0, blue: 100.00/255.0, alpha: 5.0), size: CGSize(width: 700, height: 700))
         background.size = self.size
@@ -75,6 +187,7 @@ class LivesScene: SKScene  {
         
         backgroundSegment1 = SKShapeNode(rect: CGRect(x: 398, y: 1150, width: 735, height: 280), cornerRadius: 80)
         backgroundSegment1.fillColor = UIColor(red: 92.00/255.0, green: 156.0/255.0, blue: 131.0/255.0, alpha: 5.0)
+        backgroundSegment1.name = "inAppPurchaseNode"
         addChild(backgroundSegment1)
         
         heart1 = SKSpriteNode(imageNamed: "heart1")
@@ -177,6 +290,27 @@ class LivesScene: SKScene  {
         
         self.addChild(cancelButton)
         
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+    
+    let touch =  touches.first as? UITouch
+        let positionInScene = touch!.location(in:  self)
+    let touchedNode = self.atPoint(positionInScene)
+    if let name = touchedNode.name {
+        if name == "inAppPurchaseNode" {
+            
+            for product in list {
+                var prodID = product.productIdentifier
+                if(prodID == "piumi_fernandz@icloud.com") {
+                    p = product
+                    buyProduct()  //This is one of the functions we added earlier
+                    break;
+                }
+            }
+        }
+        
+    }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
