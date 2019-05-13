@@ -10,7 +10,7 @@
 
 ## Week 09
 
-## Wednesday 8/May [Henry]
+### Wednesday 8/May [Henry]
 
 - This week is Week 9 (I think you got confused by 1 week)
 - Good progress. Glad to see it's getting closer. Final stretch now. 
