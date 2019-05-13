@@ -55,7 +55,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(mainRunningAnimation)
         
         
-        mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.06)))
+        mainRunningAnimation.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.09)))
         
         
         let background = SKSpriteNode(imageNamed: "background")
@@ -74,7 +74,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         
         movingBridge = MovingBridge(size: CGSize(width: self.size.width, height: 620))
         movingBridge.position = CGPoint(x: 0, y: 300)
-        movingBridge.zPosition = 1
+        movingBridge.zPosition = 10
         self.addChild(movingBridge)
         movingBridge.start()
         

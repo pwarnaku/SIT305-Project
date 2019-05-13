@@ -1,21 +1,31 @@
+## Week 10
+
+### Monday 13/May 
+
+- Had a group meeting in the library 10am- 7.pm [Piumi,Sachin]
+- Working on testing the app [Piumi,Sachin]
+
 ## Week 09
 
 ## Wednesday 8/May [Henry]
+
 - This week is Week 9 (I think you got confused by 1 week)
 - Good progress. Glad to see it's getting closer. Final stretch now. 
 - Make sure you go over everything in the Grading Criteria super carefully, to ensure you meet each point.
 
 
-## Week 08
+### Monday 06/May
+- Working on Player seslction [Piumi]
 
-
-## Sunday 05/May
+### Sunday 05/May
 - Payment method is done 
- 
 
 ### Monday 29/April
 
 - Start working on Data store [Sachin] 
+
+
+## Week 08
 
 ### Sunday 28/April
 
@@ -30,12 +40,11 @@
     - player can jump to collect diamonds. 
     - player gets bonus points 
 
-### Wednesday 14/April
- - Working on SignIn/ SignUp [Sachin]
 
 ### Tuesday 23/April
 - Working on lives scene [Piumi]
 - Working on facebook login [Piumi]
+
 
 ## Week 07
 
@@ -56,6 +65,7 @@
 - Feedback: Watch your variable names, and ensure they're understandable. E.g. I don't know 're' in "userPasswordRe".
 
 
+
 ## Week 06
 
 ### Sunday 14/April
@@ -63,6 +73,7 @@
 - Button for lives [Piumi]
     - By clicking on the button (heart) a pop-up window appears 
 - Working on Power - ups [Piumi]
+- Working on SignIn/ SignUp [Sachin]
 
 
 ### Thursday 11/April

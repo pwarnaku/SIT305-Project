@@ -93,10 +93,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         createSettingsButton()
         
         endOfScreenLeft = (1200) * CGFloat(-1)
-        endOfScreenRight = 1900
+        endOfScreenRight = 2900
         
         endOfScreenLeftofBirds = (1200) * CGFloat(-1)
-        endOfScreenRightofBirds = 2000
+        endOfScreenRightofBirds = 1500
         
         // creates objects
         
@@ -481,7 +481,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func addDiamonds()
     {
-        addDiamond(named: "diamond1", speed: 3.0, yPos: CGFloat(1500))
+        addDiamond(named: "diamond1", speed: 8.0, yPos: CGFloat(1500))
     }
     
     func addDiamond(named: String, speed:Float, yPos:CGFloat)
@@ -690,7 +690,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func addBirds()
     {
-        addBird(named: "heart", speed: 3.0, yPos: CGFloat(1500))
+        addBird(named: "flameBall", speed: 40.0, yPos: CGFloat(1500))
     
     }
     
@@ -711,8 +711,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         resetBirds(birdNode: birdNode, yPos: yPos)
         bird.yPos = birdNode.position.y
         birdNode.zPosition = 10
-        birdNode.size = CGSize(width: 200, height: 250)
-        let fireEmitter = SKEmitterNode(fileNamed: "bok")!
+        birdNode.size = CGSize(width: 180, height: 150)
+        let fireEmitter = SKEmitterNode(fileNamed: "Spark")!
         birdNode.addChild(fireEmitter)
         addChild(birdNode)
         
