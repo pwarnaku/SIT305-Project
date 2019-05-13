@@ -9,6 +9,9 @@
 - Score/ High Score Updated [Sachin]
 
 ## Week 09
+### Friday 09/May 
+- Working on Data Store [Sachin]
+- Working on High Score [Sachin]
 
 ### Wednesday 8/May [Henry]
 
