@@ -50,15 +50,25 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var endOfScreenRightofBirds = CGFloat()
     var endOfScreenLeftofBirds = CGFloat()
 
-    
+    var nameLable:SKLabelNode!
+    var highScoreLable:SKLabelNode!
     var scoreLable:SKLabelNode!
     var score:Int = 0{
         didSet{
-            scoreLable.text = "Score: \(score)"
+            scoreLable.text = " \(score) "
+        }
+    
+    }
+   
+    var highScore:Int = 0{
+        didSet{
+            highScoreLable.text = "High Score: \(highScore)"
         }
     }
     
+    let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
     
+
     /*
      
      Function: didMove
@@ -99,12 +109,40 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         generateClouds()
         startGameLable()
         scoreLabel()
+        nameLabel()
+        highScoreLabel()
+      //  loadPlayer()
         
         // Add the physics world
         
         physicsWorld.contactDelegate = self
+
+    }
+    
+    
+    func getName() -> String{
+        return UserDefaults.standard.string(forKey: "userName")!
+    }
+    
+    func getHighScore() -> Int {
+        return UserDefaults.standard.integer(forKey: "userHighScore")
+    }
+    /*
+    func loadPlayer() {
+        let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
+       // print(array[0], array[1])
+       // nameLable.text = "\(array[0])"
+        if getName() == "\(array[0])" {
+            
+             highScoreLable.text = "\(array[1])"
+             nameLable.text = "\(array[0])"
+            
+        }
+        
+       
         
     }
+ */
     
     /*
      
@@ -259,14 +297,68 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func scoreLabel(){
         
-        scoreLable = SKLabelNode(text: "Score: 0")
-        scoreLable.position = CGPoint(x: 1080, y: 1800)
+        scoreLable = SKLabelNode(text: " 0 ")
+        scoreLable.position = CGPoint(x: self.size.width/2, y: 1700)
         scoreLable.fontName = "AmericanTypewiter-Bold"
         scoreLable.fontColor = UIColor.white
-        scoreLable.fontSize = 50
+        scoreLable.fontSize = 90
         score = 0
         self.addChild(scoreLable)
     }
+    
+    
+    func nameLabel(){
+        
+        if getName() == "\(array[0])" {
+        
+            nameLable = SKLabelNode(text: "\(array[0])")
+        }
+        
+        else {
+            nameLable = SKLabelNode(text: "\(getName())")
+
+        }
+        
+        nameLable.position = CGPoint(x: 1080, y: 1850)
+        nameLable.fontName = "AmericanTypewiter-Bold"
+        nameLable.fontColor = UIColor.white
+        nameLable.fontSize = 60
+        self.addChild(nameLable)
+        
+    }
+    
+    func highScoreLabel(){
+        
+        if getName() == "\(array[0])" {
+            
+            highScoreLable =  SKLabelNode(text: "High Score: \(array[1])")
+        }
+            
+        else {
+            
+           highScoreLable =  SKLabelNode(text: "High Score: 0")
+            
+        }
+        
+        highScoreLable.position = CGPoint(x: 1080, y: 1800)
+        highScoreLable.fontName = "AmericanTypewiter-Bold"
+        highScoreLable.fontColor = UIColor.white
+        highScoreLable.fontSize = 40
+        self.addChild(highScoreLable)
+    }
+    
+    /*
+    func highScoreLable(){
+        highScoreLable =  SKLabelNode(text: "High Score: 0")
+        highScoreLable.position = CGPoint(x: 1080, y: 1800)
+        highScoreLable.fontName = "AmericanTypewiter-Bold"
+        highScoreLable.fontColor = UIColor.white
+        highScoreLable.fontSize = 40
+        highScore = 0
+        self.addChild(highScoreLable)
+        
+    }
+ */
     
     /*
      
@@ -487,7 +579,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         gameOverLabel.fontSize = 100
         self.addChild(gameOverLabel)
         
+        if highScore < score {
+            
+            highScore = score
+            highScoreLable.text = "\(highScore)"
+            
+        }
         
+        else if highScore > score{
+            highScoreLable.text = "\(highScore)"
+        }
+ 
+        
+       // UserDefaults.standard.set(self.highScoreLable.text, forKey:"userHighScore");
+        let player = ["\(getName())", highScoreLable.text]
+        UserDefaults.standard.set(player, forKey:"player");
     }
     
     /*
@@ -509,6 +615,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         newScene.scaleMode = .aspectFill
         view?.presentScene(newScene)
         score = 0
+        //loadPlayer()
         
     }
     
@@ -529,17 +636,18 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             
             if blocksGenerator.blocksTracker.count > 0 {
                 let block = blocksGenerator.blocksTracker[0] as Blocks
-                
                 let blockLocation = blocksGenerator.convert(block.position, to: self)
                 if blockLocation.x < player.position.x{
                     blocksGenerator.blocksTracker.remove(at: 0)
-                    
                     score+=5
                 }
-                
+                else {
+                    let temp = score
+                    score = temp
+                }
             }
         }
-        }
+    }
     
     /*
      

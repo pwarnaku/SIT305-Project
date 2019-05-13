@@ -71,7 +71,7 @@ class BlocksGenarator: SKSpriteNode {
         block.position = CGPoint(x: 1000, y: 180)
        // block.position.y = scale * 130
        // blocks.append(block)
-      blocksTracker.append(block)
+        blocksTracker.append(block)
         addChild(block)
         
         let fireEmitter = SKEmitterNode(fileNamed: "Fire")!

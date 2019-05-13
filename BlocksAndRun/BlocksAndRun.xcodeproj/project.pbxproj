@@ -47,6 +47,7 @@
 		D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEAB3522573781003FE2A8 /* Constants.swift */; };
 		E64F5ACA22655A6300E84388 /* SignInScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5AC922655A6300E84388 /* SignInScene.swift */; };
 		E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5ACB2265682D00E84388 /* SignUpScene.swift */; };
+		E675A6232287E4B50073207E /* WelcomePlayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675A6222287E4B50073207E /* WelcomePlayerScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		D8FEAB3522573781003FE2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E64F5AC922655A6300E84388 /* SignInScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScene.swift; sourceTree = "<group>"; };
 		E64F5ACB2265682D00E84388 /* SignUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScene.swift; sourceTree = "<group>"; };
+		E675A6222287E4B50073207E /* WelcomePlayerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePlayerScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				E64F5AC922655A6300E84388 /* SignInScene.swift */,
 				D808305622786A120051BC2A /* Birds.swift */,
 				E64F5ACB2265682D00E84388 /* SignUpScene.swift */,
+				E675A6222287E4B50073207E /* WelcomePlayerScene.swift */,
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
 				D808305822788D970051BC2A /* man2 */,
@@ -449,6 +452,7 @@
 				D833A72A2258CDA8007E1138 /* UserViewController.swift in Sources */,
 				D833A7262258CD6C007E1138 /* UserSignInViewController.swift in Sources */,
 				D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */,
+				E675A6232287E4B50073207E /* WelcomePlayerScene.swift in Sources */,
 				D8DA51762257012300BD0C9D /* Blocks.swift in Sources */,
 				D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */,
 				D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */,

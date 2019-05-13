@@ -12,8 +12,10 @@ import UIKit
 
 class SignInScene: SKScene {
     
-     var signInButton:SKSpriteNode!
-     var cloudGenerator:CloudsGenarator!
+    var signInButton:SKSpriteNode!
+    var textUserName:UITextField! = nil
+    var textPassword:UITextField! = nil
+    var cloudGenerator:CloudsGenarator!
     
     override func didMove(to view: SKView) {
         
@@ -40,28 +42,26 @@ class SignInScene: SKScene {
         cloudGenerator.populate(num: 10)
         cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
         
-        let skView = self.view as! SKView
-        skView.isMultipleTouchEnabled = false
+       //let skView = self.view as! SKView
+       //skView.isMultipleTouchEnabled = false
         
         //text fields
         let textNameFrame = CGRect(origin: .init(x: 60.00, y: 400.00), size: CGSize( width: 300,height: 50))
-        let textUserName = UITextField(frame: textNameFrame)
+        textUserName = UITextField(frame: textNameFrame)
         textUserName.backgroundColor = UIColor.white
         textUserName.placeholder = "Enter Your User Name"
         textUserName.textColor = UIColor.white
         textUserName.minimumFontSize = 25
         textUserName.layer.borderColor = UIColor.gray.cgColor
-        self.view!.addSubview(textUserName)
+        self.view?.addSubview(textUserName)
         
         let textPasswordFrame = CGRect(origin: .init(x: 60.00, y: 500.00), size: CGSize( width: 300,height: 50))
-        let textPassword = UITextField(frame: textPasswordFrame)
+        textPassword = UITextField(frame: textPasswordFrame)
         textPassword.backgroundColor = UIColor.white
         textPassword.placeholder = "Enter Your Password"
         textPassword.isSecureTextEntry = true
         self.view!.addSubview(textPassword)
-        
-        
-        
+       
         
         //sign in button
         let signInButtonTexture = SKTexture(imageNamed: "signin")
@@ -71,16 +71,30 @@ class SignInScene: SKScene {
         signInButton.zPosition = 1
         self.addChild(signInButton)
         
+    }
+ 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        let skView = self.view as! SKView
+        skView.isMultipleTouchEnabled = false
         
-        
-        
-        
-        
-        
-        
+        let touch = touches.first
+        if let location = touch?.location(in: self){
+            let nodesArray = self.nodes(at: location)
+            
+            if nodesArray.first?.name == "btnSignIn" {
+                self.textUserName.removeFromSuperview()
+                self.textPassword.removeFromSuperview()
+                let scene = WelcomePlayerScene(size: CGSize(width: 1536, height: 2048))
+                scene.scaleMode = .aspectFill
+                
+                skView.presentScene(scene)
+            }
+        }
         
     }
+    
+    
     
 
 }
