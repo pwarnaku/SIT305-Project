@@ -26,7 +26,9 @@
 - User can select a charater as their player.
 - User can spend AUS$ 5.00 to buy 5 lives
 
+
 #### You can simply view [changelog.md](https://github.com/pwarnaku/SIT305-Project/blob/master/Changedlog.md) to check all changes that we make during each week for the project. 
+
 
 #### Please follow the instruction to run the project.
 
