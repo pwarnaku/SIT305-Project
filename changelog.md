@@ -4,6 +4,9 @@
 
 - Had a group meeting in the library 10am- 7.pm [Piumi,Sachin]
 - Working on testing the app [Piumi,Sachin]
+- Login Method Updated [Sachin]
+- Data Store Updated [Sachin]
+- Score/ High Score Updated [Sachin]
 
 ## Week 09
 
