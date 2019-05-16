@@ -2,6 +2,7 @@
 
 ### Thursday 15/May
 
+- Had a group meeting in the library 10am- 9.pm [Piumi,Sachin]
 - Working on bug fixing [Sachin, Piumi]
 
 ### Wednesday 15/May
