@@ -40,10 +40,19 @@ class WelcomePlayerScene: SKScene {
         cloudGenerator.populate(num: 10)
         cloudGenerator.stratGeneratingwithSpawnTime(seconds: 1)
         
+        //Blocks and Run name label
+        let welcomeLabel = SKLabelNode(text: "Welcome \(getData()) !!")
+        welcomeLabel.name = "welcomeLabel"
+        welcomeLabel.position = CGPoint(x: self.size.width/2, y: 1100)
+        welcomeLabel.fontColor = UIColor.white
+        welcomeLabel.fontSize = 100
+        self.addChild(welcomeLabel)
+        
        // let userNameStored = UserDefaults.standard.string(forKey: "userName");
         //UserDefaults.standard.set(true, forKey:"isUserLoggedIn");
        // UserDefaults.standard.synchronize();
-        
+       
+        /*
         //Blocks and Run name label
         let welcomeLabel = SKLabelNode(text: "Welcome \(getData())")
         welcomeLabel.name = "welcomeLabel"
@@ -52,7 +61,7 @@ class WelcomePlayerScene: SKScene {
         welcomeLabel.fontSize = 100
       //  self.addChild(welcomeLabel)
 
-        
+        */
        
         
         /*
@@ -80,7 +89,7 @@ class WelcomePlayerScene: SKScene {
         
     }
     
-    func getData() -> String{
+    func getData() -> String {
         return UserDefaults.standard.string(forKey: "userName")!
     }
     

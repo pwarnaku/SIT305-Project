@@ -19,8 +19,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     var textureAtlas = SKTextureAtlas()
     var textureArray = [SKTexture]()
     
-    var userNameTextField:UITextField! = nil
-    
+    var userNameTextField:UITextField! = nil    
     
     /*
      Function: didMove
@@ -78,6 +77,8 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(movingBridge)
         movingBridge.start()
         
+       // UserDefaults.standard.set("Default", forKey:"userName");
+       // UserDefaults.standard.set("", forKey:"highScore");
         
         
         /*
@@ -159,38 +160,44 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let alert = UIAlertController(title: "User Login", message: "Please Enter Your Credentials", preferredStyle: UIAlertController.Style.alert);
+        //var messageAlert: String?
         
-        let okAction = UIAlertAction(title: "Login", style: UIAlertAction.Style.default) { (UIAlertAction) in
-            if let userName = self.userNameTextField?.text {
-                print(" Username = \(String(describing: userName))")
-                UserDefaults.standard.set(self.userNameTextField.text, forKey:"userName");
-                print("Input = \(UserDefaults.standard.set(self.userNameTextField.text, forKey:"userName"))")
-                
-            }
-            else {
-                 print ("No Username added")
-            }
-        }
-        alert.addAction(okAction)
+        let alert = UIAlertController(title: "User Login", message: "What is your user name? ", preferredStyle: UIAlertController.Style.alert);
+        
         alert.addTextField { (textUserName) in
             self.userNameTextField = textUserName
             self.userNameTextField!.placeholder = "Your Username here"
         }
+
+        let okAction = UIAlertAction(title: "Login", style: UIAlertAction.Style.default) { (UIAlertAction) in
+            
+                if let userName = self.userNameTextField!.text {
+                    print(" Username = \(String(describing: userName))")
+                    UserDefaults.standard.set(self.userNameTextField.text, forKey:"userName");
+                    print("Input = \(UserDefaults.standard.set(self.userNameTextField.text, forKey:"userName"))")
+                    
+                    
+                    let skView = self.view as! SKView
+                    skView.isMultipleTouchEnabled = false
+                    
+                    let scene = WelcomePlayerScene(size: CGSize(width: 1536, height: 2048))
+                    scene.scaleMode = .aspectFill
+                    
+                    skView.presentScene(scene)
+                }
+                else {
+                    print ("No Username added")
+                }
+            }
         
-        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+
+
         if let vc = self.scene?.view?.window?.rootViewController{
             vc.present(alert, animated:true, completion: nil)
         }
-
-        let skView = self.view as! SKView
-        skView.isMultipleTouchEnabled = false
-        
-        let scene = WelcomePlayerScene(size: CGSize(width: 1536, height: 2048))
-        scene.scaleMode = .aspectFill
-        
-        skView.presentScene(scene)
-        
         
     }
    

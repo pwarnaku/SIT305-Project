@@ -50,6 +50,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var endOfScreenRightofBirds = CGFloat()
     var endOfScreenLeftofBirds = CGFloat()
     let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
+    //let player = UserDefaults.standard.set [String] ?? [String]()
     
     //variables related to Score and High Score
     var nameLable:SKLabelNode!
@@ -62,10 +63,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     }
    
-    var highScore:Int = 0 {
+    var highScore:Int = 0{
         didSet{
             if getName() == "\(array[0])" {
-                
                 highScoreLable =  SKLabelNode(text: "High Score: \(array[1])")
             }
                 
@@ -637,10 +637,17 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         if highScore < score {
             highScore = score
             highScoreLable.text = "High Score: \(highScore)"
+            //highScore = score
             let player = ["\(getName())", "\(highScore)"]
             UserDefaults.standard.set(player, forKey:"player");
+            print(getName(), score)
+        }
+        
+        else {
             
-            print(getName(), highScore)
+            print(getName(), score, array[1])
+            
+
         }
      /*
         let transition = SKTransition.flipHorizontal(withDuration: 0.5)
