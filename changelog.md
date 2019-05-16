@@ -4,10 +4,16 @@
 
 - Had a group meeting in the library 10am- 7.pm [Piumi,Sachin]
 - Working on testing the app [Piumi,Sachin]
+- Login Method Updated [Sachin]
+- Data Store Updated [Sachin]
+- Score/ High Score Updated [Sachin]
 
 ## Week 09
+### Friday 09/May 
+- Working on Data Store [Sachin]
+- Working on High Score [Sachin]
 
-## Wednesday 8/May [Henry]
+### Wednesday 8/May [Henry]
 
 - This week is Week 9 (I think you got confused by 1 week)
 - Good progress. Glad to see it's getting closer. Final stretch now. 
