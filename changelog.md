@@ -1,5 +1,13 @@
 ## Week 10
 
+### Thursday 15/May
+
+- Working on bug fixing [Sachin, Piumi]
+
+### Wednesday 15/May
+
+- Working on bug fixing [Sachin, Piumi]
+
 ### Monday 13/May 
 
 - Had a group meeting in the library 10am- 7.pm [Piumi,Sachin]
