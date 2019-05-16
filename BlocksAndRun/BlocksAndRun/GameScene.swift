@@ -49,7 +49,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     //limits for birds
     var endOfScreenRightofBirds = CGFloat()
     var endOfScreenLeftofBirds = CGFloat()
-
+    let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
+    
+    //variables related to Score and High Score
     var nameLable:SKLabelNode!
     var highScoreLable:SKLabelNode!
     var scoreLable:SKLabelNode!
@@ -60,14 +62,20 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     }
    
-    var highScore:Int = 0{
+    var highScore:Int = 0 {
         didSet{
-            highScoreLable.text = "High Score: \(highScore)"
+            if getName() == "\(array[0])" {
+                
+                highScoreLable =  SKLabelNode(text: "High Score: \(array[1])")
+            }
+                
+            else {
+                
+                highScoreLable =  SKLabelNode(text: "High Score: \(highScore)")
+                
+            }
         }
     }
-    
-    let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
-    
 
     /*
      
@@ -111,23 +119,47 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         scoreLabel()
         nameLabel()
         highScoreLabel()
-      //  loadPlayer()
+
         
         // Add the physics world
-        
         physicsWorld.contactDelegate = self
 
     }
     
+    /*
+    func dataStore(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.NSPersistentContainer.viewContext
+        let newUser = NSEntityDescription.inserNewObjectr(forEntutyName: "PlayerDB", into: context)
+    
+        do{
+            try context.save()
+        }
+        catch  {
+        }
+    }
+    */
+    
+    /*
+     
+     Function: getName
+     
+     Purpose: This function gets the 'User name' that user has entered when start the game using UserDefaults
+     
+     ** Important note for developers**
+     
+     This function is called in few places to get the user name easily.
+     
+     */
     
     func getName() -> String{
         return UserDefaults.standard.string(forKey: "userName")!
     }
-    
+       /*
     func getHighScore() -> Int {
         return UserDefaults.standard.integer(forKey: "userHighScore")
     }
-    /*
+ 
     func loadPlayer() {
         let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
        // print(array[0], array[1])
@@ -136,11 +168,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             
              highScoreLable.text = "\(array[1])"
              nameLable.text = "\(array[0])"
-            
         }
-        
-       
-        
     }
  */
     
@@ -230,7 +258,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         addChild(blocksGenerator)
     }
     
-    
         /*
      
          Function: generateClouds
@@ -306,6 +333,18 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(scoreLable)
     }
     
+    /*
+     
+     Function: nameLable
+     
+     Purpose: This function creates the name label
+     
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     
+     */
     
     func nameLabel(){
         
@@ -326,6 +365,19 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(nameLable)
         
     }
+    
+    /*
+     
+     Function: highScoreLable
+     
+     Purpose: This function creates the High Score lable. It uses saved array data to get the high score.
+     
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     
+     */
     
     func highScoreLabel(){
         
@@ -487,7 +539,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     func addDiamond(named: String, speed:Float, yPos:CGFloat)
     {
         
-    var diamondNode = SKSpriteNode(imageNamed: named)
+        let diamondNode = SKSpriteNode(imageNamed: named)
         
        // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
       //  badGuyNode.physicsBody!.affectedByGravity = false
@@ -495,7 +547,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
       //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
        // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
         
-        var diamond = Diamonds(speed: speed, guy: diamondNode)
+        let diamond = Diamonds(speed: speed, guy: diamondNode)
         diamonds.append(diamond)
         resetDiamonds(diamondNode: diamondNode, yPos: yPos)
         diamond.yPos = diamondNode.position.y
@@ -560,6 +612,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      Purpose: This function will stop everything after player hits a block
      User can restart the game by tapping on the label(gameOverLabel)
      
+     And this function chnages the high score by comparing with current score.
+     
+     And this function saves user name and score in an array using user defaults
      
      */
     
@@ -580,20 +635,22 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(gameOverLabel)
         
         if highScore < score {
-            
             highScore = score
-            highScoreLable.text = "\(highScore)"
+            highScoreLable.text = "High Score: \(highScore)"
+            let player = ["\(getName())", "\(highScore)"]
+            UserDefaults.standard.set(player, forKey:"player");
             
+            print(getName(), highScore)
         }
-        
-        else if highScore > score{
-            highScoreLable.text = "\(highScore)"
-        }
- 
-        
-       // UserDefaults.standard.set(self.highScoreLable.text, forKey:"userHighScore");
-        let player = ["\(getName())", highScoreLable.text]
-        UserDefaults.standard.set(player, forKey:"player");
+     /*
+        let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+        let gameOver = SKScene(fileNamed: "GameOverScene") as! GameOverScene
+        gameOver.score = self.score
+        gameOver.highScore = "\(array[1])"
+        gameOver.userName = "\(getName())"
+        self.view?.presentScene(gameOver, transition: transition)
+
+        */
     }
     
     /*
@@ -624,7 +681,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      Purpose: this funtion check whether the game is over.if not it calles the updateDiamondsPosition()
      function and will add score for the player.
-     Player get 5 points when the player jump and avoid a block.
+     And this fucntion genarates the score. Player get 5 points when the player jump and avoid a block.
      
     */
     
@@ -688,6 +745,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         }
     }
     
+    
     func addBirds()
     {
         addBird(named: "flameBall", speed: 40.0, yPos: CGFloat(1500))
@@ -695,7 +753,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     }
     
     func addBird(named: String, speed:Float, yPos:CGFloat) {
-        var birdNode = SKSpriteNode(imageNamed: named)
+        let birdNode = SKSpriteNode(imageNamed: named)
         
         // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
         //  badGuyNode.physicsBody!.affectedByGravity = false
@@ -706,7 +764,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         
         
-        var bird = Birds(speed: speed, guy: birdNode)
+        let bird = Birds(speed: speed, guy: birdNode)
         birds.append(bird)
         resetBirds(birdNode: birdNode, yPos: yPos)
         bird.yPos = birdNode.position.y
