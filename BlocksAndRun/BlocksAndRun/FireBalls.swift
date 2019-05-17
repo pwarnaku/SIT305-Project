@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Birds  {
+class FireBalls  {
     
     
     var speed:Float = 0.0

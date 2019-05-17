@@ -16,6 +16,10 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     var cloudGenerator: CloudsGenarator!
     var movingBridge: MovingBridge!
     
+    //Audio clips
+    let backgroundSound = SKAudioNode(fileNamed: "backgroundMusic.mp3")
+   
+    
     var textureAtlas = SKTextureAtlas()
     var textureArray = [SKTexture]()
     
@@ -37,6 +41,8 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
      */
     
     override func didMove(to view: SKView) {
+        
+         self.addChild(backgroundSound)
         
         textureAtlas = SKTextureAtlas(named: "running")
         
@@ -107,15 +113,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
             
             addChild(cropNode)
         }
-        
-     /*   let nameOfTheGameLabel = SKLabelNode(text: "Blocks and Run")
-        nameOfTheGameLabel.name = "tapToStartLabel"
-        nameOfTheGameLabel.position = CGPoint(x: self.size.width/2, y: 1200)
-        nameOfTheGameLabel.fontColor = UIColor.white
-        nameOfTheGameLabel.fontSize = 100
-        // tapToStartLabel.zPosition = 1
-        self.addChild(nameOfTheGameLabel) */
-        
+    
     
         addSnowEmitter()
     
@@ -160,7 +158,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        //var messageAlert: String?
+      
         
         let alert = UIAlertController(title: "User Login", message: "What is your user name? ", preferredStyle: UIAlertController.Style.alert);
         

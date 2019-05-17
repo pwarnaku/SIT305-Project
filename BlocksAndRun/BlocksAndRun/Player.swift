@@ -40,6 +40,16 @@ class Player: SKSpriteNode {
     var onGround = true
     
     
+    let playerBody: UInt32 = 0x1 << 0
+    let fireBallBody: UInt32 = 0x1 << 1
+    
+    enum ColliderType:UInt32 {
+        case player = 1
+        case FireBalls = 2
+        case Diamonds = 3
+    }
+    
+    
     
     // basic colors for body parts
     let skinColour = UIColor(red: 255.0/00, green: 173.0/255.00, blue: 96.0/255.00, alpha: 1.0)
@@ -163,9 +173,11 @@ class Player: SKSpriteNode {
     func loadPhisycBodyWithSize(size: CGSize){
         
         physicsBody = SKPhysicsBody(rectangleOf: size)
-        physicsBody?.categoryBitMask = playerCategory
-        physicsBody?.contactTestBitMask = blockeCategory
+        physicsBody?.categoryBitMask = playerBody
+        physicsBody?.contactTestBitMask = fireBallBody
         physicsBody?.affectedByGravity = false
+        physicsBody!.categoryBitMask = ColliderType.player.rawValue
+        physicsBody!.collisionBitMask = playerBody | fireBallBody
         
     }
     
@@ -287,11 +299,16 @@ class Player: SKSpriteNode {
      */
     
     func  stop () {
-      //  body.removeAllActions()
-        //leftLeg.removeAllActions()
-   //     rightLeg.removeAllActions()
         mainRunningAnimation.removeFromParent()
-        burning()
+        let burningMan = SKSpriteNode(imageNamed: "burning")
+        burningMan.position = CGPoint(x: self.size.width/2, y: 60)
+        burningMan.size = CGSize(width: 300, height: 200)
+        let BurningEmitter = SKEmitterNode(fileNamed: "Burn")!
+        burningMan.addChild(BurningEmitter)
+        self.addChild(burningMan)
+        
+        
+        // burning()
     }
     
     func burning()  {

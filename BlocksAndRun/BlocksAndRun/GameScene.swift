@@ -23,6 +23,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var player: Player!
     var blocksGenerator: BlocksGenarator!
     var cloudGenerator: CloudsGenarator!
+    //Audio clips
+    let backgroundSound = SKAudioNode(fileNamed: "backgroundMusic.mp3")
+    let screamSound = SKAudioNode(fileNamed: "Scream.mp3")
     
     //boolean values
     var isGameStarted = false
@@ -32,23 +35,32 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     //diamonds
     var diamonds:[Diamonds] = []
     
-    //Evil birds
-    var birds: [Birds] = []
+    //FireBalls
+    var fireBalls: [FireBalls] = []
     
+    //Lives array
+    var livesArray: [SKSpriteNode]!
     var Defaultlives: Int = 2
     
     enum ColliderType:UInt32 {
         case Player = 1
-        case Diamonds = 2
+         case FireBalls = 2
+        case Diamonds = 3
     }
+    //collider types
+    
+    let playerBody: UInt32 = 0x1 << 0
+    let fireBallBody: UInt32 = 0x1 << 1
+    
     
     //limits
     var endOfScreenRight = CGFloat()
     var endOfScreenLeft = CGFloat()
 
     //limits for birds
-    var endOfScreenRightofBirds = CGFloat()
-    var endOfScreenLeftofBirds = CGFloat()
+    var endOfScreenRightofFireBalls = CGFloat()
+    var endOfScreenLeftofFireBalls = CGFloat()
+    
     let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
     //let player = UserDefaults.standard.set [String] ?? [String]()
     
@@ -103,8 +115,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         endOfScreenLeft = (1200) * CGFloat(-1)
         endOfScreenRight = 2900
         
-        endOfScreenLeftofBirds = (1200) * CGFloat(-1)
-        endOfScreenRightofBirds = 1500
+        endOfScreenLeftofFireBalls = (1200) * CGFloat(-1)
+        endOfScreenRightofFireBalls = 1500
         
         // creates objects
         
@@ -113,14 +125,17 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         createThePlayer()
         createBlocks()
         addDiamonds()
-        addBirds()
+         addFireBalls()
         generateClouds()
         startGameLable()
         scoreLabel()
-        nameLabel()
+         addLives()
+       // nameLabel()
         highScoreLabel()
 
-        
+        // add background music
+       
+        self.addChild(backgroundSound)
         // Add the physics world
         physicsWorld.contactDelegate = self
 
@@ -215,6 +230,20 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
     }
     
+    func addLives(){
+        livesArray = [SKSpriteNode]()
+        for live in 1 ... 3 {
+            let liveNode = SKSpriteNode(imageNamed: "heart")
+            
+            liveNode.position = CGPoint(x: self.frame.size.width - CGFloat(4 - live)*liveNode.size.width, y: self.frame.size.height - 350 )
+            liveNode.size = CGSize(width: 100, height: 100)
+            
+            self.addChild(liveNode)
+            livesArray.append(liveNode)
+            
+        }
+    }
+    
     
     /*
      
@@ -231,10 +260,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func createThePlayer(){
         
+        var sizee = CGSize(width: 80, height: 200)
         player = Player()
         player.position = CGPoint(x: 380, y: 800)
+        
+        
         self.addChild(player)
-        //  player.breath() // call the breath animation
         
     }
     
@@ -345,7 +376,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      
      */
-    
+  /*
     func nameLabel(){
         
         if getName() == "\(array[0])" {
@@ -364,7 +395,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         nameLable.fontSize = 60
         self.addChild(nameLable)
         
-    }
+    } */
     
     /*
      
@@ -381,7 +412,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func highScoreLabel(){
         
-        if getName() == "\(array[0])" {
+/*        if getName() == "\(array[0])" {
             
             highScoreLable =  SKLabelNode(text: "High Score: \(array[1])")
         }
@@ -390,8 +421,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             
            highScoreLable =  SKLabelNode(text: "High Score: 0")
             
-        }
-        
+        } */
+         highScoreLable =  SKLabelNode(text: "High Score: 0")
         highScoreLable.position = CGPoint(x: 1080, y: 1800)
         highScoreLable.fontName = "AmericanTypewiter-Bold"
         highScoreLable.fontColor = UIColor.white
@@ -620,6 +651,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func gameOver()
     {
+        //stops the background music
+        backgroundSound.run(SKAction.stop())
+        
+        
         
         isGameOver = true
         player.physicsBody = nil
@@ -645,7 +680,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         else {
             
-            print(getName(), score, array[1])
+          //  print(getName(), score, array[1])
             
 
         }
@@ -696,7 +731,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         if isGameStarted {
         
             updateDiamondsPosition()
-            updateBirdsPosition()
+            updateFireBallsPosition()
             
             if blocksGenerator.blocksTracker.count > 0 {
                 let block = blocksGenerator.blocksTracker[0] as Blocks
@@ -753,33 +788,41 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     }
     
     
-    func addBirds()
+    func addFireBalls()
     {
-        addBird(named: "flameBall", speed: 40.0, yPos: CGFloat(1500))
-    
+        addFireBall(named: "flameBall", speed: 40.0, yPos: CGFloat(1500))
+        
     }
     
-    func addBird(named: String, speed:Float, yPos:CGFloat) {
-        let birdNode = SKSpriteNode(imageNamed: named)
+    func addFireBall(named: String, speed:Float, yPos:CGFloat) {
+        let fireBallNode = SKSpriteNode(imageNamed: named)
         
-        // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
-        //  badGuyNode.physicsBody!.affectedByGravity = false
-        //  badGuyNode.physicsBody!.categoryBitMask = ColliderType.Diamonds.rawValue
-        //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
-        // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
+        fireBallNode.physicsBody = SKPhysicsBody(circleOfRadius: fireBallNode.size.width/2)
+        fireBallNode.physicsBody!.affectedByGravity = false
+        fireBallNode.physicsBody?.isDynamic = false
+        fireBallNode.physicsBody?.categoryBitMask = fireBallBody
+        fireBallNode.physicsBody?.collisionBitMask = playerBody
+        fireBallNode.physicsBody?.contactTestBitMask = playerBody
+        
+        
+        //  fireBallNode.physicsBody!.contactTestBitMask = fireBallNode.physicsBody!.collisionBitMask
         
         
         
         
-        let bird = Birds(speed: speed, guy: birdNode)
-        birds.append(bird)
-        resetBirds(birdNode: birdNode, yPos: yPos)
-        bird.yPos = birdNode.position.y
-        birdNode.zPosition = 10
-        birdNode.size = CGSize(width: 180, height: 150)
+        
+        
+        
+        
+        let fireBall = FireBalls(speed: speed, guy: fireBallNode)
+        fireBalls.append(fireBall)
+        resetfireBalls(fireBallNode: fireBallNode, yPos: yPos)
+        fireBall.yPos = fireBallNode.position.y
+        fireBallNode.zPosition = 10
+        fireBallNode.size = CGSize(width: 180, height: 150)
         let fireEmitter = SKEmitterNode(fileNamed: "Spark")!
-        birdNode.addChild(fireEmitter)
-        addChild(birdNode)
+        fireBallNode.addChild(fireEmitter)
+        addChild(fireBallNode)
         
     }
     
@@ -794,68 +837,46 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      */
     
-    func resetBirds(birdNode:SKSpriteNode, yPos:CGFloat) {
+    func resetfireBalls(fireBallNode:SKSpriteNode, yPos:CGFloat) {
         
-        birdNode.position.x = endOfScreenRight
-        birdNode.position.y = yPos
+        fireBallNode.position.x = endOfScreenRight
+        fireBallNode.position.y = yPos
     }
     
-    func updateBirdsPosition() {
+    func updateFireBallsPosition() {
         
-        for bird in birds {
-            if !bird.moving
+        for fireBall in fireBalls {
+            if !fireBall.moving
             {
-                bird.currentFrame += 10
-                if bird.currentFrame > bird.randomFrame {
-                    bird.moving = true
+                fireBall.currentFrame += 10
+                if fireBall.currentFrame > fireBall.randomFrame {
+                    fireBall.moving = true
                 }
             } else
                 
             {
-                bird.guy.position.y = CGFloat(Double(bird.guy.position.y) + sin(bird.angle) * bird.range)
-                bird.angle += 0.10
-                if bird.guy.position.x > endOfScreenLeft {
-                    bird.guy.position.x -= CGFloat(bird.speed)
+                fireBall.guy.position.y = CGFloat(Double(fireBall.guy.position.y) + sin(fireBall.angle) * fireBall.range)
+                fireBall.angle += 0.10
+                if fireBall.guy.position.x > endOfScreenLeft {
+                    fireBall.guy.position.x -= CGFloat(fireBall.speed)
                 } else
                     
                 {
-                    bird.guy.position.x = endOfScreenRightofBirds
-                    bird.currentFrame = 0
-                    bird.setRandomFrame()
-                    bird.moving = false
-                    bird.range += 0.1
-                    //updateScore()
+                    fireBall.guy.position.x = endOfScreenRightofFireBalls
+                    fireBall.currentFrame = 0
+                    fireBall.setRandomFrame()
+                    fireBall.moving = false
+                    fireBall.range += 0.1
+                    
                 }
             }
         }
     }
     
+    
    
     
-    func manageLives() -> Bool {
-       
-        
-        Defaultlives -= 1
-        let currentlives = Defaultlives
-        
-        
-        if currentlives == 0
-            
-        {
-            isLivesAvailable = false
-            
-            // print("waithvgvvjhbhv")
-         
-        }
-            
-        else
-            
-        {
-            isLivesAvailable = true
-        }
-        
-        return isLivesAvailable
-    }
+    
     
     
     /*
@@ -872,7 +893,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-      //  player.burn()
+  
+       screamSound.autoplayLooped = false
+        addChild(screamSound)
         gameOver()
        
       

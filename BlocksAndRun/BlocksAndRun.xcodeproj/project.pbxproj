@@ -11,7 +11,7 @@
 		D8083048227551390051BC2A /* PlayerSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8083047227551390051BC2A /* PlayerSelection.swift */; };
 		D808304F22768EB70051BC2A /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808304E22768EB70051BC2A /* Animations.swift */; };
 		D80830532276A90D0051BC2A /* man.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D80830522276A90D0051BC2A /* man.atlas */; };
-		D808305722786A120051BC2A /* Birds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808305622786A120051BC2A /* Birds.swift */; };
+		D808305722786A120051BC2A /* FireBalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808305622786A120051BC2A /* FireBalls.swift */; };
 		D808305A22788DA20051BC2A /* man2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D808305922788DA20051BC2A /* man2.atlas */; };
 		D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2012248AFBC00DD5E47 /* AppDelegate.swift */; };
 		D811F2082248AFBC00DD5E47 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2072248AFBC00DD5E47 /* GameScene.swift */; };
@@ -33,6 +33,9 @@
 		D83FF76322733F2500BA9A43 /* burning.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D83FF76222733F2500BA9A43 /* burning.atlas */; };
 		D83FF765227347D500BA9A43 /* Spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF764227347D500BA9A43 /* Spark.sks */; };
 		D83FF7672273481600BA9A43 /* bok.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7662273481600BA9A43 /* bok.sks */; };
+		D85CD6F2228E46E90023C112 /* Burn.sks in Resources */ = {isa = PBXBuildFile; fileRef = D85CD6F1228E46E90023C112 /* Burn.sks */; };
+		D85CD6F4228E47F30023C112 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D85CD6F3228E47F30023C112 /* backgroundMusic.mp3 */; };
+		D85CD6F6228E49320023C112 /* Scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D85CD6F5228E49320023C112 /* Scream.mp3 */; };
 		D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B1FEF2262E4AB00B1272A /* LivesScene.swift */; };
 		D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B9C632252FA4A00B0A3B2 /* Player.swift */; };
 		D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8441225B9237002817AB /* CloudsGenerator.swift */; };
@@ -43,7 +46,6 @@
 		D8DA51762257012300BD0C9D /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA51752257012300BD0C9D /* Blocks.swift */; };
 		D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */; };
 		D8ED0251225E3CBE00A3D7F9 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8ED0250225E3CBE00A3D7F9 /* Fire.sks */; };
-		D8ED0253225E49AB00A3D7F9 /* Burn.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8ED0252225E49AB00A3D7F9 /* Burn.sks */; };
 		D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEAB3522573781003FE2A8 /* Constants.swift */; };
 		E64F5ACA22655A6300E84388 /* SignInScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5AC922655A6300E84388 /* SignInScene.swift */; };
 		E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5ACB2265682D00E84388 /* SignUpScene.swift */; };
@@ -74,7 +76,7 @@
 		D8083047227551390051BC2A /* PlayerSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelection.swift; sourceTree = "<group>"; };
 		D808304E22768EB70051BC2A /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		D80830522276A90D0051BC2A /* man.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = man.atlas; sourceTree = "<group>"; };
-		D808305622786A120051BC2A /* Birds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birds.swift; sourceTree = "<group>"; };
+		D808305622786A120051BC2A /* FireBalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBalls.swift; sourceTree = "<group>"; };
 		D808305922788DA20051BC2A /* man2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = man2.atlas; sourceTree = "<group>"; };
 		D811F1FE2248AFBC00DD5E47 /* BlocksAndRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocksAndRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D811F2012248AFBC00DD5E47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,9 @@
 		D83FF76222733F2500BA9A43 /* burning.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = burning.atlas; sourceTree = "<group>"; };
 		D83FF764227347D500BA9A43 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
 		D83FF7662273481600BA9A43 /* bok.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = bok.sks; sourceTree = "<group>"; };
+		D85CD6F1228E46E90023C112 /* Burn.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Burn.sks; sourceTree = "<group>"; };
+		D85CD6F3228E47F30023C112 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		D85CD6F5228E49320023C112 /* Scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Scream.mp3; sourceTree = "<group>"; };
 		D86B1FEF2262E4AB00B1272A /* LivesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesScene.swift; sourceTree = "<group>"; };
 		D87B9C632252FA4A00B0A3B2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D8AB8441225B9237002817AB /* CloudsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGenerator.swift; sourceTree = "<group>"; };
@@ -112,7 +117,6 @@
 		D8DA51752257012300BD0C9D /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
 		D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBridge.swift; sourceTree = "<group>"; };
 		D8ED0250225E3CBE00A3D7F9 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
-		D8ED0252225E49AB00A3D7F9 /* Burn.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Burn.sks; sourceTree = "<group>"; };
 		D8FEAB3522573781003FE2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E64F5AC922655A6300E84388 /* SignInScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScene.swift; sourceTree = "<group>"; };
 		E64F5ACB2265682D00E84388 /* SignUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScene.swift; sourceTree = "<group>"; };
@@ -208,7 +212,8 @@
 				D83364CF225DDE9600CF2D52 /* MenuScene.swift */,
 				E66C69F0228BF4DF00F9D6AB /* GameOverScene.swift */,
 				E64F5AC922655A6300E84388 /* SignInScene.swift */,
-				D808305622786A120051BC2A /* Birds.swift */,
+				D808305622786A120051BC2A /* FireBalls.swift */,
+				D85CD6F7228E49410023C112 /* AudioClips */,
 				E64F5ACB2265682D00E84388 /* SignUpScene.swift */,
 				E675A6222287E4B50073207E /* WelcomePlayerScene.swift */,
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
@@ -262,6 +267,15 @@
 			path = burning;
 			sourceTree = "<group>";
 		};
+		D85CD6F7228E49410023C112 /* AudioClips */ = {
+			isa = PBXGroup;
+			children = (
+				D85CD6F3228E47F30023C112 /* backgroundMusic.mp3 */,
+				D85CD6F5228E49320023C112 /* Scream.mp3 */,
+			);
+			path = AudioClips;
+			sourceTree = "<group>";
+		};
 		D8AB8440225B4DE9002817AB /* New Group */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,9 +309,9 @@
 			children = (
 				D8ED0250225E3CBE00A3D7F9 /* Fire.sks */,
 				D83FF7522272081400BA9A43 /* MyParticlekoji.sks */,
+				D85CD6F1228E46E90023C112 /* Burn.sks */,
 				D83FF7462272043700BA9A43 /* FireFlies.sks */,
 				D83FF7472272043700BA9A43 /* Assets.xcassets */,
-				D8ED0252225E49AB00A3D7F9 /* Burn.sks */,
 				D8D03832225E39BB00E2B09D /* Snow.sks */,
 				D83FF764227347D500BA9A43 /* Spark.sks */,
 				D83FF7662273481600BA9A43 /* bok.sks */,
@@ -409,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85CD6F4228E47F30023C112 /* backgroundMusic.mp3 in Resources */,
 				D80830532276A90D0051BC2A /* man.atlas in Resources */,
 				D83FF7482272043700BA9A43 /* FireFlies.sks in Resources */,
 				D811F20D2248AFBC00DD5E47 /* Main.storyboard in Resources */,
@@ -419,11 +434,12 @@
 				D8ED0251225E3CBE00A3D7F9 /* Fire.sks in Resources */,
 				D8D03833225E39BB00E2B09D /* Snow.sks in Resources */,
 				D83364D2225DDE9D00CF2D52 /* MenuScene.sks in Resources */,
+				D85CD6F6228E49320023C112 /* Scream.mp3 in Resources */,
 				D83FF76322733F2500BA9A43 /* burning.atlas in Resources */,
 				D808305A22788DA20051BC2A /* man2.atlas in Resources */,
 				D83FF7672273481600BA9A43 /* bok.sks in Resources */,
-				D8ED0253225E49AB00A3D7F9 /* Burn.sks in Resources */,
 				D83FF765227347D500BA9A43 /* Spark.sks in Resources */,
+				D85CD6F2228E46E90023C112 /* Burn.sks in Resources */,
 				D83FF7532272081400BA9A43 /* MyParticlekoji.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,7 +469,7 @@
 				D8DA5174225700F600BD0C9D /* BlocksGenarator.swift in Sources */,
 				D811F20A2248AFBC00DD5E47 /* GameViewController.swift in Sources */,
 				D8AB8444225B93F5002817AB /* Clouds.swift in Sources */,
-				D808305722786A120051BC2A /* Birds.swift in Sources */,
+				D808305722786A120051BC2A /* FireBalls.swift in Sources */,
 				D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */,
 				D833A72A2258CDA8007E1138 /* UserViewController.swift in Sources */,
 				D833A7262258CD6C007E1138 /* UserSignInViewController.swift in Sources */,
