@@ -62,7 +62,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var endOfScreenLeftofFireBalls = CGFloat()
     
     let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
-    //let player = UserDefaults.standard.set [String] ?? [String]()
+  
     
     //variables related to Score and High Score
     var nameLable:SKLabelNode!
@@ -110,7 +110,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         //creates buttons
         
         createLiveButton()
-        createSettingsButton()
+       
         
         endOfScreenLeft = (1200) * CGFloat(-1)
         endOfScreenRight = 2900
@@ -124,7 +124,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         createTheMovingBridge()
         createThePlayer()
         createBlocks()
-        addDiamonds()
+        //addDiamonds()
          addFireBalls()
         generateClouds()
         startGameLable()
@@ -141,19 +141,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 
     }
     
-    /*
-    func dataStore(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.NSPersistentContainer.viewContext
-        let newUser = NSEntityDescription.inserNewObjectr(forEntutyName: "PlayerDB", into: context)
     
-        do{
-            try context.save()
-        }
-        catch  {
-        }
-    }
-    */
     
     /*
      
@@ -233,10 +221,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     func addLives(){
         livesArray = [SKSpriteNode]()
         for live in 1 ... 3 {
-            let liveNode = SKSpriteNode(imageNamed: "heart")
+            let liveNode = SKSpriteNode(imageNamed: "lives-1")
             
-            liveNode.position = CGPoint(x: self.frame.size.width - CGFloat(4 - live)*liveNode.size.width, y: self.frame.size.height - 350 )
-            liveNode.size = CGSize(width: 100, height: 100)
+            liveNode.position = CGPoint(x: 1300 - CGFloat(4 - live)*liveNode.size.width, y: 1900 )
+            liveNode.size = CGSize(width: 60, height: 60)
             
             self.addChild(liveNode)
             livesArray.append(liveNode)
@@ -260,7 +248,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func createThePlayer(){
         
-        var sizee = CGSize(width: 80, height: 200)
+        
         player = Player()
         player.position = CGPoint(x: 380, y: 800)
         
@@ -522,31 +510,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     }
     
-    /*
-     
-     Function: createSettingsButton
-     
-     Purpose: This function creates settings  button (gear) top left corner of the view
-     
-     ** Important note for developers**
-     
-     You basically need to create an SKNode of some sort which will draw your button and then check to see if touches registered in your scene are within that node's bounds.
-     
-     This function is called in gamescene.swift file under didMove function.
-     
-     */
     
-    func createSettingsButton(){
-        
-        let settingsButtonTexture = SKTexture(imageNamed: "settings")
-        settingsButton = SKSpriteNode(texture: settingsButtonTexture , size: CGSize(width: 100, height: 100))
-        settingsButton.position = CGPoint(x: 500, y: 1850)
-        settingsButton.zPosition = 1
-        
-        self.addChild(settingsButton)
-        
-        
-    }
     
     /*
      
@@ -561,7 +525,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      */
     
     
-    
+    /*
     func addDiamonds()
     {
         addDiamond(named: "diamond1", speed: 8.0, yPos: CGFloat(1500))
@@ -605,7 +569,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         diamondNode.position.x = endOfScreenRight
         diamondNode.position.y = yPos
     }
-    
+    */
     
     /*
      
@@ -626,7 +590,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         isGameStarted = true
         let tapToStartLable = childNode(withName: "tapToStartLabel")
         tapToStartLable?.removeFromParent()
-        //player.stop()
         player.startRunning()
         movingBridge.start()
         blocksGenerator.startBlocksGenaratingIsEvery(seconds: 10)
@@ -651,10 +614,19 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func gameOver()
     {
+        
+        
         //stops the background music
         backgroundSound.run(SKAction.stop())
         
-        
+        if self.livesArray.count > 0{
+            let liveNode = self.livesArray.first
+            liveNode!.removeFromParent()
+            self.livesArray.removeFirst()
+            if self.livesArray.count == 0{
+                
+            }
+        }
         
         isGameOver = true
         player.physicsBody = nil
@@ -730,7 +702,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     override func update(_ currentTime: CFTimeInterval){
         if isGameStarted {
         
-            updateDiamondsPosition()
+           // updateDiamondsPosition()
             updateFireBallsPosition()
             
             if blocksGenerator.blocksTracker.count > 0 {
@@ -757,7 +729,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
      
      */
     
-    func updateDiamondsPosition() {
+ /*   func updateDiamondsPosition() {
         
         for diamond in diamonds {
             if !diamond.moving
@@ -786,6 +758,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
         }
     }
+ */
     
     
     func addFireBalls()
@@ -803,16 +776,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         fireBallNode.physicsBody?.categoryBitMask = fireBallBody
         fireBallNode.physicsBody?.collisionBitMask = playerBody
         fireBallNode.physicsBody?.contactTestBitMask = playerBody
-        
-        
-        //  fireBallNode.physicsBody!.contactTestBitMask = fireBallNode.physicsBody!.collisionBitMask
-        
-        
-        
-        
-        
-        
-        
+       
         
         let fireBall = FireBalls(speed: speed, guy: fireBallNode)
         fireBalls.append(fireBall)
@@ -969,22 +933,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
             
             
-            if settingsButton.contains(location) {
-                print("tapped!")
-                
-                // createLivesWindow()
-                let skView = self.view as! SKView
-                skView.isMultipleTouchEnabled = false
-                
-                let scene = PlayerSelection(size: CGSize(width: 1536, height: 2048))
-                scene.scaleMode = .aspectFill
-                
-                skView.presentScene(scene)
-                
-                
-                
-                
-            }
+           
         }
     }
         
