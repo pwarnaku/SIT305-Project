@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D80429CF226442ED00F9FC9F /* running.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D80429CE226442ED00F9FC9F /* running.atlas */; };
-		D8083048227551390051BC2A /* PlayerSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8083047227551390051BC2A /* PlayerSelection.swift */; };
-		D808304F22768EB70051BC2A /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808304E22768EB70051BC2A /* Animations.swift */; };
-		D80830532276A90D0051BC2A /* man.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D80830522276A90D0051BC2A /* man.atlas */; };
 		D808305722786A120051BC2A /* FireBalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808305622786A120051BC2A /* FireBalls.swift */; };
 		D808305A22788DA20051BC2A /* man2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D808305922788DA20051BC2A /* man2.atlas */; };
 		D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2012248AFBC00DD5E47 /* AppDelegate.swift */; };
@@ -23,9 +20,6 @@
 		D811F2282248AFBD00DD5E47 /* BlocksAndRunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2272248AFBD00DD5E47 /* BlocksAndRunUITests.swift */; };
 		D83364D0225DDE9600CF2D52 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83364CF225DDE9600CF2D52 /* MenuScene.swift */; };
 		D83364D2225DDE9D00CF2D52 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83364D1225DDE9D00CF2D52 /* MenuScene.sks */; };
-		D833A7262258CD6C007E1138 /* UserSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7252258CD6C007E1138 /* UserSignInViewController.swift */; };
-		D833A7282258CD99007E1138 /* UserSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7272258CD99007E1138 /* UserSignUpViewController.swift */; };
-		D833A72A2258CDA8007E1138 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833A7292258CDA8007E1138 /* UserViewController.swift */; };
 		D83FF7482272043700BA9A43 /* FireFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7462272043700BA9A43 /* FireFlies.sks */; };
 		D83FF7492272043700BA9A43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7472272043700BA9A43 /* Assets.xcassets */; };
 		D83FF7532272081400BA9A43 /* MyParticlekoji.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7522272081400BA9A43 /* MyParticlekoji.sks */; };
@@ -36,6 +30,7 @@
 		D85CD6F2228E46E90023C112 /* Burn.sks in Resources */ = {isa = PBXBuildFile; fileRef = D85CD6F1228E46E90023C112 /* Burn.sks */; };
 		D85CD6F4228E47F30023C112 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D85CD6F3228E47F30023C112 /* backgroundMusic.mp3 */; };
 		D85CD6F6228E49320023C112 /* Scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D85CD6F5228E49320023C112 /* Scream.mp3 */; };
+		D85CD6FD228E8AF80023C112 /* SignInScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85CD6FC228E8AF80023C112 /* SignInScene.swift */; };
 		D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B1FEF2262E4AB00B1272A /* LivesScene.swift */; };
 		D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B9C632252FA4A00B0A3B2 /* Player.swift */; };
 		D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB8441225B9237002817AB /* CloudsGenerator.swift */; };
@@ -47,7 +42,6 @@
 		D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */; };
 		D8ED0251225E3CBE00A3D7F9 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8ED0250225E3CBE00A3D7F9 /* Fire.sks */; };
 		D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEAB3522573781003FE2A8 /* Constants.swift */; };
-		E64F5ACA22655A6300E84388 /* SignInScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5AC922655A6300E84388 /* SignInScene.swift */; };
 		E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64F5ACB2265682D00E84388 /* SignUpScene.swift */; };
 		E66C69F1228BF4DF00F9D6AB /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66C69F0228BF4DF00F9D6AB /* GameOverScene.swift */; };
 		E675A6232287E4B50073207E /* WelcomePlayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675A6222287E4B50073207E /* WelcomePlayerScene.swift */; };
@@ -73,9 +67,6 @@
 
 /* Begin PBXFileReference section */
 		D80429CE226442ED00F9FC9F /* running.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = running.atlas; sourceTree = "<group>"; };
-		D8083047227551390051BC2A /* PlayerSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelection.swift; sourceTree = "<group>"; };
-		D808304E22768EB70051BC2A /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
-		D80830522276A90D0051BC2A /* man.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = man.atlas; sourceTree = "<group>"; };
 		D808305622786A120051BC2A /* FireBalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBalls.swift; sourceTree = "<group>"; };
 		D808305922788DA20051BC2A /* man2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = man2.atlas; sourceTree = "<group>"; };
 		D811F1FE2248AFBC00DD5E47 /* BlocksAndRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocksAndRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,9 +85,6 @@
 		D811F2292248AFBD00DD5E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D83364CF225DDE9600CF2D52 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		D83364D1225DDE9D00CF2D52 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
-		D833A7252258CD6C007E1138 /* UserSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignInViewController.swift; sourceTree = "<group>"; };
-		D833A7272258CD99007E1138 /* UserSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpViewController.swift; sourceTree = "<group>"; };
-		D833A7292258CDA8007E1138 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D83FF7462272043700BA9A43 /* FireFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireFlies.sks; sourceTree = "<group>"; };
 		D83FF7472272043700BA9A43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D83FF7522272081400BA9A43 /* MyParticlekoji.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticlekoji.sks; sourceTree = "<group>"; };
@@ -107,6 +95,7 @@
 		D85CD6F1228E46E90023C112 /* Burn.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Burn.sks; sourceTree = "<group>"; };
 		D85CD6F3228E47F30023C112 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		D85CD6F5228E49320023C112 /* Scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Scream.mp3; sourceTree = "<group>"; };
+		D85CD6FC228E8AF80023C112 /* SignInScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInScene.swift; sourceTree = "<group>"; };
 		D86B1FEF2262E4AB00B1272A /* LivesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesScene.swift; sourceTree = "<group>"; };
 		D87B9C632252FA4A00B0A3B2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D8AB8441225B9237002817AB /* CloudsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGenerator.swift; sourceTree = "<group>"; };
@@ -118,7 +107,6 @@
 		D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBridge.swift; sourceTree = "<group>"; };
 		D8ED0250225E3CBE00A3D7F9 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		D8FEAB3522573781003FE2A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E64F5AC922655A6300E84388 /* SignInScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScene.swift; sourceTree = "<group>"; };
 		E64F5ACB2265682D00E84388 /* SignUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScene.swift; sourceTree = "<group>"; };
 		E66C69F0228BF4DF00F9D6AB /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		E675A6222287E4B50073207E /* WelcomePlayerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePlayerScene.swift; sourceTree = "<group>"; };
@@ -158,14 +146,6 @@
 			path = running;
 			sourceTree = "<group>";
 		};
-		D80830512276A8FE0051BC2A /* man */ = {
-			isa = PBXGroup;
-			children = (
-				D80830522276A90D0051BC2A /* man.atlas */,
-			);
-			path = man;
-			sourceTree = "<group>";
-		};
 		D808305822788D970051BC2A /* man2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,33 +181,29 @@
 				D811F2072248AFBC00DD5E47 /* GameScene.swift */,
 				D8AB8449225BAC16002817AB /* StartScne.swift */,
 				D811F2092248AFBC00DD5E47 /* GameViewController.swift */,
-				D808304E22768EB70051BC2A /* Animations.swift */,
 				D83364D1225DDE9D00CF2D52 /* MenuScene.sks */,
 				D8E0FF352252F92C00F5AB50 /* MovingBridge.swift */,
 				D86B1FEF2262E4AB00B1272A /* LivesScene.swift */,
-				D8083047227551390051BC2A /* PlayerSelection.swift */,
 				D811F20B2248AFBC00DD5E47 /* Main.storyboard */,
 				D87B9C632252FA4A00B0A3B2 /* Player.swift */,
 				D811F20E2248AFBD00DD5E47 /* Assets.xcassets */,
 				D83364CF225DDE9600CF2D52 /* MenuScene.swift */,
 				E66C69F0228BF4DF00F9D6AB /* GameOverScene.swift */,
-				E64F5AC922655A6300E84388 /* SignInScene.swift */,
 				D808305622786A120051BC2A /* FireBalls.swift */,
-				D85CD6F7228E49410023C112 /* AudioClips */,
 				E64F5ACB2265682D00E84388 /* SignUpScene.swift */,
 				E675A6222287E4B50073207E /* WelcomePlayerScene.swift */,
+				D85CD6FC228E8AF80023C112 /* SignInScene.swift */,
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
-				D808305822788D970051BC2A /* man2 */,
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
+				D85CD6F7228E49410023C112 /* AudioClips */,
+				D808305822788D970051BC2A /* man2 */,
 				D83FF7592272F37D00BA9A43 /* burning */,
 				D83FF7582272D18300BA9A43 /* Diamonds */,
 				D80429CD226442C800F9FC9F /* running */,
-				D80830512276A8FE0051BC2A /* man */,
 				D8ED0254225E4ABF00A3D7F9 /* Effects */,
 				D8AB8446225BA91C002817AB /* Blocks */,
 				D8AB8445225BA90A002817AB /* Clouds */,
-				D8AB8440225B4DE9002817AB /* New Group */,
 				E678765F228BAF4F009FE1D1 /* Database.xcdatamodeld */,
 			);
 			path = BlocksAndRun;
@@ -274,16 +250,6 @@
 				D85CD6F5228E49320023C112 /* Scream.mp3 */,
 			);
 			path = AudioClips;
-			sourceTree = "<group>";
-		};
-		D8AB8440225B4DE9002817AB /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				D833A7292258CDA8007E1138 /* UserViewController.swift */,
-				D833A7252258CD6C007E1138 /* UserSignInViewController.swift */,
-				D833A7272258CD99007E1138 /* UserSignUpViewController.swift */,
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D8AB8445225BA90A002817AB /* Clouds */ = {
@@ -424,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85CD6F4228E47F30023C112 /* backgroundMusic.mp3 in Resources */,
-				D80830532276A90D0051BC2A /* man.atlas in Resources */,
 				D83FF7482272043700BA9A43 /* FireFlies.sks in Resources */,
 				D811F20D2248AFBC00DD5E47 /* Main.storyboard in Resources */,
 				D80429CF226442ED00F9FC9F /* running.atlas in Resources */,
@@ -471,8 +436,7 @@
 				D8AB8444225B93F5002817AB /* Clouds.swift in Sources */,
 				D808305722786A120051BC2A /* FireBalls.swift in Sources */,
 				D8E0FF362252F92D00F5AB50 /* MovingBridge.swift in Sources */,
-				D833A72A2258CDA8007E1138 /* UserViewController.swift in Sources */,
-				D833A7262258CD6C007E1138 /* UserSignInViewController.swift in Sources */,
+				D85CD6FD228E8AF80023C112 /* SignInScene.swift in Sources */,
 				D87B9C642252FA4A00B0A3B2 /* Player.swift in Sources */,
 				E675A6232287E4B50073207E /* WelcomePlayerScene.swift in Sources */,
 				E66C69F1228BF4DF00F9D6AB /* GameOverScene.swift in Sources */,
@@ -481,15 +445,11 @@
 				D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */,
 				D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */,
 				D8AB844A225BAC16002817AB /* StartScne.swift in Sources */,
-				E64F5ACA22655A6300E84388 /* SignInScene.swift in Sources */,
 				D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */,
 				D83FF7552272D16600BA9A43 /* Diamonds.swift in Sources */,
 				E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */,
 				D83364D0225DDE9600CF2D52 /* MenuScene.swift in Sources */,
-				D833A7282258CD99007E1138 /* UserSignUpViewController.swift in Sources */,
 				D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */,
-				D808304F22768EB70051BC2A /* Animations.swift in Sources */,
-				D8083048227551390051BC2A /* PlayerSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import SpriteKit
 
 class FireBalls  {
     
-    
+    // attributes of  fireballs
     var speed:Float = 0.0
     var guy:SKSpriteNode
     var currentFrame = 0

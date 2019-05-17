@@ -11,6 +11,7 @@ import GameplayKit
 
 class StartScene: SKScene , SKPhysicsContactDelegate {
     
+    //main animation
     var mainRunningAnimation: SKSpriteNode!
     
     var cloudGenerator: CloudsGenarator!
@@ -19,10 +20,11 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     //Audio clips
     let backgroundSound = SKAudioNode(fileNamed: "backgroundMusic.mp3")
    
-    
+    //arrays
     var textureAtlas = SKTextureAtlas()
     var textureArray = [SKTexture]()
     
+    //textfields
     var userNameTextField:UITextField! = nil    
     
     /*
@@ -42,6 +44,7 @@ class StartScene: SKScene , SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
+        //adds background music
          self.addChild(backgroundSound)
         
         textureAtlas = SKTextureAtlas(named: "running")

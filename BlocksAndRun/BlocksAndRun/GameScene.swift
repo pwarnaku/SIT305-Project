@@ -23,6 +23,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var player: Player!
     var blocksGenerator: BlocksGenarator!
     var cloudGenerator: CloudsGenarator!
+    
     //Audio clips
     let backgroundSound = SKAudioNode(fileNamed: "backgroundMusic.mp3")
     let screamSound = SKAudioNode(fileNamed: "Scream.mp3")
@@ -42,6 +43,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var livesArray: [SKSpriteNode]!
     var Defaultlives: Int = 2
     
+    //collider types
     enum ColliderType:UInt32 {
         case Player = 1
          case FireBalls = 2
@@ -74,7 +76,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         }
     
     }
-   
+   // highscaore value
     var highScore:Int = 0{
         didSet{
             if getName() == "\(array[0])" {
@@ -124,18 +126,18 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         createTheMovingBridge()
         createThePlayer()
         createBlocks()
-        //addDiamonds()
-         addFireBalls()
+        addFireBalls()
         generateClouds()
         startGameLable()
         scoreLabel()
-         addLives()
+        addLives()
        // nameLabel()
         highScoreLabel()
 
         // add background music
        
-        self.addChild(backgroundSound)
+       self.addChild(backgroundSound)
+        
         // Add the physics world
         physicsWorld.contactDelegate = self
 
@@ -158,22 +160,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     func getName() -> String{
         return UserDefaults.standard.string(forKey: "userName")!
     }
-       /*
-    func getHighScore() -> Int {
-        return UserDefaults.standard.integer(forKey: "userHighScore")
-    }
- 
-    func loadPlayer() {
-        let array = UserDefaults.standard.object(forKey:"player") as? [String] ?? [String]()
-       // print(array[0], array[1])
-       // nameLable.text = "\(array[0])"
-        if getName() == "\(array[0])" {
-            
-             highScoreLable.text = "\(array[1])"
-             nameLable.text = "\(array[0])"
-        }
-    }
- */
+    
     
     /*
      
@@ -217,13 +204,26 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.addChild(movingBridge)
         
     }
+    /*
+     
+     Function: addLives
+     
+     Purpose: This function is to manage lives. By default, the user has 3 lives. i have used an array to display
+     available lives.
+     
+     ** Important note for developers**
+     
+     
+     This function is called in gamescene.swift file under didMove function.
+     
+     */
     
     func addLives(){
         livesArray = [SKSpriteNode]()
         for live in 1 ... 3 {
             let liveNode = SKSpriteNode(imageNamed: "lives-1")
             
-            liveNode.position = CGPoint(x: 1300 - CGFloat(4 - live)*liveNode.size.width, y: 1900 )
+            liveNode.position = CGPoint(x: 1300 - CGFloat(4 - live)*liveNode.size.width, y: 1730 )
             liveNode.size = CGSize(width: 60, height: 60)
             
             self.addChild(liveNode)
@@ -512,48 +512,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     
     
-    /*
-     
-     Function: addDiamonds
-     
-     Purpose: This function add diamonds and give speeds to each diamond
-     
-     ** Important note for developers**
-     
-     This function is called in gamescene.swift file under didMove function.
-     
-     */
     
     
-    /*
-    func addDiamonds()
-    {
-        addDiamond(named: "diamond1", speed: 8.0, yPos: CGFloat(1500))
-    }
     
-    func addDiamond(named: String, speed:Float, yPos:CGFloat)
-    {
-        
-        let diamondNode = SKSpriteNode(imageNamed: named)
-        
-       // badGuyNode.physicsBody = SKPhysicsBody(circleOfRadius: badGuyNode.size.width/2)
-      //  badGuyNode.physicsBody!.affectedByGravity = false
-      //  badGuyNode.physicsBody!.categoryBitMask = ColliderType.Diamonds.rawValue
-      //  badGuyNode.physicsBody!.contactTestBitMask = ColliderType.Player.rawValue
-       // badGuyNode.physicsBody!.collisionBitMask = ColliderType.Player.rawValue
-        
-        let diamond = Diamonds(speed: speed, guy: diamondNode)
-        diamonds.append(diamond)
-        resetDiamonds(diamondNode: diamondNode, yPos: yPos)
-        diamond.yPos = diamondNode.position.y
-        diamondNode.zPosition = 10
-        diamondNode.size = CGSize(width: 200, height: 250)
-        let fireEmitter = SKEmitterNode(fileNamed: "bok")!
-        diamondNode.addChild(fireEmitter)
-        addChild(diamondNode)
-    }
-    
-    /*
+  /*
      
      Function: resetDiamonds
      
@@ -569,7 +531,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         diamondNode.position.x = endOfScreenRight
         diamondNode.position.y = yPos
     }
-    */
+    
     
     /*
      
@@ -636,6 +598,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         let gameOverLabel = SKLabelNode(text: "Ops! You are dead!")
         gameOverLabel.name = "gameOverLabel"
+         gameOverLabel.fontName = "Marion-Italic"
         gameOverLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         gameOverLabel.fontColor = UIColor.white
         gameOverLabel.fontSize = 100
@@ -656,15 +619,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             
 
         }
-     /*
-        let transition = SKTransition.flipHorizontal(withDuration: 0.5)
-        let gameOver = SKScene(fileNamed: "GameOverScene") as! GameOverScene
-        gameOver.score = self.score
-        gameOver.highScore = "\(array[1])"
-        gameOver.userName = "\(getName())"
-        self.view?.presentScene(gameOver, transition: transition)
-
-        */
+     
     }
     
     /*
@@ -720,47 +675,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         }
     }
     
+    
+    
+
+    
     /*
      
-     Function: updateDiamondsPosition
-     Parameters:none
+     Function: addFireBalls
      
-     Purpose: This function check if diamonds are already moving. if not it will increase the fram by 1
+     Purpose: This function add fireballs and give speeds to each fireball
+     
+     ** Important note for developers**
+     
+     This function is called in gamescene.swift file under didMove function.
      
      */
-    
- /*   func updateDiamondsPosition() {
-        
-        for diamond in diamonds {
-            if !diamond.moving
-            {
-                diamond.currentFrame += 10
-                if diamond.currentFrame > diamond.randomFrame {
-                    diamond.moving = true
-                }
-            } else
-            
-            {
-                diamond.guy.position.y = CGFloat(Double(diamond.guy.position.y) + sin(diamond.angle) * diamond.range)
-                diamond.angle += 0.10
-                if diamond.guy.position.x > endOfScreenLeft {
-                    diamond.guy.position.x -= CGFloat(diamond.speed)
-                } else
-                    
-                {
-                    diamond.guy.position.x = endOfScreenRight
-                    diamond.currentFrame = 0
-                    diamond.setRandomFrame()
-                    diamond.moving = false
-                    diamond.range += 0.1
-                    //updateScore()
-                }
-            }
-        }
-    }
- */
-    
-    
     func addFireBalls()
     {
         addFireBall(named: "flameBall", speed: 40.0, yPos: CGFloat(1500))
@@ -792,9 +721,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     /*
      
-     Function: resetDiamonds
+     Function: resetfireBalls
      
-     Purpose: This function will reset the position of diamonds
+     Purpose: This function will reset the position of fireball
      ** Important note for developers**
      
      This function is called in gamescene.swift file under addDiamond function.
@@ -806,6 +735,16 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         fireBallNode.position.x = endOfScreenRight
         fireBallNode.position.y = yPos
     }
+    /*
+     
+     Function: updateFireBallsPosition
+     Parameters:none
+     
+     Purpose: This function check if fireball are already moving. if not it will increase the fram by 1
+     
+     **Imporatant notice for developpers**
+     this function is called under update(_ currentTime: CFTimeInterval) function in this class
+     */
     
     func updateFireBallsPosition() {
         
@@ -840,9 +779,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
    
     
-    
-    
-    
     /*
      Funtion : didBegin
      
@@ -858,8 +794,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         
   
-       screamSound.autoplayLooped = false
-        addChild(screamSound)
+       //screamSound.autoplayLooped = false
+       addChild(screamSound)
         gameOver()
        
       
