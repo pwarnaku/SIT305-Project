@@ -15,7 +15,7 @@
 
 ## Overview 
 
-- This is an unlimited running IOS  game called **Blocks & RUN** coded in Swift Spritekit,built for people to stress relief with no age limit.
+- This is an unlimited running IOS  game called **RUN** coded in Swift Spritekit,built for people to stress relief with no age limit.
 
 - For the first time, user needs to login proving by his/her username. 
 - Tap on the screen to start the game. A character will run on the bridge and after few minutes later character  meets blue color flames on the brigde.
