@@ -1,7 +1,11 @@
 ## Week 10
 
-### Thursday 15/May
+### Friday 17/May
+- Had a group meeting [Piumi.Sachin]
+- Uploaded in to deakin [Piumi]
 
+### Thursday 16/May
+- created the demo video [sachin,piumi]
 - Had a group meeting in the library 10am- 9.pm [Piumi,Sachin]
 - Working on bug fixing [Sachin, Piumi]
 
