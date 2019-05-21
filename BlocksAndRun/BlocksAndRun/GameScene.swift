@@ -33,8 +33,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var isGameOver = false
     var isLivesAvailable: Bool!
     
-    //diamonds
-    var diamonds:[Diamonds] = []
     
     //FireBalls
     var fireBalls: [FireBalls] = []
@@ -448,7 +446,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     func createLiveButton(){
         
         let liveButtonTexture = SKTexture(imageNamed: "heart")
-        button = SKSpriteNode(texture: liveButtonTexture , size: CGSize(width: 100, height: 100))
+        button = SKSpriteNode(texture: liveButtonTexture , size: CGSize(width: 200, height: 200))
         button.position = CGPoint(x: 390, y: 1850)
         button.zPosition = 1
         

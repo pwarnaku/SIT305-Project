@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D80429CF226442ED00F9FC9F /* running.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D80429CE226442ED00F9FC9F /* running.atlas */; };
 		D808305722786A120051BC2A /* FireBalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808305622786A120051BC2A /* FireBalls.swift */; };
-		D808305A22788DA20051BC2A /* man2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D808305922788DA20051BC2A /* man2.atlas */; };
 		D811F2022248AFBC00DD5E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2012248AFBC00DD5E47 /* AppDelegate.swift */; };
 		D811F2082248AFBC00DD5E47 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2072248AFBC00DD5E47 /* GameScene.swift */; };
 		D811F20A2248AFBC00DD5E47 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D811F2092248AFBC00DD5E47 /* GameViewController.swift */; };
@@ -23,8 +22,6 @@
 		D83FF7482272043700BA9A43 /* FireFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7462272043700BA9A43 /* FireFlies.sks */; };
 		D83FF7492272043700BA9A43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7472272043700BA9A43 /* Assets.xcassets */; };
 		D83FF7532272081400BA9A43 /* MyParticlekoji.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7522272081400BA9A43 /* MyParticlekoji.sks */; };
-		D83FF7552272D16600BA9A43 /* Diamonds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83FF7542272D16600BA9A43 /* Diamonds.swift */; };
-		D83FF76322733F2500BA9A43 /* burning.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D83FF76222733F2500BA9A43 /* burning.atlas */; };
 		D83FF765227347D500BA9A43 /* Spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF764227347D500BA9A43 /* Spark.sks */; };
 		D83FF7672273481600BA9A43 /* bok.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83FF7662273481600BA9A43 /* bok.sks */; };
 		D85CD6F2228E46E90023C112 /* Burn.sks in Resources */ = {isa = PBXBuildFile; fileRef = D85CD6F1228E46E90023C112 /* Burn.sks */; };
@@ -68,7 +65,6 @@
 /* Begin PBXFileReference section */
 		D80429CE226442ED00F9FC9F /* running.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = running.atlas; sourceTree = "<group>"; };
 		D808305622786A120051BC2A /* FireBalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBalls.swift; sourceTree = "<group>"; };
-		D808305922788DA20051BC2A /* man2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = man2.atlas; sourceTree = "<group>"; };
 		D811F1FE2248AFBC00DD5E47 /* BlocksAndRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocksAndRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D811F2012248AFBC00DD5E47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D811F2072248AFBC00DD5E47 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -88,8 +84,6 @@
 		D83FF7462272043700BA9A43 /* FireFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireFlies.sks; sourceTree = "<group>"; };
 		D83FF7472272043700BA9A43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D83FF7522272081400BA9A43 /* MyParticlekoji.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticlekoji.sks; sourceTree = "<group>"; };
-		D83FF7542272D16600BA9A43 /* Diamonds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diamonds.swift; sourceTree = "<group>"; };
-		D83FF76222733F2500BA9A43 /* burning.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = burning.atlas; sourceTree = "<group>"; };
 		D83FF764227347D500BA9A43 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
 		D83FF7662273481600BA9A43 /* bok.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = bok.sks; sourceTree = "<group>"; };
 		D85CD6F1228E46E90023C112 /* Burn.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Burn.sks; sourceTree = "<group>"; };
@@ -146,14 +140,6 @@
 			path = running;
 			sourceTree = "<group>";
 		};
-		D808305822788D970051BC2A /* man2 */ = {
-			isa = PBXGroup;
-			children = (
-				D808305922788DA20051BC2A /* man2.atlas */,
-			);
-			path = man2;
-			sourceTree = "<group>";
-		};
 		D811F1F52248AFBC00DD5E47 = {
 			isa = PBXGroup;
 			children = (
@@ -196,15 +182,12 @@
 				D811F2102248AFBD00DD5E47 /* LaunchScreen.storyboard */,
 				D8FEAB3522573781003FE2A8 /* Constants.swift */,
 				D811F2132248AFBD00DD5E47 /* Info.plist */,
+				E678765F228BAF4F009FE1D1 /* Database.xcdatamodeld */,
 				D85CD6F7228E49410023C112 /* AudioClips */,
-				D808305822788D970051BC2A /* man2 */,
-				D83FF7592272F37D00BA9A43 /* burning */,
-				D83FF7582272D18300BA9A43 /* Diamonds */,
 				D80429CD226442C800F9FC9F /* running */,
 				D8ED0254225E4ABF00A3D7F9 /* Effects */,
 				D8AB8446225BA91C002817AB /* Blocks */,
 				D8AB8445225BA90A002817AB /* Clouds */,
-				E678765F228BAF4F009FE1D1 /* Database.xcdatamodeld */,
 			);
 			path = BlocksAndRun;
 			sourceTree = "<group>";
@@ -225,22 +208,6 @@
 				D811F2292248AFBD00DD5E47 /* Info.plist */,
 			);
 			path = BlocksAndRunUITests;
-			sourceTree = "<group>";
-		};
-		D83FF7582272D18300BA9A43 /* Diamonds */ = {
-			isa = PBXGroup;
-			children = (
-				D83FF7542272D16600BA9A43 /* Diamonds.swift */,
-			);
-			path = Diamonds;
-			sourceTree = "<group>";
-		};
-		D83FF7592272F37D00BA9A43 /* burning */ = {
-			isa = PBXGroup;
-			children = (
-				D83FF76222733F2500BA9A43 /* burning.atlas */,
-			);
-			path = burning;
 			sourceTree = "<group>";
 		};
 		D85CD6F7228E49410023C112 /* AudioClips */ = {
@@ -400,8 +367,6 @@
 				D8D03833225E39BB00E2B09D /* Snow.sks in Resources */,
 				D83364D2225DDE9D00CF2D52 /* MenuScene.sks in Resources */,
 				D85CD6F6228E49320023C112 /* Scream.mp3 in Resources */,
-				D83FF76322733F2500BA9A43 /* burning.atlas in Resources */,
-				D808305A22788DA20051BC2A /* man2.atlas in Resources */,
 				D83FF7672273481600BA9A43 /* bok.sks in Resources */,
 				D83FF765227347D500BA9A43 /* Spark.sks in Resources */,
 				D85CD6F2228E46E90023C112 /* Burn.sks in Resources */,
@@ -446,7 +411,6 @@
 				D8AB8442225B9237002817AB /* CloudsGenerator.swift in Sources */,
 				D8AB844A225BAC16002817AB /* StartScne.swift in Sources */,
 				D86B1FF02262E4AB00B1272A /* LivesScene.swift in Sources */,
-				D83FF7552272D16600BA9A43 /* Diamonds.swift in Sources */,
 				E64F5ACC2265682D00E84388 /* SignUpScene.swift in Sources */,
 				D83364D0225DDE9600CF2D52 /* MenuScene.swift in Sources */,
 				D8FEAB3622573781003FE2A8 /* Constants.swift in Sources */,

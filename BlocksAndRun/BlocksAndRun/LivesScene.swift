@@ -20,7 +20,7 @@ class LivesScene: SKScene, SKPaymentTransactionObserver, SKProductsRequestDelega
     var heart2: SKSpriteNode!
     var coin: SKSpriteNode!
     var fb: SKSpriteNode!
-    var underline: SKSpriteNode!
+   // var underline: SKSpriteNode!
     
     var cancelButton: SKNode!
     
@@ -176,13 +176,15 @@ class LivesScene: SKScene, SKPaymentTransactionObserver, SKProductsRequestDelega
         
         
         
-        
+      /*
         let underlineTexture = SKTexture(imageNamed: "underline")
         underline = SKSpriteNode(texture: underlineTexture, size: CGSize(width: 700, height:900))
         
         underline.position = CGPoint(x: self.size.width/2, y: 1750)
         underline.zPosition = 20
         self.addChild(underline)
+ 
+ */
         
         
         backgroundSegment1 = SKShapeNode(rect: CGRect(x: 398, y: 1150, width: 735, height: 280), cornerRadius: 80)

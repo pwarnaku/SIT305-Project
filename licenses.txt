@@ -1,21 +1,35 @@
-Filename | Licences type | Author | Url
+Filename | Licences type | Author | Url | terms of use or licenses
 
-heart.png | CCO licences | hittagongit images | http://chittagongit.com/icon/diamond-icon-png-19.html
+[Images]
 
-bridge.png | CCO licences | Huopzokz | https://www.pngfly.com/png-6zeicm/
+Select.png | CC0 Public Domain | CDN77 | https://icons8.com/icons/set/tick | https://icons8.com/license
 
-cloud.png | CCO licences | UIHere | https://www.uihere.com/free-cliparts/cloud-fog-desktop-wallpaper-clip-art-fog-1508771
+Fb.png | CC BY-NC 4.0 Licence | | http://getdrawings.com/facebook-icon-vector#facebook-icon-vector-14.png
 
-flame.png | CCO licences |  | https://peoplepng.com/blue-flame-png-image-with-transparent-background/112328/free-vector
+heart.png | public domain | Reithekitsune | https://pngheart.com/png/diamond-heart-vector-png/ | https://pngheart.com/png/diamond-heart-vector-png/
 
-running.gif | Public Domain |  | https://tenor.com/view/running-man-fantasyfootball-gif-12250137
+ok.png | CC0 Public Domain|  | http://chittagongit.com/icon/icon-checkbox-2.html | http://chittagongit.com/terms-of-use.html
 
-background.png | CCO licences |  | https://www.tokkoro.com/2999766-natural-light-landscape-moon-night-field.html
+bridge.png | CCO licences | Pechristener | https://commons.wikimedia.org/wiki/File:Truss_bridge_icon.svg | https://creativecommons.org/licenses/by-sa/4.0/deed.en
 
-Fireball.png | CCO licences |  | https://www.vectorstock.com/royalty-free-vector/abstract-fireball-on-white-background-vector-12902326
+cloud.png | personal use | UIHere | https://pixabay.com/vectors/cloud-overcast-weather-159388/ | https://pixabay.com/service/license/
 
-Scream.mp3 | Public Domain |  | https://www.freesoundeffects.com/free-track/scream-12-428496/
+running.png | CCO licences| | https://gfycat.com/lighthearteddetailedhoki | https://gfycat.com/terms
 
-backgroundMusic.mp3 | Public Domain |  | https://www.freesoundeffects.com/free-track/night2-89316/
+background.png | CCO licences | cehenot | https://abstract.desktopnexus.com/wallpaper/1568822/ | https://www.desktopnexus.com/tos/ 
+
+Fireball.png | CCO licences | Bienchen | https://www.vectorstock.com/royalty-free-vector/abstract-fireball-on-white-background-vector-12902326 | https://www.vectorstock.com/faq/members/terms-of-use
+
+Lives.png | CC0 Public Domain | | http://www.cliparts101.com/free_clipart/73682/previous/Rocket | 
+
+Coin.png | CCO licences | Aleksey Telnov | https://www.123rf.com/photo_91126923_stock-vector-concept-success-in-business-with-stack-of-gold-coins-on-transparent-background-isolated-vector-illus.html |https://www.123rf.com/license_summary.php
+
+playButton.png |CC BY-NC 4.0 Licence| | http://getdrawings.com/blue-play-icon#blue-play-icon-72.png
+
+[Sounds]
+
+Scream.mp3 | Public Domain |  | https://www.freesoundeffects.com/free-track/scream-12-428496/ | https://www.freesoundeffects.com/licence.php
+
+backgroundMusic.mp3 | Public Domain |  | https://www.freesoundeffects.com/free-track/night2-89316/ |https://www.freesoundeffects.com/licence.php
 
  
